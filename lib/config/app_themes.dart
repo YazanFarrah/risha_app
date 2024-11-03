@@ -7,11 +7,6 @@ class AppThemes {
     unselectedWidgetColor: AppLightColors.primaryColor,
     scaffoldBackgroundColor: AppLightColors.appBackgroundColor,
     primaryColor: AppLightColors.primaryColor,
-    appBarTheme: const AppBarTheme(
-      iconTheme: IconThemeData(
-        color: AppLightColors.textColor,
-      ),
-    ),
     colorScheme: ColorScheme.light(
       brightness: Brightness.light,
       primary: AppLightColors.primaryColor,
@@ -23,31 +18,24 @@ class AppThemes {
       tertiary: AppLightColors.greenColor,
       inverseSurface: const Color(0xffFBF1FF),
       shadow: const Color(0x0fff4f4f),
-      onInverseSurface: AppLightColors.blackColor,
-      onPrimary: AppLightColors.textColor,
-      onSecondary: AppLightColors.textLightColor,
-      onPrimaryContainer: AppLightColors.cardHeaderColor,
       onSecondaryContainer: AppLightColors.cardBackgroundColor,
       onTertiaryContainer: AppLightColors.cardWhiteColor,
       tertiaryContainer: AppLightColors.scaffoldBackground,
       inversePrimary: AppLightColors.settingCardBackground,
     ),
-
-    iconTheme: const IconThemeData().copyWith(
-      color: AppLightColors.primaryColor,
+    bottomSheetTheme: BottomSheetThemeData().copyWith(
+      backgroundColor: Colors.white,
     ),
-    // bottomSheetTheme: const BottomSheetThemeData(
-    //   backgroundColor: Colors.transparent,
-    // ),
     shadowColor: AppLightColors.grayColor,
     textTheme: TextTheme(
       bodySmall: TextStyle(
-          fontFamily: "Almarai",
-          fontSize: 12,
-          fontWeight: FontWeight.w400,
-          color: AppLightColors.grayTextColor,
-          height: 0.0.h,
-          letterSpacing: 0),
+        fontFamily: "Almarai",
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: AppLightColors.grayTextColor,
+        height: 0.0.h,
+        letterSpacing: 0,
+      ),
       displaySmall: TextStyle(
         fontFamily: "Almarai",
         fontSize: 14,
@@ -96,7 +84,7 @@ class AppThemes {
   static final darkTheme = ThemeData(
     scaffoldBackgroundColor: AppDarkColors.backgroundColor,
     primaryColor: AppDarkColors.primaryColor,
-    colorScheme:  ColorScheme.dark(
+    colorScheme: ColorScheme.dark(
       brightness: Brightness.light,
       primary: AppDarkColors.primaryColor,
       secondary: AppDarkColors.secondaryColor,

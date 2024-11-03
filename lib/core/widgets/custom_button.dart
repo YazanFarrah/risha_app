@@ -24,10 +24,10 @@ class CustomButton extends StatelessWidget {
     this.borderColor,
     this.fontSize,
     this.child,
-    this.height = 50,
+    this.height = 48,
     this.width,
     this.elevation,
-    this.borderRadius = 8.0, // Default border radius
+    this.borderRadius = 10.0,
     this.icon,
     this.label,
     this.darkText,

@@ -38,7 +38,7 @@ class _UserStateState extends State<UserState> {
   Future<void> fetchData() async {
     if (_localStorage.getToken == null) {
       await Future.delayed(Duration(seconds: 3));
-      Get.offAllNamed(RoutePaths.auth);
+      Get.offAllNamed(RoutePaths.login);
       return;
     }
     await Future.wait([
@@ -47,7 +47,7 @@ class _UserStateState extends State<UserState> {
       Get.offAllNamed(RoutePaths.navScreen);
     }).onError((_, stackTrace) {
       log(stackTrace.toString());
-      Get.offAllNamed(RoutePaths.auth);
+      Get.offAllNamed(RoutePaths.login);
       ToastUtils.showError(
         "errorOccuredPleaseCloseTheAppAndTryAgain".tr(),
       );
@@ -56,42 +56,39 @@ class _UserStateState extends State<UserState> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      child: Scaffold(
-        backgroundColor: Theme.of(context).primaryColor,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            RepaintBoundary(
-              child: SvgPicture.asset(AssetPaths.appLogo, width: 145.w)
-                  .animate()
-                  .shimmer(duration: 900.ms),
-            ),
-            SizedBox(height: 24.h),
-            RepaintBoundary(
-              child: CustomTextWidget(
-                text: "ريشة",
-                textAlign: TextAlign.center,
-                color: Colors.white,
-                isDisplayLarge: true,
-                isLocalize: false,
-                fontSize: 24,
-              ).animate().shimmer(duration: 900.ms),
-            ),
-            RepaintBoundary(
-              child: CustomTextWidget(
-                text: "المعرفة",
-                textAlign: TextAlign.center,
-                color: SharedColors.goldColor,
-                isDisplayLarge: true,
-                isLocalize: false,
-                fontSize: 24,
-              ).animate().shimmer(duration: 900.ms),
-            ),
-            const SizedBox(width: double.infinity),
-          ],
-        ),
+    return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          RepaintBoundary(
+            child: SvgPicture.asset(AssetPaths.appLogo, width: 145.w)
+                .animate()
+                .shimmer(duration: 900.ms),
+          ),
+          SizedBox(height: 24.h),
+          RepaintBoundary(
+            child: CustomTextWidget(
+              text: "ريشة",
+              textAlign: TextAlign.center,
+              color: Colors.white,
+              isDisplayLarge: true,
+              isLocalize: false,
+              fontSize: 24,
+            ).animate().shimmer(duration: 900.ms),
+          ),
+          RepaintBoundary(
+            child: CustomTextWidget(
+              text: "المعرفة",
+              textAlign: TextAlign.center,
+              color: SharedColors.goldColor,
+              isDisplayLarge: true,
+              isLocalize: false,
+              fontSize: 24,
+            ).animate().shimmer(duration: 900.ms),
+          ),
+          const SizedBox(width: double.infinity),
+        ],
       ),
     );
   }

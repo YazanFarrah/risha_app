@@ -2,42 +2,14 @@ import 'package:risha_app/core/utils/regex_patterns.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
- 
-String? identifierValidator(String? value, BuildContext context) {
-  if (value == null || value.isEmpty) {
-    return "Please enter your email or phone number";
-  }
-
-  RegExp emailRegex = RegExp(RegexPatterns.emailPattern);
-  RegExp onlyNumbersRegex = RegExp(RegexPatterns.onlyNumbers);
-
-  // Check if the value is a valid email
-  if (emailRegex.hasMatch(value)) {
-    return null; // Valid email, return null
-  }
-
-  // Check if the value is a valid phone number
-  if (onlyNumbersRegex.hasMatch(value.replaceAll('+', '')) &&
-      value.length > 8) {
-    return null; // Valid phone number, return null
-  }
-
-  // If neither email nor phone number, return an error message
-  return "Invalid email or phone number";
-}
-
 String? emailValidator(String? value, BuildContext context) {
-  if (value == null || value.isEmpty) {
-    return "emptyEmail".tr();
-  }
-
   RegExp emailRegex = RegExp(RegexPatterns.emailPattern);
 
   // Check if the value is a valid email
-  if (emailRegex.hasMatch(value)) {
+  if ((value != null || value!.isEmpty) && emailRegex.hasMatch(value)) {
     return null; // Valid email, return null
   } else {
-    return "invalidEmail".tr();
+    return "".tr(context: context);
   }
 }
 
@@ -69,20 +41,29 @@ String? nameValidator(String? value, BuildContext context) {
 
 String? isNotEmpty(String value, BuildContext context) {
   if (value.isEmpty) {
-    return context.locale == const Locale('en')
-        ? "Can't be empty"
-        : "هذا الحقل مطلوب";
+    return "";
   }
   return null;
 }
 
 String? passwordValidator(String? value, BuildContext context) {
   if (value != null && value.length < 8) {
-    return context.locale == const Locale('en')
-        ? "Invalid password"
-        : "كلمة المرور غير صالحة";
+    return "";
   }
 
+  return null;
+}
+
+String? confirmPasswordValidator(
+  String? value,
+  String? password,
+  BuildContext context,
+) {
+  if (value == null || value.isEmpty) {
+    return "";
+  } else if (value != password) {
+    return "passwordDoesntMatch".tr(context: context);
+  }
   return null;
 }
 

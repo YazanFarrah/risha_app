@@ -30,4 +30,6 @@ class AssetPaths {
   static const String profileFilledSvg =
       'assets/svgs/bottom_navbar/profile_filled.svg';
   static const String profileSvg = 'assets/svgs/bottom_navbar/profile.svg';
+
+  static const String personOutline = 'assets/svgs/person_outline.svg';
 }

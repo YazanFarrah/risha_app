@@ -26,10 +26,11 @@ class TextWithTextField extends StatefulWidget {
     this.filled,
     this.hasBorderSide = true,
     this.enabled,
-    this.width,
+    this.width = double.infinity,
     this.suffix,
     this.prefix,
     this.numbersOnly,
+    this.showErrorString = false,
   });
 
   final String text;
@@ -56,6 +57,7 @@ class TextWithTextField extends StatefulWidget {
   final Widget? suffix;
   final Widget? prefix;
   final bool? numbersOnly;
+  final bool? showErrorString;
 
   @override
   State<TextWithTextField> createState() => _TextWithTextFieldState();
@@ -65,7 +67,7 @@ class _TextWithTextFieldState extends State<TextWithTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.only(bottom: 10.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -89,7 +91,7 @@ class _TextWithTextFieldState extends State<TextWithTextField> {
                   text: widget.text,
                   fontWeight: FontWeight.w500,
                 ),
-          SizedBox(height: 10.h),
+          SizedBox(height: 5.h),
           SizedBox(
             width: widget.width ?? MediaQuery.of(context).size.width * 0.4,
             child: CustomFormField(
@@ -119,6 +121,7 @@ class _TextWithTextFieldState extends State<TextWithTextField> {
               enabled: widget.enabled,
               suffix: widget.suffix,
               prefix: widget.prefix,
+              showErrorString: widget.showErrorString,
             ),
           ),
         ],

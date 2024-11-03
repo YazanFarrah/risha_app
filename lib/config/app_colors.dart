@@ -15,7 +15,7 @@ class AppLightColors {
   static const Color grayColor = Color(0xFFD5D4DA);
   static const Color lightGrayColor = Color(0xffA5A5A5);
   static const Color backgroundColor = Color(0xFFfafafa);
-  static const Color appBackgroundColor = Color(0XFFF7F7F7);
+  static const Color appBackgroundColor = Color(0XFFEEF1FF);
   static const Color whiteColor = Color.fromARGB(255, 255, 255, 255);
   static const Color greenColor = Color.fromARGB(255, 113, 195, 31);
   static const Color redColor = Color.fromARGB(255, 255, 0, 0);
@@ -50,7 +50,7 @@ class SharedColors {
   static const Color primaryColor = Color(0XFF6949FF);
   static Color secondaryColor = Color(0XFF191552);
   static const Color successColor = Colors.green;
-  static Color greyTextColor = Colors.grey.shade600;
+  static Color greyTextColor = Color(0XFF868686);
   static const Color blackColor = Colors.black87;
   static Color yellowColor = const Color(0XFFFACC59);
   static Color redColor = const Color(0XFFC94127);

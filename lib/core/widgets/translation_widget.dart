@@ -21,7 +21,6 @@ class TranslationWidget extends StatelessWidget {
         ]);
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 12.w),
         padding: EdgeInsets.all(8.r),
         decoration: BoxDecoration(
           border: Border.all(

@@ -28,6 +28,7 @@ class CustomFormField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final Color? inputColor;
   final int? maxLines;
+  final bool? showErrorString;
 
   const CustomFormField({
     super.key,
@@ -54,6 +55,7 @@ class CustomFormField extends StatelessWidget {
     this.textInputAction,
     this.inputColor,
     this.maxLines = 1,
+    this.showErrorString= false,
   });
 
   @override
@@ -77,6 +79,9 @@ class CustomFormField extends StatelessWidget {
       textInputAction: textInputAction,
       maxLines: maxLines,
       decoration: InputDecoration(
+        errorStyle:
+        (showErrorString == false)?
+         TextStyle(height: 0.01): null,
         fillColor: filled != null && filledColor != null ? filledColor : null,
         suffixIcon: suffix,
         prefixIcon: prefix,
@@ -86,29 +91,29 @@ class CustomFormField extends StatelessWidget {
           borderSide: hasBorderSide == true
               ? BorderSide(color: SharedColors.redColor)
               : BorderSide.none,
-          borderRadius: BorderRadius.all(Radius.circular(radius ?? 8)),
+          borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
         ),
         disabledBorder: OutlineInputBorder(
           borderSide: hasBorderSide == true
               ? const BorderSide(color: Color(0XFFCBD5E1))
               : BorderSide.none,
-          borderRadius: BorderRadius.all(Radius.circular(radius ?? 8)),
+          borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide:
               hasBorderSide == true ? const BorderSide() : BorderSide.none,
-          borderRadius: BorderRadius.all(Radius.circular(radius ?? 8)),
+          borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderSide:
               hasBorderSide == true ? const BorderSide() : BorderSide.none,
-          borderRadius: BorderRadius.all(Radius.circular(radius ?? 8)),
+          borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: hasBorderSide == true
               ? const BorderSide(color: Color(0XFFCBD5E1))
               : BorderSide.none,
-          borderRadius: BorderRadius.all(Radius.circular(radius ?? 8)),
+          borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
         ),
         contentPadding: EdgeInsets.symmetric(
           horizontal: contentPadding ?? 0,
@@ -123,7 +128,7 @@ class CustomFormField extends StatelessWidget {
           borderSide: hasBorderSide == true
               ? const BorderSide(color: Color(0XFFCBD5E1))
               : BorderSide.none,
-          borderRadius: BorderRadius.all(Radius.circular(radius ?? 8)),
+          borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
         ),
         hintText: hintText,
       ),
