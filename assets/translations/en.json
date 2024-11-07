@@ -13,6 +13,8 @@
   "forgotPasswordResetMessage": "Don't worry, you can reset your password by entering your email.",
   "forgotPassword": "Forgot Password?",
   "resetPassword": "Reset Password",
+  "newPassword": "New Password",
+  "confirmNewPassword": "Confirm New Password",
   "login": "Login",
   "signup": "Sign up",
   "or": "OR",
@@ -40,5 +42,13 @@
   "poweredBy": "Powered by ",
   "editProfile": "Edit Profile",
   "tapToEditProfile": "Tap to edit profile",
-  "medicalNetwork": "Medical Network"
+  "medicalNetwork": "Medical Network",
+  "noInternet": "No Internet Connection",
+  "pleaseEnterOtp": "Please enter the 4-digit code sent to your email address",
+  "didntRecieveOtp": "If you didn't receive the code, resend it",
+  "check": "Check",
+  "checkCode": "Check your code",
+  "forSubPrice": "For $4.99 per month",
+  "haventRecievedCode": "If you haven't recieved a code,",
+  "resend": "Resend"
 }

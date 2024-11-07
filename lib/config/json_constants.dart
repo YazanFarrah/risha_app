@@ -1,25 +1,26 @@
 class UserModelConstants {
   static const String id = "id";
-  static const String arabicName = "arabic_name";
-  static const String englishName = "english_name";
+  static const String name = "name";
   static const String email = "email";
-  static const String imageUrl = "imageUrl";
+  static const String avatar = "avatar";
   static const String password = "password";
   static const String birthday = "birth_date";
   static const String type = "type";
   static const String token = "token";
+  static const String coins = "coins";
   static const String phoneNumber = "phone";
   static const String city = "city";
-  static const String subscriptionDate = "subscription_date";
-  static const String exceptions = "exceptions";
+  static const String totalPoints = "total-points";
+  static const String rank = "rank";
   static const String address = "address";
-  static const String verificationNumber = "verification_number";
-  static const String nationalId = "national_id";
-  static const String chronicDiseases = "chronic_diseases";
-  static const String policyHolder = "policy_holder";
+  static const String createdAt = "created-at";
+  static const String lastCoinsClaimedAt = "last-coins-claimed-at";
+  static const String lastSeenAt = "last-seen-at";
+  static const String totalCorrectAnswers = "total-correct-answers";
+  static const String totalWrongAnswers = "total-wrong-answers";
   static const String degreeOfInsurance = "degree_of_insurance";
-  static const String subscriptionStatus = "subscription_status";
-  static const String status = "status";
+  static const String isPremium= "is-premium";
+  static const String isHiddenFromLeaderBoard= "is-hidden-from-leaderboard";
 }
 
 class CityModelConstants {

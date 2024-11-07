@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loader extends StatelessWidget {
   final Color? color;
@@ -13,7 +15,6 @@ class Loader extends StatelessWidget {
     );
   }
 }
-
 
 class LoadingOverlay extends StatelessWidget {
   final bool isLoading;
@@ -36,7 +37,8 @@ class LoadingOverlay extends StatelessWidget {
               children: [
                 // Blur effect (optional)
                 Container(
-                  color: Colors.black.withOpacity(0.5), // Overlay color with opacity
+                  color: Colors.black
+                      .withOpacity(0.5), // Overlay color with opacity
                   child: const Center(
                     child: CircularProgressIndicator(), // Loading indicator
                   ),
@@ -50,6 +52,29 @@ class LoadingOverlay extends StatelessWidget {
             ),
           ),
       ],
+    );
+  }
+}
+
+class LoadingFadingCircle extends StatelessWidget {
+  final Color? color;
+  const LoadingFadingCircle({super.key, this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    final spinkit = SpinKitFadingCircle(
+      color: color ?? Colors.white,
+      // itemBuilder: (BuildContext context, int index) {
+      //   return DecoratedBox(
+      //     decoration: BoxDecoration(
+      //       color: index.isEven ? SharedColors.primaryColor : Colors.black,
+      //     ),
+      //   );
+      // },
+    );
+    return SizedBox(
+      width: 40.w,
+      child: spinkit,
     );
   }
 }

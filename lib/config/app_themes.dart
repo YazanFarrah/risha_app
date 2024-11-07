@@ -46,7 +46,7 @@ class AppThemes {
       displayMedium: TextStyle(
         fontFamily: "Almarai",
         fontSize: 16,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
         color: AppLightColors.textColor,
         height: 0.h,
       ),

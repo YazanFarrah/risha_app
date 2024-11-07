@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -62,9 +61,9 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    log("text");
     return Scaffold(
       body: SingleChildScrollView(
+        physics: ClampingScrollPhysics(),
         child: Column(
           children: [
             Stack(
@@ -189,6 +188,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                                   FocusScope.of(context)
                                       .requestFocus(_passwordFocusNode);
                                 },
+                                keyType: TextInputType.emailAddress,
                                 prefix: Icon(
                                   Icons.email,
                                   color: SharedColors.greyTextColor,
@@ -233,7 +233,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                                   context,
                                 ),
                                 showErrorString: true,
-                                text: "confirmPassword".tr(),
+                                text: "confirmPassword".tr(context: context),
                                 hintText:
                                     "confirmPassword".tr(context: context),
                                 controller: _confirmPasswordController,

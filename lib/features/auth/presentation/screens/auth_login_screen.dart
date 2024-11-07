@@ -70,9 +70,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                   width: double.infinity,
                   elevation: 8,
                   child: _authController.isLoading.value
-                      ? const Loader(
-                          color: Colors.black,
-                        )
+                      ? const LoadingFadingCircle()
                       : CustomTextWidget(
                           text: "login",
                           color: Colors.white,
@@ -128,6 +126,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
       body: SafeArea(
         top: false,
         child: SingleChildScrollView(
+          physics: ClampingScrollPhysics(),
           child: Stack(
             clipBehavior: Clip.none,
             children: [
@@ -154,6 +153,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                                 text:
                                     "قم بتسجيل الدخول للاستمرار باستخدام ريشة المعرفة.",
                                 color: Colors.white,
+                                maxLines: 2,
                               ),
                             ],
                           ),
@@ -167,7 +167,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
-                  padding: EdgeInsets.only(top: 100.h, left: 10.w, right: 10.w),
+                  padding: EdgeInsets.only(top: 150.h, left: 10.w, right: 10.w),
                   child: Card(
                     color: Colors.white,
                     child: Padding(

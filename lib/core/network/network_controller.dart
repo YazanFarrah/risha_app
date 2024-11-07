@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'dart:developer';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:get/get.dart' hide Trans;
-
+import 'package:risha_app/core/utils/toast_utils.dart';
 
 class NetworkController extends GetxController {
   final Connectivity _connectivity = Connectivity();
@@ -42,7 +43,7 @@ class NetworkController extends GetxController {
     log(connectivityResult.map((e) => e.toString()).toList().toString());
     if (connectivityResult.contains(ConnectivityResult.none)) {
       log("No internet connection");
-     // TODO show snackbar
+      ToastUtils.showError("noInternet".tr());
     }
   }
 }

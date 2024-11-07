@@ -9,7 +9,7 @@ String? emailValidator(String? value, BuildContext context) {
   if ((value != null || value!.isEmpty) && emailRegex.hasMatch(value)) {
     return null; // Valid email, return null
   } else {
-    return "".tr(context: context);
+    return "";
   }
 }
 

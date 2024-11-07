@@ -21,13 +21,12 @@ class CustomRichText extends StatelessWidget {
         children: [
           TextSpan(
             text: "$firstText ",
-            style: Theme.of(context).textTheme.displayMedium,
+            style: Theme.of(context).textTheme.displaySmall,
           ),
           TextSpan(
             text: clickableText,
             style: TextStyle(
               color: Theme.of(context).primaryColor,
-              decoration: TextDecoration.underline,
               fontWeight: FontWeight.w700,
               fontSize: 16.sp,
             ),

@@ -32,8 +32,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:host="com.example.demo" />
-                <data android:scheme="http" />
-                <data android:scheme="https" />
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
             </intent-filter>
             <intent-filter android:autoVerify="true" android:label="schemeDeepLink">
                 <action android:name="android.intent.action.VIEW" />

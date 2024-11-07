@@ -2,6 +2,7 @@ import 'package:risha_app/core/widgets/custom_form_field.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class TextWithTextField extends StatefulWidget {
   const TextWithTextField({
@@ -24,6 +25,7 @@ class TextWithTextField extends StatefulWidget {
     this.onFieldSubmitted,
     this.onChanged,
     this.filled,
+    this.fillColor,
     this.hasBorderSide = true,
     this.enabled,
     this.width = double.infinity,
@@ -51,6 +53,7 @@ class TextWithTextField extends StatefulWidget {
   final dynamic Function(String)? onFieldSubmitted;
   final Function(String)? onChanged;
   final bool? filled;
+  final Color? fillColor;
   final bool? hasBorderSide;
   final bool? enabled;
   final double? width;
@@ -95,7 +98,7 @@ class _TextWithTextFieldState extends State<TextWithTextField> {
           SizedBox(
             width: widget.width ?? MediaQuery.of(context).size.width * 0.4,
             child: CustomFormField(
-              hintText: widget.hintText,
+              hintText: widget.hintText?.tr(context: context),
               controller: widget.controller,
               isPass: widget.isPass,
               maxLines: widget.maxLines,
@@ -117,6 +120,7 @@ class _TextWithTextFieldState extends State<TextWithTextField> {
                         }
                       : null,
               filled: widget.filled,
+              filledColor: widget.fillColor,
               hasBorderSide: widget.hasBorderSide,
               enabled: widget.enabled,
               suffix: widget.suffix,

@@ -50,7 +50,7 @@ class SharedColors {
   static const Color primaryColor = Color(0XFF6949FF);
   static Color secondaryColor = Color(0XFF191552);
   static const Color successColor = Colors.green;
-  static Color greyTextColor = Color(0XFF868686);
+  static Color greyTextColor = Color(0xFFB4B4B4);
   static const Color blackColor = Colors.black87;
   static Color yellowColor = const Color(0XFFFACC59);
   static Color redColor = const Color(0XFFC94127);

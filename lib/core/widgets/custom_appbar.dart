@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
 
 import 'custom_text_widget.dart';
@@ -44,7 +43,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       systemOverlayStyle: systemUI ?? SystemUiOverlayStyle.dark,
       actions: actions,
       flexibleSpace: flexibleSpace,
-      leadingWidth: leadingWidth ?? 82.w,
+      leadingWidth: leadingWidth,
       backgroundColor: backgroundColor,
       automaticallyImplyLeading: false,
       centerTitle: centerTitle,

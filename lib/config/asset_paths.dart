@@ -4,12 +4,12 @@ class AssetPaths {
   // Icons:
   static const String home = 'assets/icons/home.png';
   static const String homeFilled = 'assets/icons/home_filled.png';
+  static const String lockIcon = 'assets/svgs/lock.svg';
 
   static const String person = 'assets/icons/person.png';
   static const String personFilled = 'assets/icons/person_filled.png';
 
   // Animations:
-  static const String lockAnimation = 'assets/animations/lock_animation.json';
   static const String networkAnimation =
       'assets/animations/network_animation.json';
 
@@ -32,4 +32,8 @@ class AssetPaths {
   static const String profileSvg = 'assets/svgs/bottom_navbar/profile.svg';
 
   static const String personOutline = 'assets/svgs/person_outline.svg';
+
+  // Images:
+  static const String crown = 'assets/images/crown.png';
+  
 }
