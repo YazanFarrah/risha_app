@@ -4,6 +4,7 @@ import 'package:get/get.dart' hide Trans;
 class ToastUtils {
   // Show error snackbar
   static void showError(String error) {
+    if (Get.isSnackbarOpen) Get.closeAllSnackbars();
     Get.rawSnackbar(
       message: error,
       backgroundColor: Colors.red.withOpacity(0.8),
@@ -17,6 +18,7 @@ class ToastUtils {
 
   // Show success snackbar
   static void showSuccess(String message) {
+    if (Get.isSnackbarOpen) Get.closeAllSnackbars();
     Get.rawSnackbar(
       message: message,
       backgroundColor: Colors.green.withOpacity(0.8),

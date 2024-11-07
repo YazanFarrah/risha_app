@@ -16,7 +16,8 @@ class CurrentUserController extends GetxController {
       await Future.delayed(Duration(seconds: 3));
       final user = UserModel(
         id: "123456",
-        name: "John Doe",
+        name: "Yazan Farrah",
+        username: "yazan_farrah",
         email: "john.doe@example.com",
         avatarUrl: "https://images.immediate.co.uk/production/volatile/sites/3/2023/08/2023.06.28-06.20-boundingintocomics-649c79f009cdf-Cropped-8d74232.png",
         totalPoints: 500,

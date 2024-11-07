@@ -48,7 +48,11 @@
   "didntRecieveOtp": "If you didn't receive the code, resend it",
   "check": "Check",
   "checkCode": "Check your code",
+  "risha": "Risha",
+  "plus": "Plus",
   "forSubPrice": "For $4.99 per month",
+  "getRishaPlus": "Get Risha plus features now.",
+  "subNow": "Subscribe now",
   "haventRecievedCode": "If you haven't recieved a code,",
   "resend": "Resend"
 }

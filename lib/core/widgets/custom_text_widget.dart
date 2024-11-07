@@ -22,6 +22,7 @@ class CustomTextWidget extends StatelessWidget {
   final TextDirection? textDirection;
   final String? toolTipText;
   // Flags for specific TextTheme styles
+  final bool? isBodySmall;
   final bool? isDisplaySmall;
   final bool? isDisplayLarge;
   final bool? isHeadlineMedium;
@@ -46,6 +47,7 @@ class CustomTextWidget extends StatelessWidget {
     this.decorationStyle,
     this.textDirection,
     this.toolTipText,
+    this.isBodySmall = false,
     this.isDisplaySmall = false,
     this.isDisplayLarge = false,
     this.isHeadlineMedium = false,
@@ -58,13 +60,15 @@ class CustomTextWidget extends StatelessWidget {
 
     TextStyle baseStyle = isDisplaySmall == true
         ? textTheme.displaySmall ?? TextStyle()
-        : isDisplayLarge == true
-            ? textTheme.displayLarge ?? TextStyle()
-            : isHeadlineMedium == true
-                ? textTheme.headlineMedium ?? TextStyle()
-                : isHeadlineLarge == true
-                    ? textTheme.headlineLarge ?? TextStyle()
-                    : textTheme.displayMedium ?? TextStyle();
+        : isBodySmall == true
+            ? textTheme.bodySmall ?? TextStyle()
+            : isDisplayLarge == true
+                ? textTheme.displayLarge ?? TextStyle()
+                : isHeadlineMedium == true
+                    ? textTheme.headlineMedium ?? TextStyle()
+                    : isHeadlineLarge == true
+                        ? textTheme.headlineLarge ?? TextStyle()
+                        : textTheme.displayMedium ?? TextStyle();
 
     return baseStyle.copyWith(
       fontSize: fontSize?.sp ?? baseStyle.fontSize?.sp,

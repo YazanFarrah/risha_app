@@ -11,7 +11,8 @@ class AuthRemoteDatasource {
       await Future.delayed(Duration(seconds: 1));
       final user = UserModel(
         id: "123456",
-        name: "John Doe",
+        name: "Yazan Farrah",
+        username: "yazan_farrah",
         email: "john.doe@example.com",
         avatarUrl: "https://example.com/avatar.jpg",
         totalPoints: 500,

@@ -53,7 +53,7 @@ class AppThemes {
       displayLarge: TextStyle(
         fontFamily: "Almarai",
         fontSize: 18,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w800,
         color: AppLightColors.textColor,
         height: 0.0.h,
       ),

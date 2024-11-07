@@ -48,7 +48,11 @@
   "didntRecieveOtp": "إذا لم تستلم الرمز، قم بإعادة إرساله",
   "check": "تحقق",
   "checkCode": "التحقق من الكود الخاص بك",
+  "risha": "ريشة",
+  "plus": "بلس",
+  "subNow": "اشترك الآن",
   "forSubPrice": "مقابل 4.99$ في الشهر",
-  "haventRecievedCode" : "إذا لم تستلم الرمز،",
+  "getRishaPlus": "احصل على مزايا ريشة بلس الآن.",
+  "haventRecievedCode": "إذا لم تستلم الرمز،",
   "resend": "قم بإعادة إرساله"
 }

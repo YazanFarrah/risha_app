@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:risha_app/core/services/hive_services.dart';
 import 'package:risha_app/core/widgets/custom_button.dart';
+import 'package:risha_app/features/account/presentation/screens/account_screen.dart';
 import 'package:risha_app/features/shared/presentation/controllers/bottom_nav_bar_controller.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
 
@@ -18,7 +19,7 @@ class NavBar extends StatelessWidget {
         text: "Clear local storage",
       ),
     ),
-    Text("Second Page"),
+    AccountScreen(),
   ];
 
   @override

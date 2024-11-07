@@ -55,6 +55,5 @@ class SharedColors {
   static Color yellowColor = const Color(0XFFFACC59);
   static Color redColor = const Color(0XFFC94127);
   static Color goldColor = const Color(0XFFFABE2C);
-
-  
+  static Color blueGreyColor = const Color(0XFFEEF1FF);
 }

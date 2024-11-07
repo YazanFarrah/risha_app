@@ -1,6 +1,7 @@
 class UserModelConstants {
   static const String id = "id";
   static const String name = "name";
+  static const String username = "username";
   static const String email = "email";
   static const String avatar = "avatar";
   static const String password = "password";

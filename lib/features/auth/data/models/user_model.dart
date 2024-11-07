@@ -3,6 +3,7 @@ import 'package:risha_app/config/json_constants.dart';
 class UserModel {
   final String? id;
   final String? name;
+  final String? username;
   final String? email;
   final String? avatarUrl;
   final int? totalPoints;
@@ -20,6 +21,7 @@ class UserModel {
   UserModel({
     this.id,
     this.name,
+    this.username,
     this.email,
     this.avatarUrl,
     this.totalPoints,
@@ -39,6 +41,7 @@ class UserModel {
     return UserModel(
       id: json[UserModelConstants.id],
       name: json[UserModelConstants.name],
+      username: json[UserModelConstants.username],
       email: json[UserModelConstants.email],
       avatarUrl: json[UserModelConstants.avatar],
       token: json[UserModelConstants.token],
@@ -61,6 +64,7 @@ class UserModel {
     return {
       UserModelConstants.id: id,
       UserModelConstants.name: name,
+      UserModelConstants.username: username,
       UserModelConstants.email: email,
       UserModelConstants.avatar: avatarUrl,
       UserModelConstants.token: token,
@@ -110,6 +114,7 @@ class UserModel {
   UserModel copyWith({
     String? id,
     String? name,
+    String? username,
     String? email,
     String? avatarUrl,
     int? totalPoints,
@@ -127,6 +132,7 @@ class UserModel {
     return UserModel(
       id: id ?? this.id,
       name: name ?? this.name,
+      username: username ?? this.username,
       email: email ?? this.email,
       avatarUrl: avatarUrl ?? this.avatarUrl,
       totalPoints: totalPoints ?? this.totalPoints,
