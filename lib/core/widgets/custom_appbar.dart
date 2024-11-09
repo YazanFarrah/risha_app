@@ -10,7 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.title,
     this.backgroundColor = Colors.transparent,
     this.leading,
-    this.centerTitle = true,
+    this.centerTitle = false,
     this.bottom,
     this.flexibleSpace,
     this.popPath,

@@ -64,6 +64,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/svgs/
+    - assets/svgs/bottom_navbar/
     - assets/animations/
     - assets/translations/en.json
     - assets/translations/ar.json

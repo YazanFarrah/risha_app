@@ -24,16 +24,12 @@ class _AppState extends State<App> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-
-
     switch (state) {
       case AppLifecycleState.inactive:
         Future.delayed(
           Duration.zero,
           () async {
             log("inactive app ");
-
-
           },
         );
         break;
@@ -42,7 +38,6 @@ class _AppState extends State<App> with WidgetsBindingObserver {
           Duration.zero,
           () {
             log("resume app");
-
           },
         );
         break;
@@ -99,7 +94,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
           getPages: AppRouter.routes,
           onGenerateRoute: (settings) {
             Widget routeWidget = UserState();
-        
+
             final routeName = settings.name;
             if (routeName != null) {
               // if (routeName.startsWith('/quiz/')) {
@@ -124,8 +119,8 @@ class _AppState extends State<App> with WidgetsBindingObserver {
           debugShowCheckedModeBanner: false,
           title: 'Insurance App',
           theme: AppThemes.lightTheme,
-          themeMode: ThemeMode.light,
           darkTheme: AppThemes.darkTheme,
+          themeMode: ThemeMode.light,
           builder: (context, child) {
             final Overlay overlay = Overlay(
               initialEntries: <OverlayEntry>[

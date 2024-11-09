@@ -1,8 +1,7 @@
-import 'package:risha_app/config/app_colors.dart';
-import 'package:risha_app/core/widgets/custom_text_widget.dart';
+import 'package:get/get.dart';
+import 'package:risha_app/core/widgets/custom_modal_bottom_sheet.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/route_manager.dart';
+import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
 
 class HelperFunctions {
   static String truncateText(String text, int maxLength) {
@@ -17,14 +16,19 @@ class HelperFunctions {
     bool showDragHandler = false,
   }) async {
     showModalBottomSheet(
+      constraints: BoxConstraints(minWidth: double.infinity),
       showDragHandle: showDragHandler,
       context: context,
       builder: (context) {
         return Container(
+          padding: EdgeInsets.symmetric(
+            vertical: 18,
+            horizontal: 20,
+          ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10.r),
-              topRight: Radius.circular(10.r),
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
             ),
           ),
           child: child,
@@ -33,39 +37,22 @@ class HelperFunctions {
     );
   }
 
-  static Future<void> showLogoutDialog(BuildContext context) async {
-    return showDialog(
+  static void showLogoutDialog(BuildContext context) async {
+    return HelperFunctions.showCustomModalBottomSheet(
       context: context,
-      builder: (context) {
-        return AlertDialog.adaptive(
-          title: Center(
-            child: CustomTextWidget(
-              text: 'Logout',
-              isHeadlineMedium: true,
-            ),
-          ),
-          content: CustomTextWidget(
-            text: 'Are you sure you want to log out?',
-            color: SharedColors.greyTextColor,
-          ),
-          actions: [
-            TextButton(
-              child: const CustomTextWidget(text: 'Cancel'),
-              onPressed: () {
-                Navigator.of(context).pop(false);
-              },
-            ),
-            TextButton(
-              child: const CustomTextWidget(text: 'Logout'),
-              onPressed: () {
-                Navigator.of(context).pop(true);
-                Get.back();
-                // context.read<CurrentUserProvider>().clearUser();
-              },
-            ),
-          ],
-        );
-      },
+      child: CustomModalBottomSheet(
+        title: "logout",
+        description: "areYouSureLogout",
+        confirmButtonText: "yesLogout",
+        onConfirm: () {
+          Navigator.pop(context);
+          Get.find<CurrentUserController>().logUserOut();
+        },
+        onCancel: () {
+          Navigator.pop(context);
+        },
+        cancelButtonText: "cancel",
+      ),
     );
   }
 }

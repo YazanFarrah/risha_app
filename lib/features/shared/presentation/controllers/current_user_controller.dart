@@ -1,11 +1,15 @@
 import 'dart:developer';
 import 'package:risha_app/core/errors/failure.dart';
+import 'package:risha_app/core/routes/route_paths.dart';
+import 'package:risha_app/core/services/hive_services.dart';
 import 'package:risha_app/features/auth/data/models/user_model.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:get/get.dart';
+import 'package:risha_app/features/auth/data/models/user_nickname_model.dart';
 
 class CurrentUserController extends GetxController {
   final user = Rxn<UserModel>();
+  final _hiveService = Get.find<HiveServices>();
   void setUser(UserModel user) {
     this.user.value = user;
     log(this.user.toString());
@@ -18,8 +22,13 @@ class CurrentUserController extends GetxController {
         id: "123456",
         name: "Yazan Farrah",
         username: "yazan_farrah",
+        nickname: UserNicknameModel(
+          title: "المستكشف",
+          description: "وهو الباحث عن المعرفة في ريشة المعرفة",
+        ),
         email: "john.doe@example.com",
-        avatarUrl: "https://images.immediate.co.uk/production/volatile/sites/3/2023/08/2023.06.28-06.20-boundingintocomics-649c79f009cdf-Cropped-8d74232.png",
+        avatarUrl:
+            "https://images.immediate.co.uk/production/volatile/sites/3/2023/08/2023.06.28-06.20-boundingintocomics-649c79f009cdf-Cropped-8d74232.png",
         totalPoints: 500,
         coins: 200,
         rank: 3,
@@ -38,5 +47,11 @@ class CurrentUserController extends GetxController {
     } catch (e) {
       return left(AuthFailure(e.toString()));
     }
+  }
+
+  void logUserOut() {
+    _hiveService.clearPreferences();
+    user.value = null;
+    Get.offAllNamed(RoutePaths.login);
   }
 }

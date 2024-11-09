@@ -1,6 +1,7 @@
 import 'package:risha_app/core/errors/failure.dart';
 import 'package:risha_app/features/auth/data/models/user_model.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:risha_app/features/auth/data/models/user_nickname_model.dart';
 
 class AuthRemoteDatasource {
   Future<Either<Failure, UserModel>> login(
@@ -13,6 +14,10 @@ class AuthRemoteDatasource {
         id: "123456",
         name: "Yazan Farrah",
         username: "yazan_farrah",
+        nickname: UserNicknameModel(
+          title: "المستكشف",
+          description: "وهو الباحث عن المعرفة في ريشة المعرفة",
+        ),
         email: "john.doe@example.com",
         avatarUrl: "https://example.com/avatar.jpg",
         totalPoints: 500,

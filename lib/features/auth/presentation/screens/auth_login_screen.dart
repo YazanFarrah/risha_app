@@ -45,6 +45,9 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
   }
 
   void _loginAction() async {
+    if (_authController.isLoading.value) {
+      return;
+    }
     if (!_formKey.currentState!.validate()) {
       return;
     }

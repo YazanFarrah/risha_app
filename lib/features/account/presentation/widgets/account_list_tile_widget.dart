@@ -7,34 +7,40 @@ class AccountListTileWidget extends StatelessWidget {
   final String title;
   final String subTitle;
   final Widget trailingWidget;
+  final GestureTapCallback? onTap;
   const AccountListTileWidget({
     super.key,
     required this.leadingWidget,
     required this.title,
     required this.subTitle,
     required this.trailingWidget,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.zero,
-      color: Colors.white,
-      child: ListTile(
-        minVerticalPadding: 20.h,
-        leading: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.w),
-          child: leadingWidget,
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        margin: EdgeInsets.zero,
+        color: Colors.white,
+        child: ListTile(
+          minVerticalPadding: 20.h,
+          leading: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15.w),
+            child: leadingWidget,
+          ),
+          title: CustomTextWidget(
+            text: title,
+          ),
+          subtitle: CustomTextWidget(
+            text: subTitle,
+            isDisplaySmall: true,
+            maxLines: 3,
+          ),
+          trailing: trailingWidget,
+          contentPadding: EdgeInsetsDirectional.only(end: 6.w),
         ),
-        title: CustomTextWidget(
-          text: title,
-        ),
-        subtitle: CustomTextWidget(
-          text: subTitle,
-          isDisplaySmall: true,
-        ),
-        trailing: trailingWidget,
-        contentPadding: EdgeInsets.zero,
       ),
     );
   }

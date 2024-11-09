@@ -2,6 +2,7 @@ class UserModelConstants {
   static const String id = "id";
   static const String name = "name";
   static const String username = "username";
+  static const String nickname = "nickname";
   static const String email = "email";
   static const String avatar = "avatar";
   static const String password = "password";
@@ -20,8 +21,14 @@ class UserModelConstants {
   static const String totalCorrectAnswers = "total-correct-answers";
   static const String totalWrongAnswers = "total-wrong-answers";
   static const String degreeOfInsurance = "degree_of_insurance";
-  static const String isPremium= "is-premium";
-  static const String isHiddenFromLeaderBoard= "is-hidden-from-leaderboard";
+  static const String isPremium = "is-premium";
+  static const String isHiddenFromLeaderBoard = "is-hidden-from-leaderboard";
+}
+
+class UserNickNameModelConstants {
+  static const String title = "title";
+  static const String description = "description";
+  static const String logo = "logo";
 }
 
 class CityModelConstants {

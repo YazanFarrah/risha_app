@@ -48,12 +48,13 @@ class AppDarkColors {
 
 class SharedColors {
   static const Color primaryColor = Color(0XFF6949FF);
-  static Color secondaryColor = Color(0XFF191552);
+  static const Color secondaryColor = Color(0XFF191552);
   static const Color successColor = Colors.green;
-  static Color greyTextColor = Color(0xFFB4B4B4);
+  static const Color greyTextColor = Color(0xFFB4B4B4);
   static const Color blackColor = Colors.black87;
-  static Color yellowColor = const Color(0XFFFACC59);
-  static Color redColor = const Color(0XFFC94127);
-  static Color goldColor = const Color(0XFFFABE2C);
-  static Color blueGreyColor = const Color(0XFFEEF1FF);
+  static const Color yellowColor = Color(0XFFFACC59);
+  static const Color redColor = Color(0XFFC94127);
+  static const Color goldColor = Color(0XFFFABE2C);
+  static const Color blueGreyColor = Color(0XFFEEF1FF);
+  static const Color inActiveSwitchColor = Color(0XFFD9D9D9);
 }

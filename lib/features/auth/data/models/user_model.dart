@@ -1,9 +1,11 @@
 import 'package:risha_app/config/json_constants.dart';
+import 'package:risha_app/features/auth/data/models/user_nickname_model.dart';
 
 class UserModel {
   final String? id;
   final String? name;
   final String? username;
+  final UserNicknameModel? nickname;
   final String? email;
   final String? avatarUrl;
   final int? totalPoints;
@@ -22,6 +24,7 @@ class UserModel {
     this.id,
     this.name,
     this.username,
+    this.nickname,
     this.email,
     this.avatarUrl,
     this.totalPoints,
@@ -42,6 +45,7 @@ class UserModel {
       id: json[UserModelConstants.id],
       name: json[UserModelConstants.name],
       username: json[UserModelConstants.username],
+      nickname: json[UserModelConstants.nickname],
       email: json[UserModelConstants.email],
       avatarUrl: json[UserModelConstants.avatar],
       token: json[UserModelConstants.token],
@@ -65,6 +69,7 @@ class UserModel {
       UserModelConstants.id: id,
       UserModelConstants.name: name,
       UserModelConstants.username: username,
+      UserModelConstants.nickname: nickname,
       UserModelConstants.email: email,
       UserModelConstants.avatar: avatarUrl,
       UserModelConstants.token: token,
@@ -115,6 +120,7 @@ class UserModel {
     String? id,
     String? name,
     String? username,
+    String? nickname,
     String? email,
     String? avatarUrl,
     int? totalPoints,

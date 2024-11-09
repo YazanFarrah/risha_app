@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:risha_app/core/services/hive_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,6 +24,7 @@ class ThemeController extends GetxController {
 
   void toggleThemeToDark(bool isOn) {
     themeMode.value = isOn ? ThemeMode.dark : ThemeMode.light;
+    log(themeMode.value.toString());
     _hiveService.setThemeMode(isOn);
   }
 
