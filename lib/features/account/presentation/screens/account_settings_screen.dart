@@ -7,11 +7,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/config/asset_paths.dart';
+import 'package:risha_app/core/routes/route_paths.dart';
 import 'package:risha_app/core/utils/helper_functions.dart';
 import 'package:risha_app/core/utils/shared.dart';
 import 'package:risha_app/core/widgets/custom_appbar.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 import 'package:risha_app/features/account/presentation/controllers/settings_controller.dart';
+import 'package:risha_app/features/account/presentation/screens/account_faq_screen.dart';
 import 'package:risha_app/features/account/presentation/widgets/language_widget.dart';
 import 'package:risha_app/features/account/presentation/widgets/settings_row_widget.dart';
 import 'package:risha_app/features/shared/presentation/controllers/app_theme_controller.dart';
@@ -21,8 +23,7 @@ class AccountSettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final settingsController =
-        Get.put<SettingsController>(SettingsController());
+    final settingsController = Get.find<SettingsController>();
 
     return Scaffold(
       appBar: CustomAppBar(
@@ -191,6 +192,9 @@ class AccountSettingsScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 17.h),
                 SettingsRowWidget(
+                  onTap: () {
+                    Get.toNamed(RoutePaths.categories);
+                  },
                   leadingWidget: Icon(Icons.star_rounded),
                   text: "favCategories",
                   trailingWidget: Icon(
@@ -201,6 +205,9 @@ class AccountSettingsScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 17.h),
                 SettingsRowWidget(
+                  onTap: () {
+                    Get.to(() => AccountFaqScreen());
+                  },
                   leadingWidget: SvgPicture.asset(
                     AssetPaths.faq,
                     height: 25.w,

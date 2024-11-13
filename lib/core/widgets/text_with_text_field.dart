@@ -24,7 +24,7 @@ class TextWithTextField extends StatefulWidget {
     this.onEditingComplete,
     this.onFieldSubmitted,
     this.onChanged,
-    this.filled,
+    this.filled = true,
     this.fillColor,
     this.hasBorderSide = true,
     this.enabled,
@@ -120,7 +120,8 @@ class _TextWithTextFieldState extends State<TextWithTextField> {
                         }
                       : null,
               filled: widget.filled,
-              filledColor: widget.fillColor,
+              filledColor:
+                  widget.fillColor ?? Theme.of(context).colorScheme.onSurface,
               hasBorderSide: widget.hasBorderSide,
               enabled: widget.enabled,
               suffix: widget.suffix,

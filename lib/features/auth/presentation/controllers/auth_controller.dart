@@ -10,6 +10,7 @@ import 'package:risha_app/features/auth/data/datasources/auth_remote_datasource.
 
 class AuthController extends GetxController {
   final isLoading = false.obs;
+  RxnString avatarUrl = RxnString(null);
   final _authRemoteDatasource = Get.find<AuthRemoteDatasource>();
   final _currentUserController = Get.find<CurrentUserController>();
   final _hiveServices = Get.find<HiveServices>();
@@ -17,6 +18,10 @@ class AuthController extends GetxController {
 
   void updateLoading(bool val) {
     isLoading.value = val;
+  }
+
+  void updateAvatarUrl(String? newUrl) {
+    avatarUrl.value = newUrl;
   }
 
   Future<void> login({

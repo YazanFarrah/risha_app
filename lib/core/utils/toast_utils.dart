@@ -7,8 +7,8 @@ class ToastUtils {
     if (Get.isSnackbarOpen) Get.closeAllSnackbars();
     Get.rawSnackbar(
       message: error,
-      backgroundColor: Colors.red.withOpacity(0.8),
-      snackPosition: SnackPosition.bottom,
+      backgroundColor: Colors.red.withOpacity(0.9),
+      snackPosition: SnackPosition.top,
       margin: EdgeInsets.all(10),
       borderRadius: 8,
       duration: Duration(seconds: 3),

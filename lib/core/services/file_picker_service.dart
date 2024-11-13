@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/core/errors/exceptions.dart';
 import 'package:risha_app/core/validators/file_validation.dart';
@@ -31,13 +32,13 @@ class FilesPickerService {
           return CupertinoActionSheet(
             actions: <Widget>[
               CupertinoActionSheetAction(
-                child: CustomTextWidget(text: 'camera'),
+                child: CustomTextWidget(text: 'camera'.tr(context: context)),
                 onPressed: () {
                   Navigator.of(context).pop(ImageSource.camera);
                 },
               ),
               CupertinoActionSheetAction(
-                child: CustomTextWidget(text: 'gallery'),
+                child: CustomTextWidget(text: 'gallery'.tr(context: context)),
                 onPressed: () {
                   Navigator.of(context).pop(ImageSource.gallery);
                 },

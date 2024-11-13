@@ -88,11 +88,11 @@ class SubscriptionWidget extends StatelessWidget {
             onPressed: () {},
             backgroundColor: Colors.white,
             height: 34.h,
-            width: context.locale.languageCode == "ar" ? 103 : 120.w,
+            width: 114.w,
             child: CustomTextWidget(
               text: "subNow",
               color: SharedColors.primaryColor,
-              fontSize: 14,
+              fontSize: 12,
             ),
           ),
         ],

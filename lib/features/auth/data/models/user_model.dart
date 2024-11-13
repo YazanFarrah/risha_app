@@ -1,4 +1,5 @@
 import 'package:risha_app/config/json_constants.dart';
+import 'package:risha_app/core/enums/user_gender_enum.dart';
 import 'package:risha_app/features/auth/data/models/user_nickname_model.dart';
 
 class UserModel {
@@ -6,7 +7,9 @@ class UserModel {
   final String? name;
   final String? username;
   final UserNicknameModel? nickname;
+  final UserGender? gender;
   final String? email;
+  final bool? isEmailVerified;
   final String? avatarUrl;
   final int? totalPoints;
   final int? coins;
@@ -25,7 +28,9 @@ class UserModel {
     this.name,
     this.username,
     this.nickname,
+    this.gender,
     this.email,
+    this.isEmailVerified,
     this.avatarUrl,
     this.totalPoints,
     this.coins,
@@ -46,7 +51,9 @@ class UserModel {
       name: json[UserModelConstants.name],
       username: json[UserModelConstants.username],
       nickname: json[UserModelConstants.nickname],
+      gender: json[UserModelConstants.gender],
       email: json[UserModelConstants.email],
+      isEmailVerified: json[UserModelConstants.isEmailVerified],
       avatarUrl: json[UserModelConstants.avatar],
       token: json[UserModelConstants.token],
       totalPoints: json[UserModelConstants.totalPoints],
@@ -71,6 +78,7 @@ class UserModel {
       UserModelConstants.username: username,
       UserModelConstants.nickname: nickname,
       UserModelConstants.email: email,
+      UserModelConstants.isEmailVerified: isEmailVerified,
       UserModelConstants.avatar: avatarUrl,
       UserModelConstants.token: token,
       UserModelConstants.totalPoints: totalPoints,
@@ -98,30 +106,15 @@ class UserModel {
     };
   }
 
-  factory UserModel.defaultUser() {
-    return UserModel(
-      id: null,
-      name: null,
-      email: null,
-      avatarUrl: null,
-      totalPoints: 0,
-      coins: 0,
-      rank: 0,
-      totalCorrectAnswers: 0,
-      totalWrongAnswers: 0,
-      isPremium: false,
-      createdAt: null,
-      // token: null,
-    );
-  }
-
   // CopyWith method for selective field updates
   UserModel copyWith({
     String? id,
     String? name,
     String? username,
-    String? nickname,
+    UserNicknameModel? nickname,
     String? email,
+    final UserGender? gender,
+    bool? isEmailVerified,
     String? avatarUrl,
     int? totalPoints,
     int? coins,
@@ -139,7 +132,10 @@ class UserModel {
       id: id ?? this.id,
       name: name ?? this.name,
       username: username ?? this.username,
+      nickname: nickname ?? this.nickname,
       email: email ?? this.email,
+      gender: gender ?? this.gender,
+      isEmailVerified: isEmailVerified ?? this.isEmailVerified,
       avatarUrl: avatarUrl ?? this.avatarUrl,
       totalPoints: totalPoints ?? this.totalPoints,
       coins: coins ?? this.coins,

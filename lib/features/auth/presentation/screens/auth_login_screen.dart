@@ -149,18 +149,18 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               CustomTextWidget(
-                                text: "مرحبا بك!",
+                                text: "welcome",
                                 color: Colors.white,
                               ),
                               CustomTextWidget(
-                                text:
-                                    "قم بتسجيل الدخول للاستمرار باستخدام ريشة المعرفة.",
+                                text: "loginToUseRisha",
                                 color: Colors.white,
                                 maxLines: 2,
                               ),
                             ],
                           ),
                         ),
+                        SizedBox(width: 4.w),
                         TranslationWidget(),
                       ],
                     ),
@@ -188,6 +188,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                                 isDisplayLarge: true,
                               ),
                             ),
+                            SizedBox(height: 30.h),
                             TextWithTextField(
                               validator: (value) =>
                                   emailValidator(value, context),

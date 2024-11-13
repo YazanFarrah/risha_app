@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:risha_app/config/app_colors.dart';
+import 'package:risha_app/core/routes/route_paths.dart';
 import 'package:risha_app/core/utils/helper_functions.dart';
 import 'package:risha_app/core/utils/shared.dart';
 import 'package:risha_app/core/widgets/custom_modal_bottom_sheet.dart';
 import 'package:risha_app/core/widgets/subscription_widget.dart';
-import 'package:risha_app/features/account/presentation/screens/account_settings_screen.dart';
+import 'package:risha_app/features/account/presentation/screens/account_edit_screen.dart';
 import 'package:risha_app/features/account/presentation/widgets/account_list_tile_widget.dart';
 import 'package:risha_app/features/account/presentation/widgets/circular_icon_widget.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
@@ -32,6 +33,9 @@ class AccountScreen extends StatelessWidget {
                   SubscriptionWidget(showDetails: true),
                   SizedBox(height: 20.h),
                   AccountListTileWidget(
+                    onTap: () {
+                      Get.to(() => AccountEditScreen());
+                    },
                     leadingWidget: CircularIconWidget(
                       widget: Icon(
                         Icons.person,
@@ -93,7 +97,7 @@ class AccountScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 18.h),
                   AccountListTileWidget(
-                    onTap: () => Get.to(() => AccountSettingsScreen()),
+                    onTap: () => Get.toNamed(RoutePaths.settings),
                     leadingWidget: CircularIconWidget(
                       widget: Icon(Icons.settings),
                     ),
@@ -108,7 +112,10 @@ class AccountScreen extends StatelessWidget {
                   SizedBox(height: 18.h),
                   AccountListTileWidget(
                     leadingWidget: CircularIconWidget(
-                      widget: Icon(Icons.store),
+                      widget: Icon(
+                        Icons.store,
+                        color: Theme.of(context).colorScheme.inverseSurface,
+                      ),
                     ),
                     title: "currencyStoreTitle",
                     subTitle: "currencyStoreDescription",

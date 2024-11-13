@@ -21,9 +21,11 @@ class HelperFunctions {
       context: context,
       builder: (context) {
         return Container(
-          padding: EdgeInsets.symmetric(
-            vertical: 18,
-            horizontal: 20,
+          padding: EdgeInsets.only(
+            top: 10,
+            bottom: 40,
+            left: 20,
+            right: 20,
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(

@@ -15,6 +15,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:risha_app/features/auth/presentation/widgets/or_divider_widget.dart';
+import 'package:risha_app/features/auth/presentation/widgets/auth_avatar_picker_widget.dart';
 
 class AuthSignupScreen extends StatefulWidget {
   const AuthSignupScreen({super.key});
@@ -89,12 +90,13 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 CustomTextWidget(
-                                  text: "انضم الى ريشة المعرفة",
+                                  text: "joinRisha",
                                   color: Colors.white,
                                 ),
                                 CustomTextWidget(
-                                  text: "ابدأ رحلتك التعليمية مع ريشة المعرفة.",
+                                  text: "startLearningWithRisha",
                                   color: Colors.white,
+                                  maxLines: 2,
                                 ),
                               ],
                             ),
@@ -109,7 +111,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                   alignment: Alignment.bottomCenter,
                   child: Padding(
                     padding:
-                        EdgeInsets.only(top: 100.h, left: 10.w, right: 10.w),
+                        EdgeInsets.only(top: 105.h, left: 10.w, right: 10.w),
                     child: Card(
                       color: Colors.white,
                       child: Padding(
@@ -124,45 +126,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Center(
-                                child: Stack(
-                                  clipBehavior: Clip.none,
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .primary,
-                                        ),
-                                      ),
-                                      width: 80.w,
-                                      height: 80.w,
-                                      child: SvgPicture.asset(
-                                        AssetPaths.personOutline,
-                                        width: 40.w,
-                                        fit: BoxFit.scaleDown,
-                                      ),
-                                    ),
-                                    Positioned(
-                                      bottom: 0,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .primary,
-                                        ),
-                                        width: 27.w,
-                                        height: 27.w,
-                                        child: Icon(
-                                          Icons.add,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                child: AuthAvatarPicker(),
                               ),
                               SizedBox(height: 10.h),
                               TextWithTextField(

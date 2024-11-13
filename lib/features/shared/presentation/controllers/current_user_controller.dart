@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:risha_app/core/enums/user_gender_enum.dart';
 import 'package:risha_app/core/errors/failure.dart';
 import 'package:risha_app/core/routes/route_paths.dart';
 import 'package:risha_app/core/services/hive_services.dart';
@@ -9,10 +10,21 @@ import 'package:risha_app/features/auth/data/models/user_nickname_model.dart';
 
 class CurrentUserController extends GetxController {
   final user = Rxn<UserModel>();
+  final tempAvatarPath = Rxn<String>();
   final _hiveService = Get.find<HiveServices>();
+
   void setUser(UserModel user) {
     this.user.value = user;
     log(this.user.toString());
+  }
+
+  void updateAvatarUrl(String? newUrl) {
+    user.value = user.value?.copyWith(avatarUrl: newUrl);
+    tempAvatarPath.value = null;
+  }
+
+  void updateTempAvatarPath(String? path) {
+    tempAvatarPath.value = path;
   }
 
   Future<Either<Failure, UserModel>> getUser() async {
@@ -27,6 +39,8 @@ class CurrentUserController extends GetxController {
           description: "وهو الباحث عن المعرفة في ريشة المعرفة",
         ),
         email: "john.doe@example.com",
+        isEmailVerified: true,
+        gender: UserGender.female,
         avatarUrl:
             "https://images.immediate.co.uk/production/volatile/sites/3/2023/08/2023.06.28-06.20-boundingintocomics-649c79f009cdf-Cropped-8d74232.png",
         totalPoints: 500,

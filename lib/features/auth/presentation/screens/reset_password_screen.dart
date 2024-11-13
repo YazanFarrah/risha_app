@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/core/utils/shared.dart';
@@ -57,7 +56,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         centerTitle: false,
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
+        padding: UIConstants.bodyPadding,
         child: Obx(
           () => CustomButton(
             backgroundColor:

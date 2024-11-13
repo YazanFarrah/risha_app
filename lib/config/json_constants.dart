@@ -3,7 +3,9 @@ class UserModelConstants {
   static const String name = "name";
   static const String username = "username";
   static const String nickname = "nickname";
+  static const String gender = "gender";
   static const String email = "email";
+  static const String isEmailVerified = "is-email-verified";
   static const String avatar = "avatar";
   static const String password = "password";
   static const String birthday = "birth_date";
