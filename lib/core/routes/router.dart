@@ -7,9 +7,11 @@ import 'package:risha_app/features/account/presentation/screens/account_reset_pa
 import 'package:risha_app/features/account/presentation/screens/account_settings_screen.dart';
 import 'package:risha_app/features/auth/presentation/screens/auth_login_screen.dart';
 import 'package:risha_app/features/auth/presentation/screens/auth_signup_screen.dart';
+import 'package:risha_app/features/shared/bindings/notifications_bindings.dart';
 import 'package:risha_app/features/shared/presentation/screens/nav_bar.dart';
 import 'package:risha_app/features/auth/bindings/auth_binding.dart';
 import 'package:get/get.dart';
+import 'package:risha_app/features/shared/presentation/screens/notifications_screen.dart';
 import 'package:risha_app/features/shared/presentation/screens/user_state_screen.dart';
 
 class AppRouter {
@@ -46,6 +48,12 @@ class AppRouter {
       name: RoutePaths.accountResetPassword,
       page: () => const AccountResetPasswordScreen(),
       binding: AccountResetPasswordBinding(),
+    ),
+
+    GetPage(
+      name: RoutePaths.notifications,
+      page: () => const NotificationsScreen(),
+      binding: NotificationsBindings(),
     ),
     
   ];

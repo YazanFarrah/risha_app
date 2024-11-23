@@ -52,7 +52,7 @@ class CustomModalBottomSheet extends StatelessWidget {
           isDisplaySmall: true,
           maxLines: 9999999,
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         confirmButtonText != null
             ? CustomButton(
                 width: double.infinity,
@@ -62,8 +62,8 @@ class CustomModalBottomSheet extends StatelessWidget {
                   color: Colors.white,
                 ),
               )
-            : SizedBox.shrink(),
-        SizedBox(height: 10),
+            : const SizedBox.shrink(),
+        const SizedBox(height: 10),
         cancelButtonText != null
             ? CustomButton(
                 backgroundColor: SharedColors.blueGreyColor,
@@ -78,7 +78,7 @@ class CustomModalBottomSheet extends StatelessWidget {
                   color: Theme.of(context).colorScheme.primary,
                 ),
               )
-            : SizedBox.shrink(),
+            : const SizedBox.shrink(),
       ],
     );
   }

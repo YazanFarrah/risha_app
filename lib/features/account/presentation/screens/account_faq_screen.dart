@@ -9,13 +9,13 @@ class AccountFaqScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: "faq",
       ),
       body: SingleChildScrollView(
         padding: UIConstants.bodyPadding,
         child: ExpansionTile(
-          title: Text("data"),
+          title: const Text("data"),
           backgroundColor: Colors.white,
           collapsedBackgroundColor: Colors.white,
           shape: OutlineInputBorder(
@@ -27,7 +27,7 @@ class AccountFaqScreen extends StatelessWidget {
             borderSide: BorderSide.none,
           ),
           tilePadding: EdgeInsets.symmetric(horizontal: 12.w),
-          children: [
+          children: const [
             Text("data"),
           ],
         ),

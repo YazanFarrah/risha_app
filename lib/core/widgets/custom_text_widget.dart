@@ -59,16 +59,16 @@ class CustomTextWidget extends StatelessWidget {
     final TextTheme textTheme = Theme.of(context).textTheme;
 
     TextStyle baseStyle = isDisplaySmall == true
-        ? textTheme.displaySmall ?? TextStyle()
+        ? textTheme.displaySmall ?? const TextStyle()
         : isBodySmall == true
-            ? textTheme.bodySmall ?? TextStyle()
+            ? textTheme.bodySmall ?? const TextStyle()
             : isDisplayLarge == true
-                ? textTheme.displayLarge ?? TextStyle()
+                ? textTheme.displayLarge ?? const TextStyle()
                 : isHeadlineMedium == true
-                    ? textTheme.headlineMedium ?? TextStyle()
+                    ? textTheme.headlineMedium ?? const TextStyle()
                     : isHeadlineLarge == true
-                        ? textTheme.headlineLarge ?? TextStyle()
-                        : textTheme.displayMedium ?? TextStyle();
+                        ? textTheme.headlineLarge ?? const TextStyle()
+                        : textTheme.displayMedium ?? const TextStyle();
 
     return baseStyle.copyWith(
       fontSize: fontSize?.sp ?? baseStyle.fontSize?.sp,

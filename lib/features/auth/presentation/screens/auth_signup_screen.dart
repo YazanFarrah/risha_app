@@ -67,7 +67,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         child: Column(
           children: [
             Stack(
@@ -82,7 +82,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                   child: Column(
                     children: [
                       SizedBox(height: 30.h),
-                      Row(
+                      const Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
@@ -139,7 +139,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                                   FocusScope.of(context)
                                       .requestFocus(_emailFocusNode);
                                 },
-                                prefix: Icon(
+                                prefix: const Icon(
                                   Icons.person,
                                   color: SharedColors.greyTextColor,
                                 ),
@@ -156,7 +156,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                                       .requestFocus(_passwordFocusNode);
                                 },
                                 keyType: TextInputType.emailAddress,
-                                prefix: Icon(
+                                prefix: const Icon(
                                   Icons.email,
                                   color: SharedColors.greyTextColor,
                                 ),
@@ -188,7 +188,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                                     color: SharedColors.greyTextColor,
                                   ),
                                 ),
-                                prefix: Icon(
+                                prefix: const Icon(
                                   Icons.lock,
                                   color: SharedColors.greyTextColor,
                                 ),
@@ -224,7 +224,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                                     color: SharedColors.greyTextColor,
                                   ),
                                 ),
-                                prefix: Icon(
+                                prefix: const Icon(
                                   Icons.lock,
                                   color: SharedColors.greyTextColor,
                                 ),
@@ -247,7 +247,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                     onPressed: _signupAction,
                     width: double.infinity,
                     elevation: 8,
-                    child: CustomTextWidget(
+                    child: const CustomTextWidget(
                       text: "signup",
                       color: Colors.white,
                     ),
@@ -275,7 +275,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                     },
                   ),
                   SizedBox(height: 30.h),
-                  OrDividerWidget(),
+                  const OrDividerWidget(),
                   SizedBox(height: 30.h),
                   Row(
                     children: [

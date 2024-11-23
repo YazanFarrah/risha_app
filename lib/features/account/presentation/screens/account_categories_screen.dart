@@ -17,7 +17,7 @@ class AccountCategoriesScreen extends StatelessWidget {
     final categoryController = Get.find<CategoryController>();
 
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: "favCategories",
       ),
       bottomNavigationBar: Obx(
@@ -29,7 +29,7 @@ class AccountCategoriesScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
             child: CustomButton(
               onPressed: () {},
-              child: CustomTextWidget(
+              child: const CustomTextWidget(
                 text: "saveFav",
                 color: Colors.white,
               ),
@@ -50,12 +50,12 @@ class AccountCategoriesScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomTextWidget(
+              const CustomTextWidget(
                 text: "chooseFavoriteCategories",
                 isDisplaySmall: true,
                 maxLines: 2,
               ),
-              CustomTextWidget(
+              const CustomTextWidget(
                 text: "helpUsChoose",
                 isDisplaySmall: true,
                 maxLines: 2,

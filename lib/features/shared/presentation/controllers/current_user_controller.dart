@@ -29,7 +29,7 @@ class CurrentUserController extends GetxController {
 
   Future<Either<Failure, UserModel>> getUser() async {
     try {
-      await Future.delayed(Duration(seconds: 3));
+      await Future.delayed(const Duration(seconds: 3));
       final user = UserModel(
         id: "123456",
         name: "Yazan Farrah",
@@ -52,7 +52,7 @@ class CurrentUserController extends GetxController {
         lastSeenAt: DateTime.parse("2024-01-20T18:45:00"),
         totalCorrectAnswers: 150,
         totalWrongAnswers: 30,
-        isPremium: true,
+        isPremium: false,
         isHiddenFromLeaderBoard: false,
       );
 

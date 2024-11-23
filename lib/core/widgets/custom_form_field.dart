@@ -81,7 +81,7 @@ class CustomFormField extends StatelessWidget {
       decoration: InputDecoration(
         errorStyle:
         (showErrorString == false)?
-         TextStyle(height: 0.01): null,
+         const TextStyle(height: 0.01): null,
         fillColor: filled != null && filledColor != null ? filledColor : null,
         suffixIcon: suffix,
         prefixIcon: prefix,
@@ -89,7 +89,7 @@ class CustomFormField extends StatelessWidget {
         errorMaxLines: 1,
         errorBorder: OutlineInputBorder(
           borderSide: hasBorderSide == true
-              ? BorderSide(color: SharedColors.redColor)
+              ? const BorderSide(color: SharedColors.redColor)
               : BorderSide.none,
           borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
         ),

@@ -23,13 +23,13 @@ class ResetPasswordController extends GetxController {
     }
 
     if (isOtpVerified.value) {
-      Get.to(() => ResetPasswordScreen());
+      Get.to(() => const ResetPasswordScreen());
       return;
     }
     _startTimer();
 
     isLoading.value = true;
-    await Future.delayed(Duration(seconds: 2)); // Simulate API call delay
+    await Future.delayed(const Duration(seconds: 2)); // Simulate API call delay
     isLoading.value = false;
     this.email.value = email.trim();
     isOtpView.value = true;
@@ -43,7 +43,7 @@ class ResetPasswordController extends GetxController {
       if (Get.context != null) {
         Navigator.pop(Get.context!);
       }
-      Get.to(() => ResetPasswordScreen());
+      Get.to(() => const ResetPasswordScreen());
     } else {
       ToastUtils.showError("Invalid OTP");
     }
@@ -52,7 +52,7 @@ class ResetPasswordController extends GetxController {
   void resetPassword(String password) async {
     // password.trim();
     isResetingPassword.value = true;
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     isResetingPassword.value = false;
   }
 

@@ -74,7 +74,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                   elevation: 8,
                   child: _authController.isLoading.value
                       ? const LoadingFadingCircle()
-                      : CustomTextWidget(
+                      : const CustomTextWidget(
                           text: "login",
                           color: Colors.white,
                         ),
@@ -96,7 +96,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
               ),
             ),
             SizedBox(height: 30.h),
-            OrDividerWidget(),
+            const OrDividerWidget(),
             SizedBox(height: 30.h),
             Row(
               children: [
@@ -129,7 +129,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
       body: SafeArea(
         top: false,
         child: SingleChildScrollView(
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           child: Stack(
             clipBehavior: Clip.none,
             children: [
@@ -144,7 +144,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
+                        const Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -161,7 +161,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                           ),
                         ),
                         SizedBox(width: 4.w),
-                        TranslationWidget(),
+                        const TranslationWidget(),
                       ],
                     ),
                   ],
@@ -201,7 +201,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                                 FocusScope.of(context)
                                     .requestFocus(_passwordFocusNode);
                               },
-                              prefix: Icon(
+                              prefix: const Icon(
                                 Icons.email,
                                 color: SharedColors.greyTextColor,
                               ),
@@ -233,12 +233,12 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                                   color: SharedColors.greyTextColor,
                                 ),
                               ),
-                              prefix: Icon(
+                              prefix: const Icon(
                                 Icons.lock,
                                 color: SharedColors.greyTextColor,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             GestureDetector(
                               onTap: () {
                                 showModalBottomSheet(
@@ -246,7 +246,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                                   showDragHandle: true,
                                   context: context,
                                   builder: (context) {
-                                    return ForgotPasswordWidget();
+                                    return const ForgotPasswordWidget();
                                   },
                                 );
                               },

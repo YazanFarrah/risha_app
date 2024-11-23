@@ -79,7 +79,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
 
     return Obx(
       () => AnimatedContainer(
-        duration: Duration(milliseconds: 150),
+        duration: const Duration(milliseconds: 150),
         height: resetPasswordController.isOtpView.value
             ? (keyboardHeight > 0 ? 570.h + keyboardHeight : 570.h)
             : (keyboardHeight > 0 ? 400.h + keyboardHeight : 400.h),
@@ -98,25 +98,25 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   ),
                 ),
                 SizedBox(height: 32.h),
-                Center(
+                const Center(
                   child: CustomTextWidget(
                     text: "checkCode",
                     maxLines: 2,
                   ),
                 ),
                 SizedBox(height: 12.h),
-                CustomTextWidget(
+                const CustomTextWidget(
                   text: "pleaseEnterOtp",
                   maxLines: 2,
                   isDisplaySmall: true,
                   textAlign: TextAlign.center,
                 ),
               } else ...{
-                CustomTextWidget(
+                const CustomTextWidget(
                   text: "forgotPasswordMessage",
                   maxLines: 2,
                 ),
-                CustomTextWidget(
+                const CustomTextWidget(
                   text: "forgotPasswordResetMessage",
                   maxLines: 5,
                   isDisplaySmall: true,
@@ -183,7 +183,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                         controller: _emailController,
                         focusNode: _focusNode,
                         hintText: "email".tr(context: context),
-                        prefix: Icon(
+                        prefix: const Icon(
                           Icons.email,
                           color: SharedColors.greyTextColor,
                         ),
@@ -205,7 +205,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   backgroundColor:
                       isOtpValid ? null : SharedColors.greyTextColor,
                   width: double.infinity,
-                  child: CustomTextWidget(
+                  child: const CustomTextWidget(
                     text: "check",
                     color: Colors.white,
                   ),
@@ -236,7 +236,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   width: double.infinity,
                   child: resetPasswordController.isLoading.value
                       ? const Loader()
-                      : CustomTextWidget(
+                      : const CustomTextWidget(
                           text: "resetPassword",
                           color: Colors.white,
                         ),

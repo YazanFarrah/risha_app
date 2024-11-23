@@ -21,7 +21,7 @@ class SubscriptionWidget extends StatelessWidget {
       height: height,
       padding: EdgeInsetsDirectional.only(top: 10.h, bottom: 10.h, end: 14.w),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [
             Color(0XFFA997FC),
             Color(0XFF896FFF),
@@ -65,7 +65,7 @@ class SubscriptionWidget extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CustomTextWidget(
+                    const CustomTextWidget(
                       text: "forSubPrice",
                       color: Colors.white,
                       isBodySmall: true,
@@ -73,7 +73,7 @@ class SubscriptionWidget extends StatelessWidget {
                       maxLines: 2,
                     ),
                     if (showDetails == true)
-                      CustomTextWidget(
+                      const CustomTextWidget(
                         text: "getRishaPlus",
                         color: Colors.white,
                         isBodySmall: true,
@@ -89,7 +89,7 @@ class SubscriptionWidget extends StatelessWidget {
             backgroundColor: Colors.white,
             height: 34.h,
             width: 114.w,
-            child: CustomTextWidget(
+            child: const CustomTextWidget(
               text: "subNow",
               color: SharedColors.primaryColor,
               fontSize: 12,

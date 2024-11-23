@@ -13,6 +13,11 @@ class RoutePaths {
   static const String settings = '/settings';
   static const String categories = '/categories';
   static const String accountResetPassword = '/reset-password';
+
+  // shared
+
+  static const String notifications= '/notifications';
+
   
   
 }

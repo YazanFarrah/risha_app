@@ -37,7 +37,7 @@ class _UserStateState extends State<UserState> {
 
   Future<void> fetchData() async {
     if (_localStorage.getToken == null) {
-      await Future.delayed(Duration(seconds: 3));
+      await Future.delayed(const Duration(seconds: 3));
       Get.offAllNamed(RoutePaths.login);
       return;
     }
@@ -68,7 +68,7 @@ class _UserStateState extends State<UserState> {
           ),
           SizedBox(height: 24.h),
           RepaintBoundary(
-            child: CustomTextWidget(
+            child: const CustomTextWidget(
               text: "ريشة",
               textAlign: TextAlign.center,
               color: Colors.white,
@@ -78,7 +78,7 @@ class _UserStateState extends State<UserState> {
             ).animate().shimmer(duration: 900.ms),
           ),
           RepaintBoundary(
-            child: CustomTextWidget(
+            child: const CustomTextWidget(
               text: "المعرفة",
               textAlign: TextAlign.center,
               color: SharedColors.goldColor,

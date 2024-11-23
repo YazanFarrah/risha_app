@@ -45,9 +45,8 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print("rebuilds");
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: "editAcc",
       ),
       body: SingleChildScrollView(
@@ -56,7 +55,7 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
           children: [
             Center(child: AvatarPickerWidget()),
             SizedBox(height: 14.h),
-            CustomTextWidget(
+            const CustomTextWidget(
               text: "تغيير الصورة",
               isDisplaySmall: true,
             ),

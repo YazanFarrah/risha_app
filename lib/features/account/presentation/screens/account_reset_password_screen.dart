@@ -32,7 +32,7 @@ class _AccountResetPasswordScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: "resetPassword",
       ),
       body: SingleChildScrollView(
@@ -46,7 +46,7 @@ class _AccountResetPasswordScreenState
                 text: "oldPassword",
                 hintText: "oldPassword",
                 controller: _oldPasswordController,
-                prefix: Icon(
+                prefix: const Icon(
                   Icons.lock,
                   color: SharedColors.greyTextColor,
                 ),
@@ -70,7 +70,7 @@ class _AccountResetPasswordScreenState
                 text: "newPassword",
                 hintText: "newPassword",
                 controller: _newPasswordController,
-                prefix: Icon(
+                prefix: const Icon(
                   Icons.lock,
                   color: SharedColors.greyTextColor,
                 ),
@@ -94,7 +94,7 @@ class _AccountResetPasswordScreenState
                 text: "confirmNewPassword",
                 hintText: "confirmNewPassword",
                 controller: _confirmPasswordController,
-                prefix: Icon(
+                prefix: const Icon(
                   Icons.lock,
                   color: SharedColors.greyTextColor,
                 ),
@@ -139,7 +139,7 @@ class _AccountResetPasswordScreenState
               },
               child: resetPasswordController.isLoading.value
                   ? const LoadingFadingCircle()
-                  : CustomTextWidget(
+                  : const CustomTextWidget(
                       text: "savePassword",
                       color: Colors.white,
                     ),

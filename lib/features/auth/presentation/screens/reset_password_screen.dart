@@ -51,7 +51,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: "resetPassword",
         centerTitle: false,
       ),
@@ -69,8 +69,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   .resetPassword(_confirmPasswordController.text);
             },
             child: resetPasswordController.isResetingPassword.value
-                ? LoadingFadingCircle()
-                : CustomTextWidget(text: "resetPassword", color: Colors.white),
+                ? const LoadingFadingCircle()
+                : const CustomTextWidget(text: "resetPassword", color: Colors.white),
           ),
         ),
       ),
@@ -89,7 +89,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 fillColor: Colors.white,
                 validator: (value) => isNotEmpty(value, context),
                 isPass: !showNewPass,
-                prefix: Icon(
+                prefix: const Icon(
                   Icons.lock,
                   color: SharedColors.greyTextColor,
                 ),
@@ -112,7 +112,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 filled: true,
                 fillColor: Colors.white,
                 isPass: !showConfirmNewPass,
-                prefix: Icon(
+                prefix: const Icon(
                   Icons.lock,
                   color: SharedColors.greyTextColor,
                 ),

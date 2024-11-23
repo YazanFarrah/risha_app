@@ -7,7 +7,7 @@ class AppThemes {
     unselectedWidgetColor: AppLightColors.primaryColor,
     scaffoldBackgroundColor: AppLightColors.appBackgroundColor,
     primaryColor: AppLightColors.primaryColor,
-    listTileTheme: ListTileThemeData().copyWith(iconColor: Colors.black),
+    listTileTheme: const ListTileThemeData().copyWith(iconColor: Colors.black),
     colorScheme: ColorScheme.light(
       brightness: Brightness.light,
       primary: AppLightColors.primaryColor,
@@ -25,10 +25,10 @@ class AppThemes {
       tertiaryContainer: AppLightColors.scaffoldBackground,
       inversePrimary: AppLightColors.settingCardBackground,
     ),
-    appBarTheme: AppBarTheme().copyWith(
-      iconTheme: IconThemeData(color: Colors.black),
+    appBarTheme: const AppBarTheme().copyWith(
+      iconTheme: const IconThemeData(color: Colors.black),
     ),
-    bottomSheetTheme: BottomSheetThemeData().copyWith(
+    bottomSheetTheme: const BottomSheetThemeData().copyWith(
       backgroundColor: Colors.white,
       dragHandleColor: AppLightColors.grayTextColor,
     ),

@@ -26,7 +26,7 @@ class AccountSettingsScreen extends StatelessWidget {
     final settingsController = Get.find<SettingsController>();
 
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: "settings",
       ),
       body: SingleChildScrollView(
@@ -41,7 +41,7 @@ class AccountSettingsScreen extends StatelessWidget {
                   children: [
                     Icon(Icons.language, size: 24.w),
                     SizedBox(width: 12.w),
-                    CustomTextWidget(
+                    const CustomTextWidget(
                       text: "appLanguage",
                       isDisplaySmall: true,
                       fontWeight: FontWeight.w700,
@@ -50,7 +50,7 @@ class AccountSettingsScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 15.h),
-                LanguageWidget(),
+                const LanguageWidget(),
                 SizedBox(height: 25.h),
                 Obx(
                   () {
@@ -65,7 +65,7 @@ class AccountSettingsScreen extends StatelessWidget {
                       trailingWidget: Switch(
                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         trackOutlineColor:
-                            WidgetStatePropertyAll(Colors.transparent),
+                            const WidgetStatePropertyAll(Colors.transparent),
                         value:
                             themeController.themeMode.value == ThemeMode.dark,
                         onChanged: (value) {
@@ -90,7 +90,7 @@ class AccountSettingsScreen extends StatelessWidget {
                       trailingWidget: Switch(
                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         trackOutlineColor:
-                            WidgetStatePropertyAll(Colors.transparent),
+                            const WidgetStatePropertyAll(Colors.transparent),
                         value: settingsController
                             .dailyCoinsCollectionReminder.value,
                         onChanged: (value) {
@@ -116,7 +116,7 @@ class AccountSettingsScreen extends StatelessWidget {
                       trailingWidget: Switch(
                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         trackOutlineColor:
-                            WidgetStatePropertyAll(Colors.transparent),
+                            const WidgetStatePropertyAll(Colors.transparent),
                         value: settingsController.newQuizReminder.value,
                         onChanged: (value) {
                           settingsController.toggleNewQuizReminder(value);
@@ -140,7 +140,7 @@ class AccountSettingsScreen extends StatelessWidget {
                       trailingWidget: Switch(
                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         trackOutlineColor:
-                            WidgetStatePropertyAll(Colors.transparent),
+                            const WidgetStatePropertyAll(Colors.transparent),
                         value: settingsController.hideMeInLeaderboard.value,
                         onChanged: (value) {
                           settingsController.toggleHideMeInLeaderboard(value);
@@ -164,7 +164,7 @@ class AccountSettingsScreen extends StatelessWidget {
                       trailingWidget: Switch(
                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         trackOutlineColor:
-                            WidgetStatePropertyAll(Colors.transparent),
+                            const WidgetStatePropertyAll(Colors.transparent),
                         value: settingsController.vibrateOnWrongAnswer.value,
                         onChanged: (value) {
                           settingsController.vibrateOnWrongAnswer(value);
@@ -195,7 +195,7 @@ class AccountSettingsScreen extends StatelessWidget {
                   onTap: () {
                     Get.toNamed(RoutePaths.categories);
                   },
-                  leadingWidget: Icon(Icons.star_rounded),
+                  leadingWidget: const Icon(Icons.star_rounded),
                   text: "favCategories",
                   trailingWidget: Icon(
                     Icons.arrow_forward_ios,
@@ -206,7 +206,7 @@ class AccountSettingsScreen extends StatelessWidget {
                 SizedBox(height: 17.h),
                 SettingsRowWidget(
                   onTap: () {
-                    Get.to(() => AccountFaqScreen());
+                    Get.to(() => const AccountFaqScreen());
                   },
                   leadingWidget: SvgPicture.asset(
                     AssetPaths.faq,
@@ -234,7 +234,7 @@ class AccountSettingsScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 17.h),
                 SettingsRowWidget(
-                  leadingWidget: Icon(Icons.restore),
+                  leadingWidget: const Icon(Icons.restore),
                   text: "restorePurchases",
                   trailingWidget: Icon(
                     Icons.arrow_forward_ios,
@@ -244,7 +244,7 @@ class AccountSettingsScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 17.h),
                 SettingsRowWidget(
-                  leadingWidget: Icon(
+                  leadingWidget: const Icon(
                     CupertinoIcons.delete_solid,
                     color: SharedColors.redColor,
                   ),
@@ -257,7 +257,7 @@ class AccountSettingsScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 17.h),
                 SettingsRowWidget(
-                  leadingWidget: Icon(
+                  leadingWidget: const Icon(
                     Icons.mail,
                   ),
                   text: "contactUs",
@@ -270,7 +270,7 @@ class AccountSettingsScreen extends StatelessWidget {
                 SizedBox(height: 17.h),
                 SettingsRowWidget(
                   onTap: () => HelperFunctions.showLogoutDialog(context),
-                  leadingWidget: Icon(
+                  leadingWidget: const Icon(
                     Icons.logout,
                   ),
                   text: "logout",

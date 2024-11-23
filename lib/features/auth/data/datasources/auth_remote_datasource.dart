@@ -9,7 +9,7 @@ class AuthRemoteDatasource {
     String password,
   ) async {
     try {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       final user = UserModel(
         id: "123456",
         name: "Yazan Farrah",
@@ -45,7 +45,7 @@ class AuthRemoteDatasource {
     String password,
   ) async {
     try {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       final user = UserModel(
         id: "123456",
         name: "John Doe",

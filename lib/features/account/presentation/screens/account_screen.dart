@@ -30,13 +30,13 @@ class AccountScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SubscriptionWidget(showDetails: true),
+                  const SubscriptionWidget(showDetails: true),
                   SizedBox(height: 20.h),
                   AccountListTileWidget(
                     onTap: () {
-                      Get.to(() => AccountEditScreen());
+                      Get.to(() => const AccountEditScreen());
                     },
-                    leadingWidget: CircularIconWidget(
+                    leadingWidget: const CircularIconWidget(
                       widget: Icon(
                         Icons.person,
                       ),
@@ -69,7 +69,7 @@ class AccountScreen extends StatelessWidget {
                         ),
                       );
                     },
-                    leadingWidget: CircularIconWidget(
+                    leadingWidget: const CircularIconWidget(
                       widget: Icon(
                         Icons.badge,
                       ),
@@ -84,7 +84,7 @@ class AccountScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 18.h),
                   AccountListTileWidget(
-                    leadingWidget: CircularIconWidget(
+                    leadingWidget: const CircularIconWidget(
                       widget: Icon(CupertinoIcons.chart_bar_fill),
                     ),
                     title: "statisticsTitle",
@@ -98,7 +98,7 @@ class AccountScreen extends StatelessWidget {
                   SizedBox(height: 18.h),
                   AccountListTileWidget(
                     onTap: () => Get.toNamed(RoutePaths.settings),
-                    leadingWidget: CircularIconWidget(
+                    leadingWidget: const CircularIconWidget(
                       widget: Icon(Icons.settings),
                     ),
                     title: "settings",

@@ -93,7 +93,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
           initialRoute: RoutePaths.userState,
           getPages: AppRouter.routes,
           onGenerateRoute: (settings) {
-            Widget routeWidget = UserState();
+            Widget routeWidget = const UserState();
 
             final routeName = settings.name;
             if (routeName != null) {

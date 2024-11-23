@@ -44,14 +44,14 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
     final double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
 
     return AnimatedContainer(
-      duration: Duration(milliseconds: 150),
+      duration: const Duration(milliseconds: 150),
       // Adjust height based on keyboard visibility
       height: keyboardHeight > 0
           ? 400.h + keyboardHeight
           : 400.h, // Adjust this base height as needed
       padding: UIConstants.horizontalPadding,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(10),
           topRight: Radius.circular(10),
@@ -61,11 +61,11 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 10.h),
-          CustomTextWidget(
+          const CustomTextWidget(
             text: "forgotPasswordMessage",
             maxLines: 2,
           ),
-          CustomTextWidget(
+          const CustomTextWidget(
             text: "forgotPasswordResetMessage",
             maxLines: 5,
             isDisplaySmall: true,
@@ -79,7 +79,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
               controller: _emailController,
               focusNode: _focusNode, // Attach the focus node
               hintText: "email".tr(context: context),
-              prefix: Icon(
+              prefix: const Icon(
                 Icons.email,
                 color: SharedColors.greyTextColor,
               ),
@@ -93,7 +93,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
               }
             },
             width: double.infinity,
-            child: CustomTextWidget(
+            child: const CustomTextWidget(
               text: "resetPassword",
               color: Colors.white,
             ),

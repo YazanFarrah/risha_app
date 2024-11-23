@@ -1,11 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/config/asset_paths.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart' hide Trans;
-import 'package:risha_app/core/services/hive_services.dart';
-import 'package:risha_app/core/widgets/custom_button.dart';
 import 'package:risha_app/features/account/presentation/screens/account_screen.dart';
+import 'package:risha_app/features/home/presentation/screens/home_screen.dart';
 import 'package:risha_app/features/shared/presentation/controllers/bottom_nav_bar_controller.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
 
@@ -13,13 +13,8 @@ class NavBar extends StatelessWidget {
   NavBar({super.key});
 
   final List<Widget> _screens = [
-    Center(
-      child: CustomButton(
-        onPressed: () => Get.find<HiveServices>().clearPreferences(),
-        text: "Clear local storage",
-      ),
-    ),
-    AccountScreen(),
+    const HomeScreen(),
+    const AccountScreen(),
   ];
 
   @override
@@ -56,7 +51,9 @@ class NavBar extends StatelessWidget {
       BottomNavController controller,
       CurrentUserController currentUserController) {
     return BottomNavigationBar(
-      showUnselectedLabels: false,
+      showUnselectedLabels: true,
+      selectedItemColor:Theme.of(context).colorScheme.inverseSurface,
+      unselectedItemColor: SharedColors.greyTextColor,
       type: BottomNavigationBarType.fixed,
       currentIndex: controller.currentIndex.value,
       onTap: (index) {
@@ -71,7 +68,7 @@ class NavBar extends StatelessWidget {
             asset: AssetPaths.home,
             filledAsset: AssetPaths.homeFilled,
           ),
-          label: "",
+          label: "home".tr(context: context),
         ),
         BottomNavigationBarItem(
           icon: _buildNavItemIcon(
@@ -81,7 +78,7 @@ class NavBar extends StatelessWidget {
             asset: AssetPaths.person,
             filledAsset: AssetPaths.personFilled,
           ),
-          label: "",
+          label: "myProfile".tr(context: context),
         ),
       ],
     );
@@ -100,7 +97,7 @@ class NavBar extends StatelessWidget {
         width: 29.w,
         controller.currentIndex.value == index ? filledAsset : asset,
         color: controller.currentIndex.value == index
-            ? Theme.of(context).primaryColor
+            ? Theme.of(context).colorScheme.inverseSurface
             : SharedColors.greyTextColor,
         key: ValueKey<int>(controller.currentIndex.value),
       ),

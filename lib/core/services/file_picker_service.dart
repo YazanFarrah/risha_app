@@ -45,7 +45,7 @@ class FilesPickerService {
               ),
             ],
             cancelButton: CupertinoActionSheetAction(
-              child: CustomTextWidget(
+              child: const CustomTextWidget(
                 text: 'cancel',
                 color: SharedColors.redColor,
               ),
@@ -67,7 +67,7 @@ class FilesPickerService {
                   Icons.camera_alt,
                   color: Theme.of(context).primaryColor,
                 ),
-                title: CustomTextWidget(text: 'camera'),
+                title: const CustomTextWidget(text: 'camera'),
                 onTap: () {
                   Navigator.of(context).pop(ImageSource.camera);
                 },
@@ -77,7 +77,7 @@ class FilesPickerService {
                   Icons.photo_library,
                   color: Theme.of(context).primaryColor,
                 ),
-                title: CustomTextWidget(text: 'gallery'),
+                title: const CustomTextWidget(text: 'gallery'),
                 onTap: () {
                   Navigator.of(context).pop(ImageSource.gallery);
                 },

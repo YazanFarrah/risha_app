@@ -16,18 +16,18 @@ class HelperFunctions {
     bool showDragHandler = false,
   }) async {
     showModalBottomSheet(
-      constraints: BoxConstraints(minWidth: double.infinity),
+      constraints: const BoxConstraints(minWidth: double.infinity),
       showDragHandle: showDragHandler,
       context: context,
       builder: (context) {
         return Container(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: 10,
             bottom: 40,
             left: 20,
             right: 20,
           ),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(10),
               topRight: Radius.circular(10),

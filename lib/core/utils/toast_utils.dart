@@ -9,9 +9,9 @@ class ToastUtils {
       message: error,
       backgroundColor: Colors.red.withOpacity(0.9),
       snackPosition: SnackPosition.top,
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       borderRadius: 8,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
       isDismissible: true,
     );
   }
@@ -23,9 +23,9 @@ class ToastUtils {
       message: message,
       backgroundColor: Colors.green.withOpacity(0.8),
       snackPosition: SnackPosition.bottom,
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       borderRadius: 8,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
       isDismissible: true,
     );
   }

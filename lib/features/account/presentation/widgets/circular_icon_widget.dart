@@ -4,22 +4,26 @@ import 'package:risha_app/config/app_colors.dart';
 
 class CircularIconWidget extends StatelessWidget {
   final Widget widget;
+  final Color? color;
+  final double? size;
   const CircularIconWidget({
     super.key,
     required this.widget,
+    this.color,
+    this.size,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 51.w,
-      width: 51.w,
-      padding: EdgeInsets.all(14.r),
+      height: size?.w ?? 51.w,
+      width: size?.w ?? 51.w,
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: SharedColors.blueGreyColor,
+        color: color ?? SharedColors.blueGreyColor,
       ),
-      child: Center(child: widget),
+      child: widget,
     );
   }
 }

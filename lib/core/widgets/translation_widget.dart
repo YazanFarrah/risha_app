@@ -13,10 +13,10 @@ class TranslationWidget extends StatelessWidget {
       onTap: () async {
         await Future.wait([
           Get.updateLocale(
-            context.locale.languageCode == 'en' ? Locale('ar') : Locale('en'),
+            context.locale.languageCode == 'en' ? const Locale('ar') : const Locale('en'),
           ),
           context.setLocale(
-            context.locale.languageCode == 'en' ? Locale('ar') : Locale('en'),
+            context.locale.languageCode == 'en' ? const Locale('ar') : const Locale('en'),
           ),
         ]);
       },
