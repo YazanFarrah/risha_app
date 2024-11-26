@@ -1,3 +1,4 @@
+import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
@@ -84,7 +85,7 @@ class CustomDropdownButton2 extends StatelessWidget {
                         valueAlignment ?? AlignmentDirectional.centerStart,
                     child: CustomTextWidget(
                       text: item,
-                      isDisplaySmall: true,
+                      textThemeStyle: TextThemeStyleEnum.displaySmall,
                       color: Theme.of(context).colorScheme.primaryContainer,
                     )),
               ),

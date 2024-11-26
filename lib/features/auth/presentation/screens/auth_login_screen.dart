@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/config/asset_paths.dart';
+import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/routes/route_paths.dart';
 import 'package:risha_app/core/utils/shared.dart';
 import 'package:risha_app/core/validators/general_validations.dart';
@@ -74,9 +75,9 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                   elevation: 8,
                   child: _authController.isLoading.value
                       ? const LoadingFadingCircle()
-                      : const CustomTextWidget(
+                      :  CustomTextWidget(
                           text: "login",
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                 );
               },
@@ -102,7 +103,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
               children: [
                 Expanded(
                   child: CustomButton(
-                    backgroundColor: Colors.white,
+                    backgroundColor: Theme.of(context).colorScheme.onSurface,
                     onPressed: () {},
                     child: SvgPicture.asset(
                       AssetPaths.googleSvg,
@@ -113,7 +114,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                   SizedBox(width: 12.w),
                   Expanded(
                     child: CustomButton(
-                      backgroundColor: Colors.white,
+                      backgroundColor: Theme.of(context).colorScheme.onSurface,
                       onPressed: () {},
                       child: SvgPicture.asset(
                         AssetPaths.appleSvg,
@@ -144,17 +145,17 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Expanded(
+                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               CustomTextWidget(
                                 text: "welcome",
-                                color: Colors.white,
+                                color: Theme.of(context).colorScheme.onSurface,
                               ),
                               CustomTextWidget(
                                 text: "loginToUseRisha",
-                                color: Colors.white,
+                                color: Theme.of(context).colorScheme.onSurface,
                                 maxLines: 2,
                               ),
                             ],
@@ -172,7 +173,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                 child: Padding(
                   padding: EdgeInsets.only(top: 150.h, left: 10.w, right: 10.w),
                   child: Card(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                     child: Padding(
                       padding: UIConstants.bodyPadding,
                       child: Form(
@@ -185,7 +186,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                               child: CustomTextWidget(
                                 text: "login",
                                 color: Theme.of(context).colorScheme.primary,
-                                isDisplayLarge: true,
+                                textThemeStyle: TextThemeStyleEnum.displayLarge,
                               ),
                             ),
                             SizedBox(height: 30.h),

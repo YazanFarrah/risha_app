@@ -16,7 +16,7 @@
   "resetPassword": "Reset Password",
   "newPassword": "New Password",
   "confirmNewPassword": "Confirm New Password",
-  "oldPassword" : "Old Password",
+  "oldPassword": "Old Password",
   "savePassword": "Save Password",
   "birthday": "Birthday",
   "gender": "Gender",
@@ -100,7 +100,10 @@
   "camera": "Camera",
   "gallery": "Gallery",
   "editAcc": "Edit Account",
+  "edit": "Edit",
   "deleteImage": "Delete Image",
   "emailVerified": "Verified",
-  "emailNotVerified": "Not Verified"
+  "emailNotVerified": "Not Verified",
+  "all": "View All",
+  "saveInfo": "Save Info"
 }

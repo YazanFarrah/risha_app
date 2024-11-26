@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:pinput/pinput.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/config/asset_paths.dart';
+import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/validators/general_validations.dart';
 import 'package:risha_app/core/widgets/custom_button.dart';
 import 'package:risha_app/core/widgets/custom_form_field.dart';
@@ -108,7 +109,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                 const CustomTextWidget(
                   text: "pleaseEnterOtp",
                   maxLines: 2,
-                  isDisplaySmall: true,
+                  textThemeStyle: TextThemeStyleEnum.displaySmall,
                   textAlign: TextAlign.center,
                 ),
               } else ...{
@@ -119,7 +120,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                 const CustomTextWidget(
                   text: "forgotPasswordResetMessage",
                   maxLines: 5,
-                  isDisplaySmall: true,
+                  textThemeStyle: TextThemeStyleEnum.displaySmall,
                 ),
               },
 
@@ -163,7 +164,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                               ? CustomTextWidget(
                                   text:
                                       "resend code in ${resetPasswordController.secondsRemaining}",
-                                  isDisplaySmall: true,
+                                  textThemeStyle: TextThemeStyleEnum.displaySmall,
                                 )
                               : CustomRichText(
                                   firstText:
@@ -205,9 +206,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   backgroundColor:
                       isOtpValid ? null : SharedColors.greyTextColor,
                   width: double.infinity,
-                  child: const CustomTextWidget(
+                  child:  CustomTextWidget(
                     text: "check",
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
                 SizedBox(height: 10.h),
@@ -216,7 +217,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                     Navigator.pop(context);
                   },
                   width: double.infinity,
-                  backgroundColor: Colors.white,
+                  backgroundColor: Theme.of(context).colorScheme.onSurface,
                   borderColor: Theme.of(context).colorScheme.primary,
                   child: CustomTextWidget(
                     text: "login",
@@ -236,9 +237,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   width: double.infinity,
                   child: resetPasswordController.isLoading.value
                       ? const Loader()
-                      : const CustomTextWidget(
+                      :  CustomTextWidget(
                           text: "resetPassword",
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                 ),
                 SizedBox(height: 10.h),
@@ -247,7 +248,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                     Navigator.pop(context);
                   },
                   width: double.infinity,
-                  backgroundColor: Colors.white,
+                  backgroundColor: Theme.of(context).colorScheme.onSurface,
                   borderColor: Theme.of(context).colorScheme.primary,
                   child: CustomTextWidget(
                     text: "login",

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risha_app/core/utils/shared.dart';
+import 'package:risha_app/core/widgets/custom_text_widget.dart';
 
 class HomeHeaderWidget extends StatelessWidget {
   const HomeHeaderWidget({super.key});
@@ -20,16 +21,18 @@ class HomeHeaderWidget extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: 6,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 2,
-                crossAxisSpacing: 8,
-                mainAxisSpacing: 8,
+                childAspectRatio: 2.w,
+                crossAxisSpacing: 8.w,
+                mainAxisSpacing: 8.h,
               ),
               itemBuilder: (context, index) {
-                return Container(
+                return 
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 2.w),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: const [
                       BoxShadow(
@@ -40,9 +43,10 @@ class HomeHeaderWidget extends StatelessWidget {
                     ],
                   ),
                   child: Center(
-                    child: Text(
-                      'Item ${index + 1}',
-                      style: const TextStyle(fontSize: 16),
+                    child: CustomTextWidget(
+                      text: 'Item ${index + 1} Item ${index + 1}Item ${index + 1}Item ${index + 1} Item ${index + 1} Item ${index + 1} Item ${index + 1}Item ${index + 1}',
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 );
@@ -54,3 +58,4 @@ class HomeHeaderWidget extends StatelessWidget {
     );
   }
 }
+

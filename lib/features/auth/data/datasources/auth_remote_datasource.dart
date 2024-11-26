@@ -29,7 +29,7 @@ class AuthRemoteDatasource {
         lastSeenAt: DateTime.parse("2024-01-20T18:45:00"),
         totalCorrectAnswers: 150,
         totalWrongAnswers: 30,
-        isPremium: true,
+        isPremium: false,
         isHiddenFromLeaderBoard: false,
       );
 

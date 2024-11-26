@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:risha_app/features/home/presentation/widgets/home_appbar_widget.dart';
 import 'package:risha_app/features/home/presentation/widgets/home_body.dart';
 import 'package:risha_app/features/home/presentation/widgets/home_header_widget.dart';
-import 'package:risha_app/features/shared/presentation/widgets/sliver_sizedbox_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,7 +15,6 @@ class HomeScreen extends StatelessWidget {
           slivers: [
             HomeAppbarWidget(),
             HomeHeaderWidget(),
-            SliverSizedBox(height: 20),
             HomeBody(),
           ],
         ),

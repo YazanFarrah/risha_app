@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/utils/shared.dart';
 import 'package:risha_app/core/widgets/custom_appbar.dart';
 import 'package:risha_app/core/widgets/custom_button.dart';
@@ -29,9 +30,9 @@ class AccountCategoriesScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
             child: CustomButton(
               onPressed: () {},
-              child: const CustomTextWidget(
+              child:  CustomTextWidget(
                 text: "saveFav",
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
           );
@@ -52,12 +53,12 @@ class AccountCategoriesScreen extends StatelessWidget {
             children: [
               const CustomTextWidget(
                 text: "chooseFavoriteCategories",
-                isDisplaySmall: true,
+                textThemeStyle: TextThemeStyleEnum.displaySmall,
                 maxLines: 2,
               ),
               const CustomTextWidget(
                 text: "helpUsChoose",
-                isDisplaySmall: true,
+                textThemeStyle: TextThemeStyleEnum.displaySmall,
                 maxLines: 2,
               ),
               SizedBox(height: 50.h),

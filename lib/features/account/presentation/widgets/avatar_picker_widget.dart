@@ -80,7 +80,7 @@ class AvatarPickerWidget extends StatelessWidget {
                         : avatarUrl != null
                             ? CupertinoIcons.pencil
                             : Icons.add,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
               ),

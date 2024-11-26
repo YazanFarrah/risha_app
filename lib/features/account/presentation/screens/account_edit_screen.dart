@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:risha_app/config/app_colors.dart';
+import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/routes/route_paths.dart';
 import 'package:risha_app/core/utils/shared.dart';
 import 'package:risha_app/core/widgets/custom_appbar.dart';
+import 'package:risha_app/core/widgets/custom_button.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 import 'package:risha_app/core/widgets/text_with_text_field.dart';
 import 'package:risha_app/features/account/presentation/widgets/account_gender_selection.dart';
@@ -49,6 +51,17 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
       appBar: const CustomAppBar(
         title: "editAcc",
       ),
+      extendBody: true,
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
+        child: CustomButton(
+          onPressed: () {},
+          child: CustomTextWidget(
+            text: "saveInfo",
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         padding: UIConstants.bodyPadding,
         child: Column(
@@ -57,7 +70,7 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
             SizedBox(height: 14.h),
             const CustomTextWidget(
               text: "تغيير الصورة",
-              isDisplaySmall: true,
+              textThemeStyle: TextThemeStyleEnum.displaySmall,
             ),
             SizedBox(height: 20.h),
             TextWithTextField(
@@ -81,7 +94,7 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
                       color: _userController.user.value?.isEmailVerified == true
                           ? SharedColors.successColor
                           : SharedColors.redColor,
-                      isDisplaySmall: true,
+                      textThemeStyle: TextThemeStyleEnum.displaySmall,
                     ),
                   ],
                 ),
@@ -132,7 +145,6 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
               selectedGender: _selectedGender,
               onChanged: (value) {
                 _selectedGender.value = value;
-                
               },
             ),
           ],

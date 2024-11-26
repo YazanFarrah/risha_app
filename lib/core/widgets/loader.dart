@@ -10,7 +10,7 @@ class Loader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: CircularProgressIndicator.adaptive(
-        backgroundColor: color ?? Colors.white,
+        backgroundColor: color ?? Theme.of(context).colorScheme.onSurface,
       ),
     );
   }
@@ -63,7 +63,7 @@ class LoadingFadingCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final spinkit = SpinKitFadingCircle(
-      color: color ?? Colors.white,
+      color: color ?? Theme.of(context).colorScheme.onSurface,
       // itemBuilder: (BuildContext context, int index) {
       //   return DecoratedBox(
       //     decoration: BoxDecoration(

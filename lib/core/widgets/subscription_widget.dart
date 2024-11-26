@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/config/asset_paths.dart';
+import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/widgets/custom_button.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 
@@ -41,6 +42,7 @@ class SubscriptionWidget extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 RichText(
                   text: TextSpan(
@@ -49,7 +51,7 @@ class SubscriptionWidget extends StatelessWidget {
                         text: "${"risha".tr(context: context)} ",
                         style:
                             Theme.of(context).textTheme.displayLarge!.copyWith(
-                                  color: Colors.white,
+                                  color: Theme.of(context).colorScheme.onSurface,
                                 ),
                       ),
                       TextSpan(
@@ -65,18 +67,18 @@ class SubscriptionWidget extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const CustomTextWidget(
+                     CustomTextWidget(
                       text: "forSubPrice",
-                      color: Colors.white,
-                      isBodySmall: true,
+                      color: Theme.of(context).colorScheme.onSurface,
+                      textThemeStyle: TextThemeStyleEnum.bodySmall,
                       fontWeight: FontWeight.w700,
                       maxLines: 2,
                     ),
                     if (showDetails == true)
-                      const CustomTextWidget(
+                       CustomTextWidget(
                         text: "getRishaPlus",
-                        color: Colors.white,
-                        isBodySmall: true,
+                        color: Theme.of(context).colorScheme.onSurface,
+                        textThemeStyle: TextThemeStyleEnum.bodySmall,
                         maxLines: 2,
                       ),
                   ],
@@ -86,7 +88,7 @@ class SubscriptionWidget extends StatelessWidget {
           ),
           CustomButton(
             onPressed: () {},
-            backgroundColor: Colors.white,
+            backgroundColor: Theme.of(context).colorScheme.onSurface,
             height: 34.h,
             width: 114.w,
             child: const CustomTextWidget(

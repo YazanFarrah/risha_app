@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:flutter_svg/svg.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/config/asset_paths.dart';
+import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
 import 'package:risha_app/core/routes/route_paths.dart';
 import 'package:risha_app/core/services/hive_services.dart';
@@ -68,11 +69,11 @@ class _UserStateState extends State<UserState> {
           ),
           SizedBox(height: 24.h),
           RepaintBoundary(
-            child: const CustomTextWidget(
+            child: CustomTextWidget(
               text: "ريشة",
               textAlign: TextAlign.center,
-              color: Colors.white,
-              isDisplayLarge: true,
+              color: Theme.of(context).colorScheme.onSurface,
+              textThemeStyle: TextThemeStyleEnum.displayLarge,
               isLocalize: false,
               fontSize: 24,
             ).animate().shimmer(duration: 900.ms),
@@ -82,7 +83,7 @@ class _UserStateState extends State<UserState> {
               text: "المعرفة",
               textAlign: TextAlign.center,
               color: SharedColors.goldColor,
-              isDisplayLarge: true,
+              textThemeStyle: TextThemeStyleEnum.displayLarge,
               isLocalize: false,
               fontSize: 24,
             ).animate().shimmer(duration: 900.ms),

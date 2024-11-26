@@ -34,7 +34,7 @@ class CategoryWidget extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSurface,
                 borderRadius: BorderRadius.circular(10.r),
                 border: isSelected
                     ? Border.all(
@@ -68,7 +68,7 @@ class CategoryWidget extends StatelessWidget {
                   child: Icon(
                     Icons.check,
                     size: 12.r,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
               ),

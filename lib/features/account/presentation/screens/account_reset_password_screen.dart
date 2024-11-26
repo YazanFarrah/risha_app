@@ -139,9 +139,9 @@ class _AccountResetPasswordScreenState
               },
               child: resetPasswordController.isLoading.value
                   ? const LoadingFadingCircle()
-                  : const CustomTextWidget(
+                  :  CustomTextWidget(
                       text: "savePassword",
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
             );
           },

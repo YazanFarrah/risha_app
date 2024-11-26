@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/routes/route_paths.dart';
 import 'package:risha_app/core/utils/shared.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
@@ -17,9 +18,7 @@ class HomeAppbarWidget extends StatelessWidget {
         final userController = Get.find<CurrentUserController>();
 
         return SliverAppBar(
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          toolbarHeight: 80,
-          expandedHeight: 120.h,
+          backgroundColor: const Color(0XFF7F64FF),
           floating: false,
           pinned: true,
           stretch: true,
@@ -46,10 +45,11 @@ class HomeAppbarWidget extends StatelessWidget {
                           text: "welcomeBack",
                           color: Theme.of(context).colorScheme.surface,
                           maxLines: 2,
+                          textThemeStyle: TextThemeStyleEnum.displayLarge,
                         ),
                         if (userController.user.value?.name != null)
                           CustomTextWidget(
-                            isDisplaySmall: true,
+                            textThemeStyle: TextThemeStyleEnum.displaySmall,
                             text: userController.user.value!.name!,
                             color: Theme.of(context).colorScheme.surface,
                             maxLines: 2,

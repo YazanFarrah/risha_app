@@ -16,7 +16,7 @@
   "resetPassword": "إعادة تعيين كلمة السر",
   "newPassword": "كلمة السر الجديدة",
   "confirmNewPassword": "تأكيد كلمة السر الجديدة",
-  "oldPassword" : "كلمة المرور القديمة",
+  "oldPassword": "كلمة المرور القديمة",
   "savePassword": "حفظ كلمة المرور",
   "birthday": "تاريخ الميلاد",
   "gender": "الجنس",
@@ -100,9 +100,10 @@
   "camera": "كاميرا",
   "gallery": "معرض الصور",
   "editAcc": "تعديل الملف الشخصي",
+  "edit": "تعديل",
   "deleteImage": "مسح الصورة",
   "emailVerified": "تم التحقق",
-  "emailNotVerified": "لم يتم التحقق"
-
-
+  "emailNotVerified": "لم يتم التحقق",
+  "all": "الكل",
+  "saveInfo": "حفظ البيانات"
 }

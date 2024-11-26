@@ -86,7 +86,7 @@ class GenderSelectionWidget extends StatelessWidget {
           child: AbsorbPointer(
             absorbing: true,
             child: TextWithTextField(
-              text: "Gender",
+              text: "gender",
               controller: TextEditingController(
                 text: gender.isEmpty ? "Select Gender" : gender.capitalize,
               ),

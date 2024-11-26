@@ -12,11 +12,12 @@ class AppLightColors {
   static const Color scaffoldBackground = Color(0xfff9f9f9);
   static const Color settingCardBackground = Color(0xffF5F5F5);
   static const Color textLightColor = Color(0x98000000);
-  static const Color grayColor = Color(0xFFD5D4DA);
+  static const Color darkGrayColor = Color(0XFF868686);
+  static const Color grayColor = Color(0xFFE1E1E1);
   static const Color lightGrayColor = Color(0xffA5A5A5);
   static const Color backgroundColor = Color(0xFFfafafa);
   static const Color appBackgroundColor = Color(0XFFEEF1FF);
-  static const Color whiteColor = Color.fromARGB(255, 255, 255, 255);
+  static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color greenColor = Color.fromARGB(255, 113, 195, 31);
   static const Color redColor = Color.fromARGB(255, 255, 0, 0);
   static const Color yellowColor = Color.fromARGB(255, 250, 192, 44);
@@ -51,6 +52,7 @@ class SharedColors {
   static const Color secondaryColor = Color(0XFF191552);
   static const Color successColor = Colors.green;
   static const Color greyTextColor = Color(0xFFB4B4B4);
+  static const Color grayColor = Color(0xFFDCDCDC);
   static const Color blackColor = Colors.black87;
   static const Color yellowColor = Color(0XFFFACC59);
   static const Color redColor = Color(0XFFC94127);

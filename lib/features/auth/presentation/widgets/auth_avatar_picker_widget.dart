@@ -71,7 +71,7 @@ class AuthAvatarPicker extends StatelessWidget {
                   height: 27.w,
                   child: Icon(
                     avatarUrl != null ? CupertinoIcons.delete_solid : Icons.add,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
               ),

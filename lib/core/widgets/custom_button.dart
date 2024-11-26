@@ -48,7 +48,7 @@ class CustomButton extends StatelessWidget {
                     backgroundColor ?? Theme.of(context).primaryColor,
                 side: borderColor != null
                     ? BorderSide(
-                        color: borderColor ?? Colors.white,
+                        color: borderColor ?? Theme.of(context).colorScheme.onSurface,
                         width: 1,
                       )
                     : null,
@@ -69,7 +69,7 @@ class CustomButton extends StatelessWidget {
                     backgroundColor ?? Theme.of(context).primaryColor,
                 side: borderColor != null
                     ? BorderSide(
-                        color: borderColor ?? Colors.white,
+                        color: borderColor ?? Theme.of(context).colorScheme.onSurface,
                         width: 1,
                       )
                     : null,

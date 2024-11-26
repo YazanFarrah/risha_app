@@ -38,7 +38,7 @@ class AppThemes {
         fontFamily: "Almarai",
         fontSize: 12,
         fontWeight: FontWeight.w400,
-        color: AppLightColors.grayTextColor,
+        color: AppLightColors.darkGrayColor,
         height: 0.0.h,
         letterSpacing: 0,
       ),

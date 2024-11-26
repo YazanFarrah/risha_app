@@ -82,7 +82,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                   child: Column(
                     children: [
                       SizedBox(height: 30.h),
-                      const Row(
+                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
@@ -91,17 +91,17 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                               children: [
                                 CustomTextWidget(
                                   text: "joinRisha",
-                                  color: Colors.white,
+                                  color: Theme.of(context).colorScheme.onSurface,
                                 ),
                                 CustomTextWidget(
                                   text: "startLearningWithRisha",
-                                  color: Colors.white,
+                                  color: Theme.of(context).colorScheme.onSurface,
                                   maxLines: 2,
                                 ),
                               ],
                             ),
                           ),
-                          TranslationWidget(),
+                          const TranslationWidget(),
                         ],
                       ),
                     ],
@@ -113,7 +113,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                     padding:
                         EdgeInsets.only(top: 105.h, left: 10.w, right: 10.w),
                     child: Card(
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.onSurface,
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 20.w,
@@ -247,9 +247,9 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                     onPressed: _signupAction,
                     width: double.infinity,
                     elevation: 8,
-                    child: const CustomTextWidget(
+                    child:  CustomTextWidget(
                       text: "signup",
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                   SizedBox(height: 10.h),
@@ -281,7 +281,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                     children: [
                       Expanded(
                         child: CustomButton(
-                          backgroundColor: Colors.white,
+                          backgroundColor: Theme.of(context).colorScheme.onSurface,
                           onPressed: () {},
                           child: SvgPicture.asset(
                             AssetPaths.googleSvg,
@@ -292,7 +292,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                         SizedBox(width: 12.w),
                         Expanded(
                           child: CustomButton(
-                            backgroundColor: Colors.white,
+                            backgroundColor: Theme.of(context).colorScheme.onSurface,
                             onPressed: () {},
                             child: SvgPicture.asset(
                               AssetPaths.appleSvg,

@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/config/asset_paths.dart';
+import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/routes/route_paths.dart';
 import 'package:risha_app/core/utils/helper_functions.dart';
 import 'package:risha_app/core/utils/shared.dart';
@@ -32,7 +33,7 @@ class AccountSettingsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         padding: UIConstants.bodyPadding.copyWith(top: 0),
         child: Card(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.onSurface,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 18.h),
             child: Column(
@@ -43,7 +44,7 @@ class AccountSettingsScreen extends StatelessWidget {
                     SizedBox(width: 12.w),
                     const CustomTextWidget(
                       text: "appLanguage",
-                      isDisplaySmall: true,
+                      textThemeStyle: TextThemeStyleEnum.displaySmall,
                       fontWeight: FontWeight.w700,
                       color: Colors.black,
                     ),
@@ -72,7 +73,7 @@ class AccountSettingsScreen extends StatelessWidget {
                           themeController.toggleThemeToDark(value);
                         },
                         activeColor: Theme.of(context).colorScheme.primary,
-                        inactiveThumbColor: Colors.white,
+                        inactiveThumbColor: Theme.of(context).colorScheme.onSurface,
                         inactiveTrackColor: SharedColors.inActiveSwitchColor,
                       ),
                     );
@@ -98,7 +99,7 @@ class AccountSettingsScreen extends StatelessWidget {
                               .toggleDailyCoinsCollectionReminder(value);
                         },
                         activeColor: Theme.of(context).colorScheme.primary,
-                        inactiveThumbColor: Colors.white,
+                        inactiveThumbColor: Theme.of(context).colorScheme.onSurface,
                         inactiveTrackColor: SharedColors.inActiveSwitchColor,
                       ),
                     );
@@ -122,7 +123,7 @@ class AccountSettingsScreen extends StatelessWidget {
                           settingsController.toggleNewQuizReminder(value);
                         },
                         activeColor: Theme.of(context).colorScheme.primary,
-                        inactiveThumbColor: Colors.white,
+                        inactiveThumbColor: Theme.of(context).colorScheme.onSurface,
                         inactiveTrackColor: SharedColors.inActiveSwitchColor,
                       ),
                     );
@@ -146,7 +147,7 @@ class AccountSettingsScreen extends StatelessWidget {
                           settingsController.toggleHideMeInLeaderboard(value);
                         },
                         activeColor: Theme.of(context).colorScheme.primary,
-                        inactiveThumbColor: Colors.white,
+                        inactiveThumbColor: Theme.of(context).colorScheme.onSurface,
                         inactiveTrackColor: SharedColors.inActiveSwitchColor,
                       ),
                     );
@@ -170,7 +171,7 @@ class AccountSettingsScreen extends StatelessWidget {
                           settingsController.vibrateOnWrongAnswer(value);
                         },
                         activeColor: Theme.of(context).colorScheme.primary,
-                        inactiveThumbColor: Colors.white,
+                        inactiveThumbColor: Theme.of(context).colorScheme.onSurface,
                         inactiveTrackColor: SharedColors.inActiveSwitchColor,
                       ),
                     );

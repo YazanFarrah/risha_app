@@ -16,8 +16,8 @@ class AccountFaqScreen extends StatelessWidget {
         padding: UIConstants.bodyPadding,
         child: ExpansionTile(
           title: const Text("data"),
-          backgroundColor: Colors.white,
-          collapsedBackgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).colorScheme.onSurface,
+          collapsedBackgroundColor: Theme.of(context).colorScheme.onSurface,
           shape: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide.none,

@@ -39,6 +39,8 @@ class AssetPaths {
   static const String theme = 'assets/svgs/theme.svg';
   static const String noAds = 'assets/svgs/no_ads.svg';
   static const String faq = 'assets/svgs/faq.svg';
+  static const String diamond = 'assets/svgs/diamond.svg';
+  static const String people = 'assets/svgs/people.svg';
   
 
   // Images:

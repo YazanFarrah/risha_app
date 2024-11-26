@@ -1,0 +1,115 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:risha_app/core/enums/text_style_enum.dart';
+import 'package:risha_app/core/widgets/custom_text_widget.dart';
+import 'package:risha_app/features/home/presentation/widgets/progress_indicator_widget.dart';
+import 'package:risha_app/features/shared/presentation/widgets/rating_stars_widget.dart';
+
+class FavoriteCategoriesWidget extends StatelessWidget {
+  const FavoriteCategoriesWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            const CustomTextWidget(
+              text: "favCategories",
+            ),
+            const Spacer(),
+            CustomTextWidget(
+              text: "edit".tr(context: context),
+              textThemeStyle: TextThemeStyleEnum.displaySmall,
+              color: Theme.of(context).colorScheme.primary,
+              fontWeight: FontWeight.w700,
+            ),
+            SizedBox(width: 1.w),
+            Icon(
+              Icons.edit,
+              size: 15.w,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ],
+        ),
+        ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            return Container(
+              height: 117.h,
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.r),
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      Icon(
+                        Icons.cases_outlined,
+                        color: Colors.red,
+                        size: 40.sp,
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 12.h),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const CustomTextWidget(text: "علوم", color: Colors.red),
+                        SizedBox(height: 6.h),
+                        Row(
+                          children: [
+                            const Expanded(
+                              child: ProgressIndicatorWidget(
+                                color: Colors.red,
+                                percentage: 47,
+                              ),
+                            ),
+                            SizedBox(width: 4.w),
+                            const CustomTextWidget(
+                                text: "47 %", color: Colors.red),
+                          ],
+                        ),
+                        SizedBox(height: 6.h),
+                        const CustomTextWidget(
+                          text: "مجموع الاختبارات 156",
+                          textThemeStyle: TextThemeStyleEnum.bodySmall,
+                        ),
+                        SizedBox(height: 3.h),
+                        const CustomTextWidget(
+                          text: "المتبقي 47",
+                          textThemeStyle: TextThemeStyleEnum.bodySmall,
+                        ),
+                        SizedBox(height: 3.h),
+                        const Row(
+                          children: [
+                            CustomTextWidget(
+                              text: "التقييم",
+                              textThemeStyle: TextThemeStyleEnum.bodySmall,
+                            ),
+                            RatingStarsWidget(
+                              rating: 4,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+          itemCount: 3,
+          separatorBuilder: (context, index) {
+            return SizedBox(height: 10.h);
+          },
+        )
+      ],
+    );
+  }
+}

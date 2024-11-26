@@ -16,8 +16,8 @@ class CircularIconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: size?.w ?? 51.w,
-      width: size?.w ?? 51.w,
+      height: size?.r ?? 51.r,
+      width: size?.r ?? 51.r,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         shape: BoxShape.circle,

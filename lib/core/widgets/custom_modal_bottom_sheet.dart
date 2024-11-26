@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risha_app/config/app_colors.dart';
+import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/widgets/custom_button.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 
@@ -49,7 +50,7 @@ class CustomModalBottomSheet extends StatelessWidget {
         SizedBox(height: 10.h),
         CustomTextWidget(
           text: description,
-          isDisplaySmall: true,
+          textThemeStyle: TextThemeStyleEnum.displaySmall,
           maxLines: 9999999,
         ),
         const SizedBox(height: 20),
@@ -59,7 +60,7 @@ class CustomModalBottomSheet extends StatelessWidget {
                 onPressed: onConfirm ?? () {},
                 child: CustomTextWidget(
                   text: confirmButtonText!,
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               )
             : const SizedBox.shrink(),
