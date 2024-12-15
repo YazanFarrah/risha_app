@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:risha_app/config/hive_box_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -9,8 +10,8 @@ class HiveServices {
     _box.put(AppSettingsBoxConstants.languageKey, lang.languageCode);
   }
 
-  String? get getLanguage {
-    return _box.get(AppSettingsBoxConstants.languageKey) as String?;
+  String get getLanguage {
+    return Get.locale?.languageCode ?? "ar";
   }
 
   // Token management

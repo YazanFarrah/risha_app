@@ -12,24 +12,24 @@ class HomeHeaderWidget extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            height: 78.h,
+            height: 60.h,
             color: const Color(0XFF7F64FF),
           ),
           Padding(
             padding: UIConstants.horizontalPadding,
             child: GridView.builder(
+              padding: EdgeInsets.only(top: 20.h),
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: 6,
-              gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 2.w,
                 crossAxisSpacing: 8.w,
                 mainAxisSpacing: 8.h,
               ),
               itemBuilder: (context, index) {
-                return 
-                Container(
+                return Container(
                   padding: EdgeInsets.symmetric(horizontal: 2.w),
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.onSurface,
@@ -44,7 +44,8 @@ class HomeHeaderWidget extends StatelessWidget {
                   ),
                   child: Center(
                     child: CustomTextWidget(
-                      text: 'Item ${index + 1} Item ${index + 1}Item ${index + 1}Item ${index + 1} Item ${index + 1} Item ${index + 1} Item ${index + 1}Item ${index + 1}',
+                      text:
+                          'Item ${index + 1} Item ${index + 1}Item ${index + 1}Item ${index + 1} Item ${index + 1} Item ${index + 1} Item ${index + 1}Item ${index + 1}',
                       maxLines: 2,
                       textAlign: TextAlign.center,
                     ),
@@ -58,4 +59,3 @@ class HomeHeaderWidget extends StatelessWidget {
     );
   }
 }
-

@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'package:risha_app/config/api_paths.dart';
+import 'package:risha_app/config/constants.dart';
 import 'package:risha_app/core/services/hive_services.dart';
 import 'package:risha_app/core/utils/prints.dart';
 import 'package:get/instance_manager.dart';
@@ -18,7 +20,8 @@ class RestApiService {
       'Content-type': 'application/json',
       'Accept': 'application/json',
       'token': token ?? "",
-      'lang': lang ?? "en",
+      'lang': lang,
+      'x-api-key': AppConstants.apiKey,
     };
   }
 
@@ -28,6 +31,7 @@ class RestApiService {
     final url = Uri.parse('${ApiPaths.baseUrl}$path')
         .replace(queryParameters: queryParams);
     final headers = await getHeaders();
+    log("HEADERS: $headers");
 
     return retry(
       () => http.get(url, headers: headers).timeout(const Duration(seconds: 4)),
@@ -101,4 +105,46 @@ class RestApiService {
       maxAttempts: 4,
     );
   }
+
+  static Future<http.Response> multipartPost(
+    String path, {
+    Map<String, String> fields = const {},
+    Map<String, String> queryParams = const {},
+    File? file,
+    String fileKey = 'file',
+  }) async {
+    final uri = Uri.parse('${ApiPaths.baseUrl}$path')
+        .replace(queryParameters: queryParams);
+    final headers = await getHeaders();
+
+    final request = http.MultipartRequest('POST', uri)
+      ..headers.addAll(headers)
+      ..fields.addAll(fields);
+
+    // Add file if provided
+    if (file != null) {
+      final fileStream = http.ByteStream(file.openRead());
+      final length = await file.length();
+      final multipartFile = http.MultipartFile(
+        fileKey, // Use provided file key
+        fileStream,
+        length,
+        filename: file.path.split('/').last,
+      );
+      request.files.add(multipartFile);
+    }
+
+    printWarning("Multipart request to: $uri");
+    printWarning("Fields: $fields");
+    printRed("Headers: $headers");
+
+    final streamedResponse = await retry(
+      () => request.send().timeout(const Duration(seconds: 10)),
+      retryIf: (e) => e is SocketException || e is TimeoutException,
+      maxAttempts: 4,
+    );
+
+    return http.Response.fromStream(streamedResponse);
+  }
+
 }

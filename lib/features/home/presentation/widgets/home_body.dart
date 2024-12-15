@@ -21,11 +21,11 @@ class HomeBody extends StatelessWidget {
         children: [
           if (userController.user.value?.isPremium == false)
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 25.h, horizontal: 19.w),
+              padding: EdgeInsets.only(left: 19.w, right: 19.w, top: 25.h),
               child: SubscriptionWidget(height: 66.h),
             ),
           Padding(
-            padding: UIConstants.horizontalPadding,
+            padding: UIConstants.horizontalPadding.copyWith(top: 25.h),
             child: ViewAllWithTitleWidget(
               title: "BLAH BLAH",
               onTap: () {},
@@ -60,7 +60,7 @@ class HomeBody extends StatelessWidget {
           ),
           SizedBox(height: 12.h),
           SizedBox(
-            height: 115.h,
+            height: 124.h,
             child: ListView.separated(
               padding: UIConstants.horizontalPadding,
               scrollDirection: Axis.horizontal,

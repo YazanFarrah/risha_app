@@ -51,6 +51,13 @@ class AvatarPickerWidget extends StatelessWidget {
                           child: Image.network(
                             avatarUrl,
                             fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return SvgPicture.asset(
+                                AssetPaths.personOutline,
+                                width: 40.w,
+                                fit: BoxFit.scaleDown,
+                              );
+                            },
                           ),
                         )
                       : SvgPicture.asset(

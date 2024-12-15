@@ -69,7 +69,7 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
             Center(child: AvatarPickerWidget()),
             SizedBox(height: 14.h),
             const CustomTextWidget(
-              text: "تغيير الصورة",
+              text: "changePicture",
               textThemeStyle: TextThemeStyleEnum.displaySmall,
             ),
             SizedBox(height: 20.h),
@@ -136,8 +136,13 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
               child: AbsorbPointer(
                 absorbing: true,
                 child: TextWithTextField(
-                  text: "gender",
+                  text: "country",
                   controller: TextEditingController(text: "*********"),
+                  suffix: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16.sp,
+                    color: Theme.of(context).colorScheme.inverseSurface,
+                  ),
                 ),
               ),
             ),
@@ -147,6 +152,7 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
                 _selectedGender.value = value;
               },
             ),
+            SizedBox(height: 60.h),
           ],
         ),
       ),

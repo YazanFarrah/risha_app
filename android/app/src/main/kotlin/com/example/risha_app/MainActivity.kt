@@ -1,4 +1,4 @@
-package com.example.risha_app
+package com.wisdom-zone.risha
 
 import io.flutter.embedding.android.FlutterActivity
 

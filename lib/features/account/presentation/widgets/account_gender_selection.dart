@@ -1,6 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart' hide Trans;
 import 'package:risha_app/core/utils/helper_functions.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 import 'package:risha_app/core/widgets/text_with_text_field.dart';
@@ -30,25 +31,25 @@ class GenderSelectionWidget extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   CustomTextWidget(
-                    text: "Select Gender",
+                    text: "selectGender",
                     color: Theme.of(context).colorScheme.primary,
                   ),
                   SizedBox(height: 10.h),
                   // Male option
                   GestureDetector(
                     onTap: () {
-                      onChanged("Male");
+                      onChanged("male");
                       Navigator.pop(context);
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomTextWidget(
-                          text: "Male",
+                          text: "male",
                           color: Theme.of(context).colorScheme.primary,
                         ),
                         Icon(
-                          gender == "Male"
+                          gender == "male"
                               ? Icons.check_circle
                               : Icons.radio_button_unchecked,
                           color: Theme.of(context).colorScheme.primary,
@@ -60,18 +61,18 @@ class GenderSelectionWidget extends StatelessWidget {
                   // Female option
                   GestureDetector(
                     onTap: () {
-                      onChanged("Female");
+                      onChanged("female");
                       Navigator.pop(context);
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomTextWidget(
-                          text: "Female",
+                          text: "female",
                           color: Theme.of(context).colorScheme.primary,
                         ),
                         Icon(
-                          gender == "Female"
+                          gender == "female"
                               ? Icons.check_circle
                               : Icons.radio_button_unchecked,
                           color: Theme.of(context).colorScheme.primary,
@@ -88,7 +89,14 @@ class GenderSelectionWidget extends StatelessWidget {
             child: TextWithTextField(
               text: "gender",
               controller: TextEditingController(
-                text: gender.isEmpty ? "Select Gender" : gender.capitalize,
+                text: gender.isEmpty
+                    ? "selectGender".tr(context: context)
+                    : gender.capitalize,
+              ),
+              suffix: Icon(
+                Icons.arrow_forward_ios,
+                size: 16.sp,
+                color: Theme.of(context).colorScheme.inverseSurface,
               ),
             ),
           ),

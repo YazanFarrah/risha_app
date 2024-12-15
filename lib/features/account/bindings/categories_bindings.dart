@@ -2,10 +2,10 @@ import 'package:risha_app/features/account/data/datasources/account_remote_datas
 import 'package:risha_app/features/account/presentation/controllers/category_controller.dart';
 import 'package:get/get.dart';
 
-class CategoriesBinding extends Binding {
+class CategoriesBinding extends Bindings {
   @override
-  List<Bind> dependencies() => [
-        Bind.lazyPut<CategoryController>(() => CategoryController()),
-        Bind.lazyPut<AccountRemoteDatasource>(() => AccountRemoteDatasource()),
+  void dependencies() => [
+        Get.lazyPut<CategoryController>(() => CategoryController()),
+        Get.lazyPut<AccountRemoteDatasource>(() => AccountRemoteDatasource()),
       ];
 }

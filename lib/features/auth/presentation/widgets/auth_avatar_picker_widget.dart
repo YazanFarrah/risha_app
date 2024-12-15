@@ -16,14 +16,14 @@ class AuthAvatarPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      final avatarUrl = _authController.avatarUrl.value;
+      final avatarUrl = _authController.profileImage.value;
 
       return GestureDetector(
         onTap: () async {
           if (avatarUrl == null) {
             final selectedImage = await FilesPickerService.pickImage(context);
             if (selectedImage != null) {
-              _authController.updateAvatarUrl(selectedImage);
+              _authController.updateProfileImage(selectedImage);
             }
           }
         },
@@ -57,7 +57,7 @@ class AuthAvatarPicker extends StatelessWidget {
               child: GestureDetector(
                 onTap: avatarUrl != null
                     ? () {
-                        _authController.updateAvatarUrl(null);
+                        _authController.updateProfileImage(null);
                       }
                     : null,
                 child: Container(

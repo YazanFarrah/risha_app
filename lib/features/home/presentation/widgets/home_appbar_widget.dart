@@ -16,7 +16,6 @@ class HomeAppbarWidget extends StatelessWidget {
     return Obx(
       () {
         final userController = Get.find<CurrentUserController>();
-
         return SliverAppBar(
           backgroundColor: const Color(0XFF7F64FF),
           floating: false,

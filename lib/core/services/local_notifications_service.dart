@@ -183,6 +183,7 @@ class LocalNotificationsServices {
         notificationBody,
         repeatInterval,
         generalNotificationDetails,
+        androidScheduleMode: AndroidScheduleMode.inexact,
       );
     } catch (error) {
       rethrow;

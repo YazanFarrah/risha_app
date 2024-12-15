@@ -57,9 +57,9 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
       return;
     }
     await _authController.signup(
-      fullName: "",
-      email: _emailController.text.trim(),
-      password: _passwordController.text.trim(),
+      fullName: _fullNameController.text,
+      email: _emailController.text,
+      password: _passwordController.text,
     );
   }
 
@@ -82,7 +82,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                   child: Column(
                     children: [
                       SizedBox(height: 30.h),
-                       Row(
+                      Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
@@ -91,11 +91,13 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                               children: [
                                 CustomTextWidget(
                                   text: "joinRisha",
-                                  color: Theme.of(context).colorScheme.onSurface,
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface,
                                 ),
                                 CustomTextWidget(
                                   text: "startLearningWithRisha",
-                                  color: Theme.of(context).colorScheme.onSurface,
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface,
                                   maxLines: 2,
                                 ),
                               ],
@@ -240,69 +242,67 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
             ),
             Padding(
               padding: UIConstants.bodyPadding,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CustomButton(
-                    onPressed: _signupAction,
-                    width: double.infinity,
-                    elevation: 8,
-                    child:  CustomTextWidget(
-                      text: "signup",
-                      color: Theme.of(context).colorScheme.onSurface,
+              child: Obx(
+                () => Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CustomButton(
+                      onPressed: _signupAction,
+                      width: double.infinity,
+                      elevation: 8,
+                      child: _authController.isSignupLoading.value
+                          ? const LoadingFadingCircle()
+                          : CustomTextWidget(
+                              text: "signup",
+                              color: Theme.of(context).colorScheme.onSurface,
+                            ),
                     ),
-                  ),
-                  SizedBox(height: 10.h),
-                  Obx(
-                    () {
-                      return CustomButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        width: double.infinity,
-                        elevation: 8,
-                        backgroundColor: Colors.transparent,
-                        borderColor: Theme.of(context).colorScheme.primary,
-                        child: _authController.isLoading.value
-                            ? const Loader(
-                                color: Colors.black,
-                              )
-                            : CustomTextWidget(
-                                text: "login",
-                                color: Theme.of(context).colorScheme.primary,
-                              ),
-                      );
-                    },
-                  ),
-                  SizedBox(height: 30.h),
-                  const OrDividerWidget(),
-                  SizedBox(height: 30.h),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: CustomButton(
-                          backgroundColor: Theme.of(context).colorScheme.onSurface,
-                          onPressed: () {},
-                          child: SvgPicture.asset(
-                            AssetPaths.googleSvg,
-                          ),
-                        ),
+                    SizedBox(height: 10.h),
+                    CustomButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      width: double.infinity,
+                      elevation: 8,
+                      backgroundColor: Colors.transparent,
+                      borderColor: Theme.of(context).colorScheme.primary,
+                      child: CustomTextWidget(
+                        text: "login",
+                        color: Theme.of(context).colorScheme.primary,
                       ),
-                      if (Platform.isIOS) ...{
-                        SizedBox(width: 12.w),
+                    ),
+                    SizedBox(height: 30.h),
+                    const OrDividerWidget(),
+                    SizedBox(height: 30.h),
+                    Row(
+                      children: [
                         Expanded(
                           child: CustomButton(
-                            backgroundColor: Theme.of(context).colorScheme.onSurface,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.onSurface,
                             onPressed: () {},
                             child: SvgPicture.asset(
-                              AssetPaths.appleSvg,
+                              AssetPaths.googleSvg,
                             ),
                           ),
                         ),
-                      },
-                    ],
-                  ),
-                ],
+                        if (Platform.isIOS) ...{
+                          SizedBox(width: 12.w),
+                          Expanded(
+                            child: CustomButton(
+                              backgroundColor:
+                                  Theme.of(context).colorScheme.onSurface,
+                              onPressed: () {},
+                              child: SvgPicture.asset(
+                                AssetPaths.appleSvg,
+                              ),
+                            ),
+                          ),
+                        },
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

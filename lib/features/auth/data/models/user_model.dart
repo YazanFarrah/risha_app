@@ -3,19 +3,24 @@ import 'package:risha_app/core/enums/user_gender_enum.dart';
 import 'package:risha_app/features/auth/data/models/user_nickname_model.dart';
 
 class UserModel {
-  final String? id;
+  final int? id;
   final String? name;
   final String? username;
   final UserNicknameModel? nickname;
   final UserGender? gender;
   final String? email;
+  final String? password;
+  final String? notificationID;
   final bool? isEmailVerified;
   final String? avatarUrl;
+  final String? profileImage;
   final int? totalPoints;
   final int? coins;
   final int? rank;
+  final int? strike;
   final String? token;
   final DateTime? createdAt;
+  final DateTime? updatedAt;
   final DateTime? lastCoinsClaimedAt;
   final DateTime? lastSeenAt;
   final int? totalCorrectAnswers;
@@ -30,13 +35,18 @@ class UserModel {
     this.nickname,
     this.gender,
     this.email,
+    this.password,
+    this.notificationID,
     this.isEmailVerified,
     this.avatarUrl,
+    this.profileImage,
     this.totalPoints,
     this.coins,
     this.rank,
+    this.strike,
     this.token,
     this.createdAt,
+    this.updatedAt,
     this.lastCoinsClaimedAt,
     this.lastSeenAt,
     this.totalCorrectAnswers,
@@ -50,22 +60,25 @@ class UserModel {
       id: json[UserModelConstants.id],
       name: json[UserModelConstants.name],
       username: json[UserModelConstants.username],
-      nickname: json[UserModelConstants.nickname],
+      // nickname: json[UserModelConstants.nickname],
       gender: json[UserModelConstants.gender],
       email: json[UserModelConstants.email],
       isEmailVerified: json[UserModelConstants.isEmailVerified],
       avatarUrl: json[UserModelConstants.avatar],
+      profileImage: json[UserModelConstants.profileImage],
       token: json[UserModelConstants.token],
-      totalPoints: json[UserModelConstants.totalPoints],
-      coins: json[UserModelConstants.coins],
-      rank: json[UserModelConstants.rank],
+      totalPoints: json[UserModelConstants.totalPoints] ?? 0,
+      coins: json[UserModelConstants.coins] ?? 0,
+      rank: json[UserModelConstants.rank] ?? 0,
       createdAt: DateTime.tryParse(json[UserModelConstants.createdAt] ?? ''),
+      updatedAt: DateTime.tryParse(json[UserModelConstants.updatedAt] ?? ''),
       lastCoinsClaimedAt:
           DateTime.tryParse(json[UserModelConstants.lastCoinsClaimedAt] ?? ''),
       lastSeenAt: DateTime.tryParse(json[UserModelConstants.lastSeenAt] ?? ''),
-      totalCorrectAnswers: json[UserModelConstants.totalCorrectAnswers],
-      totalWrongAnswers: json[UserModelConstants.totalWrongAnswers],
-      isPremium: json[UserModelConstants.isPremium],
+      totalCorrectAnswers: json[UserModelConstants.totalCorrectAnswers] ?? 0,
+      totalWrongAnswers: json[UserModelConstants.totalWrongAnswers] ?? 0,
+      strike: json[UserModelConstants.strike] ?? 0,
+      isPremium: json[UserModelConstants.isPremium] ?? false,
       isHiddenFromLeaderBoard:
           json[UserModelConstants.isHiddenFromLeaderBoard] ?? false,
     );
@@ -106,9 +119,17 @@ class UserModel {
     };
   }
 
+  Map<String, String> toSignupJson() {
+    return {
+      UserModelConstants.name: name ?? "",
+      UserModelConstants.email: email ?? "",
+      UserModelConstants.password: password ?? "",
+      UserModelConstants.notificationID: notificationID ?? "",
+    };
+  }
+
   // CopyWith method for selective field updates
   UserModel copyWith({
-    String? id,
     String? name,
     String? username,
     UserNicknameModel? nickname,
@@ -119,7 +140,7 @@ class UserModel {
     int? totalPoints,
     int? coins,
     int? rank,
-    // String? token,
+    String? token,
     DateTime? createdAt,
     DateTime? lastCoinsClaimedAt,
     DateTime? lastSeenAt,
@@ -129,7 +150,6 @@ class UserModel {
     bool? isHiddenFromLeaderBoard,
   }) {
     return UserModel(
-      id: id ?? this.id,
       name: name ?? this.name,
       username: username ?? this.username,
       nickname: nickname ?? this.nickname,
@@ -140,7 +160,7 @@ class UserModel {
       totalPoints: totalPoints ?? this.totalPoints,
       coins: coins ?? this.coins,
       rank: rank ?? this.rank,
-      // token: token ?? this.token,
+      token: token ?? this.token,
       createdAt: createdAt ?? this.createdAt,
       lastCoinsClaimedAt: lastCoinsClaimedAt ?? this.lastCoinsClaimedAt,
       lastSeenAt: lastSeenAt ?? this.lastSeenAt,

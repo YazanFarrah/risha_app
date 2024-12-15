@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -57,7 +59,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               splashColor: Colors.transparent,
               onPressed: onBack ??
                   () {
-                    Get.back();
+                    log("HERE IS THE ISSUE");
+                    try {
+                      Get.back();
+                    } catch (e) {
+                      log("GETX ERROR: $e");
+                    }
                   },
               icon: const Icon(
                 Icons.arrow_back_ios,

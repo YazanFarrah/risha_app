@@ -1,7 +1,14 @@
+import 'dart:convert';
+import 'dart:developer';
+import 'dart:io';
+
+import 'package:risha_app/config/api_paths.dart';
+import 'package:risha_app/config/json_constants.dart';
 import 'package:risha_app/core/errors/failure.dart';
+import 'package:risha_app/core/services/api_response_handler.dart';
+import 'package:risha_app/core/services/api_services.dart';
 import 'package:risha_app/features/auth/data/models/user_model.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:risha_app/features/auth/data/models/user_nickname_model.dart';
 
 class AuthRemoteDatasource {
   Future<Either<Failure, UserModel>> login(
@@ -9,63 +16,43 @@ class AuthRemoteDatasource {
     String password,
   ) async {
     try {
-      await Future.delayed(const Duration(seconds: 1));
-      final user = UserModel(
-        id: "123456",
-        name: "Yazan Farrah",
-        username: "yazan_farrah",
-        nickname: UserNicknameModel(
-          title: "المستكشف",
-          description: "وهو الباحث عن المعرفة في ريشة المعرفة",
-        ),
-        email: "john.doe@example.com",
-        avatarUrl: "https://example.com/avatar.jpg",
-        totalPoints: 500,
-        coins: 200,
-        rank: 3,
-        token: "fcm_token_example",
-        createdAt: DateTime.parse("2024-01-01T12:00:00"),
-        lastCoinsClaimedAt: DateTime.parse("2024-01-15T09:30:00"),
-        lastSeenAt: DateTime.parse("2024-01-20T18:45:00"),
-        totalCorrectAnswers: 150,
-        totalWrongAnswers: 30,
-        isPremium: false,
-        isHiddenFromLeaderBoard: false,
-      );
+      final res = await RestApiService.post(ApiPaths.login, {
+        UserModelConstants.email: email,
+        UserModelConstants.password: password,
+      });
+      final token = jsonDecode(res.body)[UserModelConstants.token];
 
-      return right(user);
+      return ApiResponseHandler.handleSingleResponse<UserModel>(
+        res,
+        (json) => UserModel.fromJson(json).copyWith(token: token),
+        jsonPath: "user",
+      );
     } catch (e) {
       return left(AuthFailure(e.toString()));
     }
   }
 
   Future<Either<Failure, UserModel>> signup(
-    String fullName,
-    String email,
-    String password,
+    UserModel user,
   ) async {
     try {
-      await Future.delayed(const Duration(seconds: 1));
-      final user = UserModel(
-        id: "123456",
-        name: "John Doe",
-        email: "john.doe@example.com",
-        avatarUrl: "https://example.com/avatar.jpg",
-        totalPoints: 500,
-        coins: 200,
-        rank: 3,
-        token: "fcm_token_example",
-        createdAt: DateTime.parse("2024-01-01T12:00:00"),
-        lastCoinsClaimedAt: DateTime.parse("2024-01-15T09:30:00"),
-        lastSeenAt: DateTime.parse("2024-01-20T18:45:00"),
-        totalCorrectAnswers: 150,
-        totalWrongAnswers: 30,
-        isPremium: true,
-        isHiddenFromLeaderBoard: false,
+      final image = user.profileImage != null ? File(user.profileImage!) : null;
+      final res = await RestApiService.multipartPost(
+        ApiPaths.signup,
+        fileKey: UserModelConstants.profileImage,
+        fields: user.toSignupJson(),
+        file: image,
       );
 
-      return right(user);
-    } catch (e) {
+      final token = jsonDecode(res.body)[UserModelConstants.token];
+
+      return ApiResponseHandler.handleSingleResponse<UserModel>(
+        res,
+        (json) => UserModel.fromJson(json).copyWith(token: token),
+        jsonPath: "user",
+      );
+    } catch (e, stackTrace) {
+      log("ERROR", stackTrace: stackTrace);
       return left(AuthFailure(e.toString()));
     }
   }

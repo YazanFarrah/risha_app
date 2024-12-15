@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 import 'package:risha_app/features/shared/presentation/controllers/notifications_controller.dart';
 
-class NotificationsBindings extends Binding {
+class NotificationsBindings extends Bindings {
   @override
-  List<Bind> dependencies() => [
-        Bind.lazyPut<NotificationsController>(() => NotificationsController()),
+  void dependencies() => [
+        Get.lazyPut<NotificationsController>(() => NotificationsController()),
       ];
 }

@@ -38,7 +38,7 @@ class FavoriteCategoriesWidget extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return Container(
-              height: 117.h,
+              height: 127.h,
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.r),
@@ -46,14 +46,18 @@ class FavoriteCategoriesWidget extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Column(
-                    children: [
-                      Icon(
-                        Icons.cases_outlined,
-                        color: Colors.red,
-                        size: 40.sp,
-                      ),
-                    ],
+                  Container(
+                    width: 40.w,
+                    height: 40.w,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.red),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.cases_outlined,
+                      color: Colors.red,
+                      size: 24.sp,
+                    ),
                   ),
                   SizedBox(width: 12.h),
                   Expanded(
@@ -61,7 +65,7 @@ class FavoriteCategoriesWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const CustomTextWidget(text: "علوم", color: Colors.red),
-                        SizedBox(height: 6.h),
+                        SizedBox(height: 5.h),
                         Row(
                           children: [
                             const Expanded(
@@ -72,10 +76,12 @@ class FavoriteCategoriesWidget extends StatelessWidget {
                             ),
                             SizedBox(width: 4.w),
                             const CustomTextWidget(
-                                text: "47 %", color: Colors.red),
+                              text: "47 %",
+                              color: Colors.red,
+                            ),
                           ],
                         ),
-                        SizedBox(height: 6.h),
+                        SizedBox(height: 5.h),
                         const CustomTextWidget(
                           text: "مجموع الاختبارات 156",
                           textThemeStyle: TextThemeStyleEnum.bodySmall,

@@ -9,4 +9,5 @@ class AppConstants {
       'https://play.google.com/store/apps/details?id=your.package.name';
   static const String iosAppUrl = 'https://apps.apple.com/app/idyour_app_id';
   static const String companyUrl = 'https://www.risha.com/';
+  static const String apiKey = 'Risha_2024@2025';
 }

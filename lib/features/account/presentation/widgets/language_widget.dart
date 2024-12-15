@@ -14,7 +14,7 @@ class LanguageWidget extends StatelessWidget {
     return Row(
       key: ValueKey(
         isArabic,
-      ), 
+      ),
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: isArabic
           ? [
@@ -73,7 +73,9 @@ class LanguageWidget extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              color: isSelected ? Theme.of(context).colorScheme.onSurface : Colors.black,
+              color: isSelected
+                  ? Theme.of(context).colorScheme.onSurface
+                  : Colors.black,
               fontSize: 14.sp,
               fontWeight: FontWeight.w400,
             ),

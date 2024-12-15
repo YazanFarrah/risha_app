@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:risha_app/core/errors/strings.dart';
 import 'package:risha_app/core/network/network_info.dart';
+import 'package:risha_app/features/auth/data/models/user_model.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
 import 'package:risha_app/core/routes/route_paths.dart';
 import 'package:risha_app/core/services/hive_services.dart';
@@ -10,18 +11,23 @@ import 'package:risha_app/features/auth/data/datasources/auth_remote_datasource.
 
 class AuthController extends GetxController {
   final isLoading = false.obs;
-  RxnString avatarUrl = RxnString(null);
+  final isSignupLoading = false.obs;
+  RxnString profileImage = RxnString(null);
   final _authRemoteDatasource = Get.find<AuthRemoteDatasource>();
   final _currentUserController = Get.find<CurrentUserController>();
   final _hiveServices = Get.find<HiveServices>();
   final _networkService = Get.find<NetworkService>();
 
-  void updateLoading(bool val) {
+  void updateLoginLoading(bool val) {
     isLoading.value = val;
   }
 
-  void updateAvatarUrl(String? newUrl) {
-    avatarUrl.value = newUrl;
+  void updateSignupLoading(bool val) {
+    isSignupLoading.value = val;
+  }
+
+  void updateProfileImage(String? newUrl) {
+    profileImage.value = newUrl;
   }
 
   Future<void> login({
@@ -31,7 +37,7 @@ class AuthController extends GetxController {
     if (!await _networkService.isConnected) {
       return ToastUtils.showError(noInternetConnection);
     }
-    updateLoading(true);
+    updateLoginLoading(true);
     final res = await _authRemoteDatasource.login(
       email,
       password,
@@ -44,7 +50,7 @@ class AuthController extends GetxController {
       _currentUserController.setUser(r);
       Get.offAllNamed(RoutePaths.navScreen);
     });
-    updateLoading(false);
+    updateLoginLoading(false);
   }
 
   Future<void> signup({
@@ -55,20 +61,25 @@ class AuthController extends GetxController {
     if (!await _networkService.isConnected) {
       return ToastUtils.showError(noInternetConnection);
     }
-    updateLoading(true);
-    final res = await _authRemoteDatasource.signup(
-      fullName,
-      email,
-      password,
+    updateSignupLoading(true);
+    final user = UserModel(
+      name: fullName.trim(),
+      email: email.trim(),
+      password: password.trim(),
+      notificationID: "",
+      profileImage: profileImage.value,
     );
+    final res = await _authRemoteDatasource.signup(user);
     res.fold((l) {
       ToastUtils.showError(l.message);
+      log(l.message);
     }, (r) {
       _hiveServices.setToken(r.token);
       log(r.token.toString());
+      log(r.email.toString());
       _currentUserController.setUser(r);
       Get.offAllNamed(RoutePaths.navScreen);
     });
-    updateLoading(false);
+    updateSignupLoading(false);
   }
 }

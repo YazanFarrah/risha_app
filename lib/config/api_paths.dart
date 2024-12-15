@@ -1,9 +1,9 @@
 class ApiPaths {
-  static String baseUrl = "https://event-at.com/api/";
+  static String baseUrl = "http://212.56.40.23/api/user/";
 
-  static const String signup = 'auth/signup';
-  static const String login = 'auth/login';
-  static const String getUserData = 'auth/';
+  //auth
+  static const String signup = 'register';
+  static const String login = 'login';
   static const String doesEmailExist = 'email-existance';
 
   //events
@@ -13,4 +13,8 @@ class ApiPaths {
   //categories
   static const String fetchCities = 'cities';
   static const String fetchCategories = 'categories';
+
+  //user
+  static const String fetchUserData = 'account';
+
 }

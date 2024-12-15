@@ -3,11 +3,11 @@ import 'package:risha_app/features/auth/data/datasources/auth_remote_datasource.
 import 'package:get/get.dart';
 import 'package:risha_app/features/auth/presentation/controllers/reset_password_controller.dart';
 
-class AuthBinding extends Binding {
+class AuthBinding extends Bindings {
   @override
-  List<Bind> dependencies() => [
-        Bind.lazyPut<AuthController>(() => AuthController()),
-        Bind.lazyPut<ResetPasswordController>(() => ResetPasswordController()),
-        Bind.lazyPut<AuthRemoteDatasource>(() => AuthRemoteDatasource()),
+  void dependencies() => [
+        Get.lazyPut<AuthController>(() => AuthController()),
+        Get.lazyPut<ResetPasswordController>(() => ResetPasswordController()),
+        Get.lazyPut<AuthRemoteDatasource>(() => AuthRemoteDatasource()),
       ];
 }

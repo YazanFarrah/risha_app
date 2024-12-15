@@ -1,9 +1,9 @@
 import 'package:risha_app/features/account/presentation/controllers/settings_controller.dart';
 import 'package:get/get.dart';
 
-class AccountBindings extends Binding {
+class AccountBindings extends Bindings {
   @override
-  List<Bind> dependencies() => [
-        Bind.lazyPut<SettingsController>(() => SettingsController()),
+  void dependencies() => [
+        Get.lazyPut<SettingsController>(() => SettingsController()),
       ];
 }

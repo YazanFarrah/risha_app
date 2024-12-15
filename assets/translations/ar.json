@@ -20,6 +20,7 @@
   "savePassword": "حفظ كلمة المرور",
   "birthday": "تاريخ الميلاد",
   "gender": "الجنس",
+  "selectGender": "اختر الجنس",
   "male": "ذكر",
   "female": "انثى",
   "country": "الدولة",
@@ -105,5 +106,6 @@
   "emailVerified": "تم التحقق",
   "emailNotVerified": "لم يتم التحقق",
   "all": "الكل",
-  "saveInfo": "حفظ البيانات"
+  "saveInfo": "حفظ البيانات",
+  "changePicture": "تغيير الصورة"
 }

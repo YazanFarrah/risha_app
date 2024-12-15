@@ -20,6 +20,7 @@
   "savePassword": "Save Password",
   "birthday": "Birthday",
   "gender": "Gender",
+  "selectGender": "Select Gender",
   "male": "Male",
   "female": "Female",
   "country": "Country",
@@ -105,5 +106,6 @@
   "emailVerified": "Verified",
   "emailNotVerified": "Not Verified",
   "all": "View All",
-  "saveInfo": "Save Info"
+  "saveInfo": "Save Info",
+  "changePicture": "Change Picture"
 }
