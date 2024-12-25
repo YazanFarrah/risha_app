@@ -107,5 +107,7 @@
   "emailNotVerified": "لم يتم التحقق",
   "all": "الكل",
   "saveInfo": "حفظ البيانات",
-  "changePicture": "تغيير الصورة"
+  "changePicture": "تغيير الصورة",
+  "choose" : "اختيار"
+
 }

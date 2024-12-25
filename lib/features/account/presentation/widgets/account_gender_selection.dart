@@ -1,16 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart' hide Trans;
 import 'package:risha_app/core/utils/helper_functions.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 import 'package:risha_app/core/widgets/text_with_text_field.dart';
 
-class GenderSelectionWidget extends StatelessWidget {
+class AccountGenderSelection extends StatelessWidget {
   final ValueNotifier<String> selectedGender;
   final ValueChanged<String> onChanged;
 
-  const GenderSelectionWidget({
+  const AccountGenderSelection({
     super.key,
     required this.selectedGender,
     required this.onChanged,
@@ -88,14 +87,15 @@ class GenderSelectionWidget extends StatelessWidget {
             absorbing: true,
             child: TextWithTextField(
               text: "gender",
-              controller: TextEditingController(
-                text: gender.isEmpty
-                    ? "selectGender".tr(context: context)
-                    : gender.capitalize,
-              ),
+              hintText: "gender",
+              controller: gender.isNotEmpty
+                  ? TextEditingController(
+                      text: gender.tr(context: context),
+                    )
+                  : TextEditingController(),
               suffix: Icon(
                 Icons.arrow_forward_ios,
-                size: 16.sp,
+                size: 20.sp,
                 color: Theme.of(context).colorScheme.inverseSurface,
               ),
             ),

@@ -11,6 +11,10 @@ class SharedRemoteDatasources {
   Future<Either<Failure, UserModel>> getUserData() async {
     final res = await RestApiService.get(ApiPaths.fetchUserData);
 
+    log("Request: ${res.request}");
+    log("StatusCode: ${res.statusCode}");
+    log("Headers: ${res.headers}");
+
     log("FETCHING USER: ${res.body}");
     try {
       return ApiResponseHandler.handleSingleResponse<UserModel>(

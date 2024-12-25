@@ -111,7 +111,9 @@ class LocalNotificationsServices {
       if (dateOfNextCheck == null ||
           notificationId == null ||
           channelID == null ||
-          channelName == null) return;
+          channelName == null) {
+        return;
+      }
       if (dateOfNextCheck.isBefore(DateTime.now())) return;
       final androidDetails = AndroidNotificationDetails(
         channelID,

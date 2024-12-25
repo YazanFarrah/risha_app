@@ -71,7 +71,7 @@ class CustomDropdownButton2 extends StatelessWidget {
         style: Theme.of(context).textTheme.displaySmall!.copyWith(
               color: Theme.of(context).colorScheme.surface,
             ),
-        barrierColor: Theme.of(context).colorScheme.surface.withOpacity(0.8),
+        barrierColor: Theme.of(context).colorScheme.surface.withValues( alpha: 0.8),
         hint: Container(
             alignment: hintAlignment, child: CustomTextWidget(text: hint)),
         value: value,

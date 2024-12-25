@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/core/errors/exceptions.dart';
 import 'package:risha_app/core/validators/file_validation.dart';
@@ -144,5 +145,75 @@ class FilesPickerService {
       return null;
     }
     return null;
+  }
+
+  static Future<DateTime?> pickCupertinoDate(BuildContext context) async {
+
+   DateTime initialDate = DateTime.now()
+          .subtract(const Duration(days: 365 * 5));
+
+    DateTime selectedDate = initialDate;
+
+    return showModalBottomSheet<DateTime>(
+      backgroundColor: Theme.of(context).bottomSheetTheme.backgroundColor,
+      context: context,
+      builder: (BuildContext context) {
+        return SizedBox(
+          height: 300.h,
+          child: Column(
+            children: [
+              Container(
+                height: 50.h,
+                color: Theme.of(context).bottomSheetTheme.backgroundColor,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pop(selectedDate);
+                        },
+                        child: Text(
+                          'choose'.tr(),
+                          style: Theme.of(context).textTheme.displayMedium,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: CupertinoTheme(
+                  data: CupertinoThemeData(
+                    textTheme: CupertinoTextThemeData(
+                      dateTimePickerTextStyle:
+                          Theme.of(context).textTheme.displayMedium,
+                    ),
+                    primaryColor:
+                        Theme.of(context).bottomSheetTheme.backgroundColor,
+                    primaryContrastingColor:
+                        Theme.of(context).bottomSheetTheme.backgroundColor,
+                    barBackgroundColor:
+                        Theme.of(context).bottomSheetTheme.backgroundColor,
+                    scaffoldBackgroundColor:
+                        Theme.of(context).bottomSheetTheme.backgroundColor,
+                  ),
+                  child: CupertinoDatePicker(
+                    mode: CupertinoDatePickerMode.date,
+                    dateOrder: DatePickerDateOrder.dmy,
+                    initialDateTime: initialDate,
+                    onDateTimeChanged: (dateTime) {
+                      selectedDate = dateTime;
+                    },
+                    maximumYear: DateTime.now().year - 5,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

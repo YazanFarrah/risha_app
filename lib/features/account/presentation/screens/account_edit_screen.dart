@@ -9,6 +9,8 @@ import 'package:risha_app/core/widgets/custom_appbar.dart';
 import 'package:risha_app/core/widgets/custom_button.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 import 'package:risha_app/core/widgets/text_with_text_field.dart';
+import 'package:risha_app/features/account/presentation/screens/account_select_country.dart';
+import 'package:risha_app/features/account/presentation/widgets/account_birthday_selection.dart';
 import 'package:risha_app/features/account/presentation/widgets/account_gender_selection.dart';
 import 'package:risha_app/features/account/presentation/widgets/avatar_picker_widget.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
@@ -25,7 +27,9 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
   final _fullNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _usernameController = TextEditingController();
-  final ValueNotifier<String> _selectedGender = ValueNotifier<String>("Male");
+  final _birthdayController = TextEditingController();
+  final _selectedGender = ValueNotifier<String>("Male");
+  final _selectedBirthday = ValueNotifier<String?>(null);
 
   @override
   void initState() {
@@ -33,6 +37,7 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
     _emailController.text = _userController.user.value?.email ?? "";
     _usernameController.text = _userController.user.value?.username ?? "";
     _selectedGender.value = _userController.user.value?.gender?.name ?? "";
+    _birthdayController.text = _userController.user.value?.birthday ?? "";
     super.initState();
   }
 
@@ -42,6 +47,7 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
     _fullNameController.dispose();
     _emailController.dispose();
     _usernameController.dispose();
+    _birthdayController.dispose();
     super.dispose();
   }
 
@@ -55,7 +61,9 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
         child: CustomButton(
-          onPressed: () {},
+          onPressed: () {
+            setState(() {});
+          },
           child: CustomTextWidget(
             text: "saveInfo",
             color: Theme.of(context).colorScheme.onSurface,
@@ -105,6 +113,36 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
               hintText: "username",
               controller: _usernameController,
             ),
+            AccountBirthdaySelection(
+              onChanged: (value) {
+                _selectedBirthday.value = value;
+              },
+              selectedBirthday: _selectedBirthday,
+            ),
+            GestureDetector(
+              onTap: () {
+                Get.to(() => const CountryScreen());
+              },
+              child: AbsorbPointer(
+                absorbing: true,
+                child: TextWithTextField(
+                  text: "country",
+                  controller: _birthdayController,
+                  hintText: "country",
+                  suffix: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 20.sp,
+                    color: Theme.of(context).colorScheme.inverseSurface,
+                  ),
+                ),
+              ),
+            ),
+            AccountGenderSelection(
+              selectedGender: _selectedGender,
+              onChanged: (value) {
+                _selectedGender.value = value;
+              },
+            ),
             GestureDetector(
               onTap: () {
                 Get.toNamed(RoutePaths.accountResetPassword);
@@ -114,43 +152,13 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
                 child: TextWithTextField(
                   text: "password",
                   controller: TextEditingController(text: "*********"),
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.toNamed(RoutePaths.accountResetPassword);
-              },
-              child: AbsorbPointer(
-                absorbing: true,
-                child: TextWithTextField(
-                  text: "birthday",
-                  controller: TextEditingController(text: "*********"),
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.toNamed(RoutePaths.accountResetPassword);
-              },
-              child: AbsorbPointer(
-                absorbing: true,
-                child: TextWithTextField(
-                  text: "country",
-                  controller: TextEditingController(text: "*********"),
                   suffix: Icon(
                     Icons.arrow_forward_ios,
-                    size: 16.sp,
+                    size: 20.sp,
                     color: Theme.of(context).colorScheme.inverseSurface,
                   ),
                 ),
               ),
-            ),
-            GenderSelectionWidget(
-              selectedGender: _selectedGender,
-              onChanged: (value) {
-                _selectedGender.value = value;
-              },
             ),
             SizedBox(height: 60.h),
           ],

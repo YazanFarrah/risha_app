@@ -10,6 +10,7 @@ class UserModel {
   final UserGender? gender;
   final String? email;
   final String? password;
+  final String? birthday;
   final String? notificationID;
   final bool? isEmailVerified;
   final String? avatarUrl;
@@ -36,6 +37,7 @@ class UserModel {
     this.gender,
     this.email,
     this.password,
+    this.birthday,
     this.notificationID,
     this.isEmailVerified,
     this.avatarUrl,
@@ -63,6 +65,7 @@ class UserModel {
       // nickname: json[UserModelConstants.nickname],
       gender: json[UserModelConstants.gender],
       email: json[UserModelConstants.email],
+      birthday: json[UserModelConstants.birthday],
       isEmailVerified: json[UserModelConstants.isEmailVerified],
       avatarUrl: json[UserModelConstants.avatar],
       profileImage: json[UserModelConstants.profileImage],
@@ -91,6 +94,7 @@ class UserModel {
       UserModelConstants.username: username,
       UserModelConstants.nickname: nickname,
       UserModelConstants.email: email,
+      UserModelConstants.birthday: birthday,
       UserModelConstants.isEmailVerified: isEmailVerified,
       UserModelConstants.avatar: avatarUrl,
       UserModelConstants.token: token,
@@ -134,6 +138,7 @@ class UserModel {
     String? username,
     UserNicknameModel? nickname,
     String? email,
+    String? birthday,
     final UserGender? gender,
     bool? isEmailVerified,
     String? avatarUrl,
@@ -154,6 +159,7 @@ class UserModel {
       username: username ?? this.username,
       nickname: nickname ?? this.nickname,
       email: email ?? this.email,
+      birthday: birthday ?? this.birthday,
       gender: gender ?? this.gender,
       isEmailVerified: isEmailVerified ?? this.isEmailVerified,
       avatarUrl: avatarUrl ?? this.avatarUrl,

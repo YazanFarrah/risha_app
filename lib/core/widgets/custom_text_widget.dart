@@ -98,7 +98,7 @@ class CustomTextWidget extends StatelessWidget {
             color: AppLightColors.appBackgroundColor,
           ),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.secondary.withOpacity(0.9),
+        color: Theme.of(context).colorScheme.secondary.withValues(alpha:  0.9),
         borderRadius: BorderRadius.circular(10.r),
       ),
       child: Text(

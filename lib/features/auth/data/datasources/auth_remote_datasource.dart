@@ -20,6 +20,8 @@ class AuthRemoteDatasource {
         UserModelConstants.email: email,
         UserModelConstants.password: password,
       });
+      log(res.body);
+
       final token = jsonDecode(res.body)[UserModelConstants.token];
 
       return ApiResponseHandler.handleSingleResponse<UserModel>(
@@ -43,6 +45,8 @@ class AuthRemoteDatasource {
         fields: user.toSignupJson(),
         file: image,
       );
+
+      log(res.body);
 
       final token = jsonDecode(res.body)[UserModelConstants.token];
 

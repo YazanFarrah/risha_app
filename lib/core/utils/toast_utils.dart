@@ -10,13 +10,12 @@ class ToastUtils {
     }
     Get.rawSnackbar(
       message: error,
-      backgroundColor: Colors.red.withOpacity(0.9),
+      backgroundColor: Colors.red.withValues(alpha: 0.9),
       snackPosition: SnackPosition.TOP,
       margin: const EdgeInsets.all(10),
       borderRadius: 8,
       duration: const Duration(seconds: 3),
       isDismissible: true,
-
     );
   }
 
@@ -27,9 +26,8 @@ class ToastUtils {
       Future.delayed(Duration.zero, () => Get.closeAllSnackbars());
     }
     Get.rawSnackbar(
-      
       message: message,
-      backgroundColor: Colors.green.withOpacity(0.8),
+      backgroundColor: Colors.green.withValues(alpha: 0.8),
       snackPosition: SnackPosition.BOTTOM,
       margin: const EdgeInsets.all(10),
       borderRadius: 8,

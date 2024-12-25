@@ -12,7 +12,7 @@ class DynamicIconButton extends StatelessWidget {
 
   const DynamicIconButton({
     super.key,
-     this.onPressed,
+    this.onPressed,
     this.height,
     this.width,
     this.margin,
@@ -30,8 +30,8 @@ class DynamicIconButton extends StatelessWidget {
       padding: EdgeInsets.all(4.r),
       decoration: BoxDecoration(
         color: backgroundColor ??
-            Theme.of(context).primaryColor.withOpacity(
-                  opacity ?? 0.2,
+            Theme.of(context).primaryColor.withValues(
+                  alpha: opacity ?? 0.2,
                 ),
         shape: BoxShape.circle,
       ),

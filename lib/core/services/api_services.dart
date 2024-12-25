@@ -19,7 +19,7 @@ class RestApiService {
     return {
       'Content-type': 'application/json',
       'Accept': 'application/json',
-      'token': token ?? "",
+      'Authorization': "Bearer $token",
       'lang': lang,
       'x-api-key': AppConstants.apiKey,
     };

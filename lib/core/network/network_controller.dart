@@ -43,7 +43,10 @@ class NetworkController extends GetxController {
     log(connectivityResult.map((e) => e.toString()).toList().toString());
     if (connectivityResult.contains(ConnectivityResult.none)) {
       log("No internet connection");
-      ToastUtils.showError("noInternet".tr());
+
+      if (Get.currentRoute.isNotEmpty) {
+        ToastUtils.showError("noInternet".tr());
+      }
     }
   }
 }

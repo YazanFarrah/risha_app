@@ -40,22 +40,22 @@ class ApiResponseHandler {
       }
     } else if (statusCode >= 400 && statusCode < 500) {
       final errorMessage = resBody is Map<String, dynamic>
-          ? resBody['error'] ??
-              resBody['message'] ??
+          ? resBody['message'] ??
+              resBody['error'] ??
               'Validation error occurred'
           : 'Validation error occurred';
 
       return Left(ValidationFailure(errorMessage));
     } else if (statusCode >= 500 && statusCode < 600) {
       final errorMessage = resBody is Map<String, dynamic>
-          ? resBody['error'] ?? resBody['message'] ?? 'Server error occurred'
+          ? resBody['message'] ?? resBody['error'] ?? 'Server error occurred'
           : 'Server error occurred';
 
       return Left(ServerFailure(errorMessage));
     } else {
       final errorMessage = resBody is Map<String, dynamic>
-          ? resBody['error'] ??
-              resBody['message'] ??
+          ? resBody['message'] ??
+              resBody['error'] ??
               'An unknown error occurred'
           : 'An unknown error occurred';
       return Left(UnknownFailure(errorMessage));
@@ -89,20 +89,20 @@ class ApiResponseHandler {
       }
     } else if (statusCode >= 400 && statusCode < 500) {
       final errorMessage = resBody is Map<String, dynamic>
-          ? resBody['error'] ??
-              resBody['message'] ??
+          ? resBody['message'] ??
+              resBody['error'] ??
               'Validation error occurred'
           : 'Validation error occurred';
       return Left(ValidationFailure(errorMessage));
     } else if (statusCode >= 500 && statusCode < 600) {
       final errorMessage = resBody is Map<String, dynamic>
-          ? resBody['error'] ?? resBody['message'] ?? 'Server error occurred'
+          ? resBody['message'] ?? resBody['error'] ?? 'Server error occurred'
           : 'Server error occurred';
       return Left(ServerFailure(errorMessage));
     } else {
       final errorMessage = resBody is Map<String, dynamic>
-          ? resBody['error'] ??
-              resBody['message'] ??
+          ? resBody['message'] ??
+              resBody['error'] ??
               'An unknown error occurred'
           : 'An unknown error occurred';
       return Left(UnknownFailure(errorMessage));
@@ -141,20 +141,20 @@ class ApiResponseHandler {
       }
     } else if (statusCode >= 400 && statusCode < 500) {
       final errorMessage = resBody is Map<String, dynamic>
-          ? resBody['error'] ??
-              resBody['message'] ??
+          ? resBody['message'] ??
+              resBody['error'] ??
               'Validation error occurred'
           : 'Validation error occurred';
       return Left(ValidationFailure(errorMessage));
     } else if (statusCode >= 500 && statusCode < 600) {
       final errorMessage = resBody is Map<String, dynamic>
-          ? resBody['error'] ?? resBody['message'] ?? 'Server error occurred'
+          ? resBody['message'] ?? resBody['error'] ?? 'Server error occurred'
           : 'Server error occurred';
       return Left(ServerFailure(errorMessage));
     } else {
       final errorMessage = resBody is Map<String, dynamic>
-          ? resBody['error'] ??
-              resBody['message'] ??
+          ? resBody['message'] ??
+              resBody['error'] ??
               'An unknown error occurred'
           : 'An unknown error occurred';
       return Left(UnknownFailure(errorMessage));

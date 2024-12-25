@@ -45,7 +45,7 @@ class CustomCachedImage extends StatelessWidget {
     BoxShadow? boxShadow;
     if (elevation != null) {
       boxShadow = BoxShadow(
-        color: Colors.black.withOpacity(0.3),
+        color: Colors.black.withValues(alpha: 0.3),
         spreadRadius: elevation! / 2,
         blurRadius: elevation!,
         offset: Offset(0, elevation! / 2),
