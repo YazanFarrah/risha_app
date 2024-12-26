@@ -7,24 +7,26 @@ import 'package:get/get.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/config/asset_paths.dart';
 import 'package:risha_app/core/services/file_picker_service.dart';
+import 'package:risha_app/features/account/presentation/controllers/edit_account_controller.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
 
 class AvatarPickerWidget extends StatelessWidget {
   AvatarPickerWidget({super.key});
 
   final _userController = Get.find<CurrentUserController>();
+  final _editAccountController = Get.find<EditAccountController>();
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       final avatarUrl = _userController.user.value?.avatarUrl;
-      final tempAvatarPath = _userController.tempAvatarPath.value;
+      final tempAvatarPath = _editAccountController.tempAvatarPath.value;
 
       return GestureDetector(
         onTap: () async {
           final selectedImage = await FilesPickerService.pickImage(context);
           if (selectedImage != null) {
-            _userController.updateTempAvatarPath(selectedImage);
+            _editAccountController.updateTempAvatarPath(selectedImage);
           }
         },
         child: Stack(
@@ -70,7 +72,7 @@ class AvatarPickerWidget extends StatelessWidget {
               bottom: 0,
               child: GestureDetector(
                 onTap: tempAvatarPath != null
-                    ? () => _userController.updateTempAvatarPath(null)
+                    ? () => _editAccountController.updateTempAvatarPath(null)
                     : null,
                 child: Container(
                   decoration: BoxDecoration(

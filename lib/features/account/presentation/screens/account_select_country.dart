@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:risha_app/features/account/data/models/countries_model.dart';
 import 'package:risha_app/features/account/data/static_data/countries_list.dart';
@@ -14,15 +11,14 @@ class CountryScreen extends StatefulWidget {
 }
 
 class _CountryScreenState extends State<CountryScreen> {
-
-  List<Country> filteredCountries = [];
+  List<Country> filteredCountries = countriesList;
   TextEditingController searchController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     // Load the countries from the JSON file
-  
+
     searchController.addListener(_onSearchChanged);
   }
 
@@ -43,18 +39,6 @@ class _CountryScreenState extends State<CountryScreen> {
     searchController.removeListener(_onSearchChanged);
     searchController.dispose();
     super.dispose();
-  }
-
-  Future<List<Country>> loadCountries() async {
-    // Load the JSON file from assets
-    final String response =
-        await rootBundle.loadString('assets/countries.json');
-
-    // Decode the JSON data
-    final List<dynamic> data = json.decode(response);
-
-    // Convert the decoded JSON into a list of Country objects
-    return data.map((json) => Country.fromJson(json)).toList();
   }
 
   @override
@@ -84,8 +68,8 @@ class _CountryScreenState extends State<CountryScreen> {
                     itemBuilder: (context, index) {
                       final country = filteredCountries[index];
                       return ListTile(
-                        leading:
-                            Text(country.flag, style: const TextStyle(fontSize: 24)),
+                        leading: Text(country.flag,
+                            style: const TextStyle(fontSize: 24)),
                         title: Text(
                           Get.locale?.languageCode == 'en'
                               ? country.name

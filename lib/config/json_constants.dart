@@ -32,9 +32,14 @@ class UserModelConstants {
 }
 
 class UserNickNameModelConstants {
+  static const String id = "id";
   static const String title = "title";
+  static const String arTitle = "ar_title";
   static const String description = "description";
+  static const String arDescription = "ar_description";
+  static const String quizTypeId = "quiz_type_id";
   static const String logo = "logo";
+  static const String logoUrl = "logo_url";
 }
 
 class CityModelConstants {

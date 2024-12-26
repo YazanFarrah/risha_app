@@ -108,6 +108,7 @@
   "all": "الكل",
   "saveInfo": "حفظ البيانات",
   "changePicture": "تغيير الصورة",
-  "choose" : "اختيار"
-
+  "choose": "اختيار",
+  "accountUpdatedSuccessfully": "تم تحديث الحساب بنجاح",
+  "passwordUpdatedSuccessfully": "تم تحديث كلمة المرور بنجاح"
 }

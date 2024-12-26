@@ -12,7 +12,7 @@ import 'package:risha_app/features/auth/data/datasources/auth_remote_datasource.
 class AuthController extends GetxController {
   final isLoading = false.obs;
   final isSignupLoading = false.obs;
-  RxnString profileImage = RxnString(null);
+  final profileImage = RxnString(null);
   final _authRemoteDatasource = Get.find<AuthRemoteDatasource>();
   final _currentUserController = Get.find<CurrentUserController>();
   final _hiveServices = Get.find<HiveServices>();

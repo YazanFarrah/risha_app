@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/services.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/config/asset_paths.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,15 @@ class NavBar extends StatelessWidget {
     return GetBuilder<BottomNavController>(
       builder: (controller) {
         return Scaffold(
+          appBar: controller.currentIndex.value != 0
+              ? AppBar(
+                  systemOverlayStyle: const SystemUiOverlayStyle(
+                    statusBarColor: Colors.transparent,
+                    statusBarIconBrightness: Brightness.dark,
+                  ),
+                  toolbarHeight: 0,
+                )
+              : null,
           body: IndexedStack(
             index: controller.currentIndex.value,
             children: _screens,
@@ -52,7 +62,7 @@ class NavBar extends StatelessWidget {
       CurrentUserController currentUserController) {
     return BottomNavigationBar(
       showUnselectedLabels: true,
-      selectedItemColor:Theme.of(context).colorScheme.inverseSurface,
+      selectedItemColor: Theme.of(context).colorScheme.inverseSurface,
       unselectedItemColor: SharedColors.greyTextColor,
       type: BottomNavigationBarType.fixed,
       currentIndex: controller.currentIndex.value,

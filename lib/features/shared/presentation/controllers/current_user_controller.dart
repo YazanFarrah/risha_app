@@ -7,7 +7,6 @@ import 'package:risha_app/features/shared/data/datasources/shared_remote_datasou
 
 class CurrentUserController extends GetxController {
   final user = Rxn<UserModel>();
-  final tempAvatarPath = Rxn<String>();
   final _hiveService = Get.find<HiveServices>();
   final _sharedRemoteDatasource = Get.find<SharedRemoteDatasources>();
 
@@ -16,14 +15,10 @@ class CurrentUserController extends GetxController {
     log(this.user.toString());
   }
 
-  void updateAvatarUrl(String? newUrl) {
-    user.value = user.value?.copyWith(avatarUrl: newUrl);
-    tempAvatarPath.value = null;
-  }
-
-  void updateTempAvatarPath(String? path) {
-    tempAvatarPath.value = path;
-  }
+  // void updateAvatarUrl(String? newUrl) {
+  //   user.value = user.value?.copyWith(avatarUrl: newUrl);
+  //   tempAvatarPath.value = null;
+  // }
 
   Future<void> getUser() async {
     final res = await _sharedRemoteDatasource.getUserData();

@@ -108,5 +108,7 @@
   "all": "View All",
   "saveInfo": "Save Info",
   "changePicture": "Change Picture",
-  "choose": "Choose"
+  "choose": "Choose",
+  "accountUpdatedSuccessfully": "Account updated successfully",
+  "passwordUpdatedSuccessfully": "Password updated successfully"
 }

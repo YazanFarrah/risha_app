@@ -8,7 +8,9 @@ import 'package:risha_app/core/utils/shared.dart';
 import 'package:risha_app/core/widgets/custom_appbar.dart';
 import 'package:risha_app/core/widgets/custom_button.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
+import 'package:risha_app/core/widgets/loader.dart';
 import 'package:risha_app/core/widgets/text_with_text_field.dart';
+import 'package:risha_app/features/account/presentation/controllers/edit_account_controller.dart';
 import 'package:risha_app/features/account/presentation/screens/account_select_country.dart';
 import 'package:risha_app/features/account/presentation/widgets/account_birthday_selection.dart';
 import 'package:risha_app/features/account/presentation/widgets/account_gender_selection.dart';
@@ -24,6 +26,7 @@ class AccountEditScreen extends StatefulWidget {
 
 class _AccountEditScreenState extends State<AccountEditScreen> {
   final _userController = Get.find<CurrentUserController>();
+  final _accountController = Get.find<EditAccountController>();
   final _fullNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _usernameController = TextEditingController();
@@ -43,7 +46,7 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
 
   @override
   void dispose() {
-    _userController.updateTempAvatarPath(null);
+    _accountController.updateTempAvatarPath(null);
     _fullNameController.dispose();
     _emailController.dispose();
     _usernameController.dispose();
@@ -60,13 +63,25 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
       extendBody: true,
       bottomNavigationBar: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
-        child: CustomButton(
-          onPressed: () {
-            setState(() {});
-          },
-          child: CustomTextWidget(
-            text: "saveInfo",
-            color: Theme.of(context).colorScheme.onSurface,
+        child: Obx(
+          () => CustomButton(
+            onPressed: () {
+              _accountController
+                  .updateUser(_userController.user.value!.copyWith(
+                name: _fullNameController.text,
+                email: _emailController.text,
+                username: _usernameController.text,
+                profileImage: _accountController.tempAvatarPath.value ??
+                    _userController.user.value!.profileImage,
+                birthday: _selectedBirthday.value,
+              ));
+            },
+            child: _accountController.isLoading.value
+                ? const LoadingFadingCircle()
+                : CustomTextWidget(
+                    text: "saveInfo",
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
           ),
         ),
       ),

@@ -34,7 +34,7 @@ class AccountScreen extends StatelessWidget {
                   SizedBox(height: 20.h),
                   AccountListTileWidget(
                     onTap: () {
-                      Get.to(() => const AccountEditScreen());
+                      Get.toNamed(RoutePaths.accountEdit);
                     },
                     leadingWidget: const CircularIconWidget(
                       widget: Icon(
@@ -61,7 +61,9 @@ class AccountScreen extends StatelessWidget {
                         context: context,
                         child: CustomModalBottomSheet(
                           title: "howToGetNickname",
-                          description: "nicknameDescription",
+                          description: Get.locale?.languageCode == "ar"
+                              ? userController?.nickname?.arDescription ?? ""
+                              : userController?.nickname?.description ?? "",
                           confirmButtonText: "gotIt",
                           onConfirm: () {
                             Navigator.pop(context);
@@ -74,8 +76,12 @@ class AccountScreen extends StatelessWidget {
                         Icons.badge,
                       ),
                     ),
-                    title: userController?.nickname?.title ?? "",
-                    subTitle: userController?.nickname?.description ?? "",
+                    title: Get.locale?.languageCode == "ar"
+                        ? userController?.nickname?.arTitle ?? ""
+                        : userController?.nickname?.title ?? "",
+                    subTitle: Get.locale?.languageCode == "ar"
+                        ? userController?.nickname?.arDescription ?? ""
+                        : userController?.nickname?.description ?? "",
                     trailingWidget: Icon(
                       Icons.info,
                       size: 24.w,

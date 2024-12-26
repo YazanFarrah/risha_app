@@ -136,10 +136,14 @@ class _AccountResetPasswordScreenState
                 if (!_formKey.currentState!.validate()) {
                   return;
                 }
+                resetPasswordController.updatePassword(
+                  _oldPasswordController.text,
+                  _newPasswordController.text,
+                );
               },
               child: resetPasswordController.isLoading.value
                   ? const LoadingFadingCircle()
-                  :  CustomTextWidget(
+                  : CustomTextWidget(
                       text: "savePassword",
                       color: Theme.of(context).colorScheme.onSurface,
                     ),

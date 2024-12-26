@@ -1,8 +1,10 @@
 import 'package:risha_app/core/routes/route_paths.dart';
-import 'package:risha_app/features/account/bindings/account_bindings.dart';
+import 'package:risha_app/features/account/bindings/account_edit_bindings.dart';
+import 'package:risha_app/features/account/bindings/account_settings_bindings.dart';
 import 'package:risha_app/features/account/bindings/account_reset_password_binding.dart';
 import 'package:risha_app/features/account/bindings/categories_bindings.dart';
 import 'package:risha_app/features/account/presentation/screens/account_categories_screen.dart';
+import 'package:risha_app/features/account/presentation/screens/account_edit_screen.dart';
 import 'package:risha_app/features/account/presentation/screens/account_reset_password_screen.dart';
 import 'package:risha_app/features/account/presentation/screens/account_settings_screen.dart';
 import 'package:risha_app/features/auth/presentation/screens/auth_login_screen.dart';
@@ -40,6 +42,11 @@ class AppRouter {
       binding: AccountBindings(),
     ),
     GetPage(
+      name: RoutePaths.accountEdit,
+      page: () => const AccountEditScreen(),
+      binding: AccountEditBindings(),
+    ),
+    GetPage(
       name: RoutePaths.categories,
       page: () => const AccountCategoriesScreen(),
       binding: CategoriesBinding(),
@@ -49,12 +56,10 @@ class AppRouter {
       page: () => const AccountResetPasswordScreen(),
       binding: AccountResetPasswordBinding(),
     ),
-
     GetPage(
       name: RoutePaths.notifications,
       page: () => const NotificationsScreen(),
       binding: NotificationsBindings(),
     ),
-    
   ];
 }

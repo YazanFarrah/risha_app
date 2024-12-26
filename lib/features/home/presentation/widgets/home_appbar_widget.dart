@@ -17,6 +17,7 @@ class HomeAppbarWidget extends StatelessWidget {
       () {
         final userController = Get.find<CurrentUserController>();
         return SliverAppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: const Color(0XFF7F64FF),
           floating: false,
           pinned: true,
@@ -37,6 +38,7 @@ class HomeAppbarWidget extends StatelessWidget {
                   SizedBox(width: 14.w),
                   Expanded(
                     child: Column(
+                      spacing: 2.h,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [

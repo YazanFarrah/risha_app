@@ -16,5 +16,8 @@ class ApiPaths {
 
   //user
   static const String fetchUserData = 'account';
+  static const String updateAccount = 'update-account';
+  static const String resetPassword = 'reset-password';
+  
 
 }

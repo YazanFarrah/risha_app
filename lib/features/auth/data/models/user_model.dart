@@ -60,11 +60,13 @@ class UserModel {
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       id: json[UserModelConstants.id],
-      name: json[UserModelConstants.name],
-      username: json[UserModelConstants.username],
-      // nickname: json[UserModelConstants.nickname],
-      gender: json[UserModelConstants.gender],
-      email: json[UserModelConstants.email],
+      name: json[UserModelConstants.name] ?? "",
+      username: json[UserModelConstants.username] ?? "",
+      nickname: json[UserModelConstants.nickname] != null
+          ? UserNicknameModel.fromJson(json[UserModelConstants.nickname])
+          : null,
+      gender: json[UserModelConstants.gender] ?? UserGender.male,
+      email: json[UserModelConstants.email] ?? "",
       birthday: json[UserModelConstants.birthday],
       isEmailVerified: json[UserModelConstants.isEmailVerified],
       avatarUrl: json[UserModelConstants.avatar],
@@ -132,6 +134,14 @@ class UserModel {
     };
   }
 
+  Map<String, String> toUpdateProfileJson() {
+    return {
+      UserModelConstants.name: name ?? "",
+      UserModelConstants.email: email ?? "",
+      UserModelConstants.username: username ?? "",
+    };
+  }
+
   // CopyWith method for selective field updates
   UserModel copyWith({
     String? name,
@@ -139,9 +149,10 @@ class UserModel {
     UserNicknameModel? nickname,
     String? email,
     String? birthday,
-    final UserGender? gender,
+    UserGender? gender,
     bool? isEmailVerified,
     String? avatarUrl,
+    String? profileImage,
     int? totalPoints,
     int? coins,
     int? rank,
@@ -163,6 +174,7 @@ class UserModel {
       gender: gender ?? this.gender,
       isEmailVerified: isEmailVerified ?? this.isEmailVerified,
       avatarUrl: avatarUrl ?? this.avatarUrl,
+      profileImage: profileImage ?? this.profileImage,
       totalPoints: totalPoints ?? this.totalPoints,
       coins: coins ?? this.coins,
       rank: rank ?? this.rank,
