@@ -1,5 +1,13 @@
 import 'package:risha_app/features/account/data/models/countries_model.dart';
 
+import 'package:flutter/material.dart';
+
+class ShimmerConstants {
+  static const Color baseColor = Color(0xFFE0E0E0); // Light grey
+  static const Color highlightColor = Color(0xFFF5F5F5); // Lighter grey
+}
+
+
 final List<Country> countriesList = [
   Country(
     name: "Afghanistan",
@@ -1248,18 +1256,6 @@ final List<Country> countriesList = [
     is_khaliji_country: false,
     flag: "🇵🇸",
     order: 7
-  ),
-  Country(
-    name: "Israel",
-    name_ar: "إسرائيل",
-    dial_code: "+972",
-    currency: "ILS",
-    iso2: "IL",
-    iso3: "ISR",
-    is_arabian_country: false,
-    is_khaliji_country: false,
-    flag: "🇮🇱",
-    order: 0
   ),
   Country(
     name: "Italy",

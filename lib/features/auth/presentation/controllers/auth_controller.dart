@@ -1,6 +1,4 @@
 import 'dart:developer';
-import 'package:risha_app/core/errors/strings.dart';
-import 'package:risha_app/core/network/network_info.dart';
 import 'package:risha_app/features/auth/data/models/user_model.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
 import 'package:risha_app/core/routes/route_paths.dart';
@@ -16,7 +14,6 @@ class AuthController extends GetxController {
   final _authRemoteDatasource = Get.find<AuthRemoteDatasource>();
   final _currentUserController = Get.find<CurrentUserController>();
   final _hiveServices = Get.find<HiveServices>();
-  final _networkService = Get.find<NetworkService>();
 
   void updateLoginLoading(bool val) {
     isLoading.value = val;
@@ -34,9 +31,6 @@ class AuthController extends GetxController {
     required String email,
     required String password,
   }) async {
-    if (!await _networkService.isConnected) {
-      return ToastUtils.showError(noInternetConnection);
-    }
     updateLoginLoading(true);
     final res = await _authRemoteDatasource.login(
       email,
@@ -58,9 +52,6 @@ class AuthController extends GetxController {
     required String email,
     required String password,
   }) async {
-    if (!await _networkService.isConnected) {
-      return ToastUtils.showError(noInternetConnection);
-    }
     updateSignupLoading(true);
     final user = UserModel(
       name: fullName.trim(),

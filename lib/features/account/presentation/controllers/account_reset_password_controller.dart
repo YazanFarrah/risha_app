@@ -1,13 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:risha_app/core/errors/strings.dart';
-import 'package:risha_app/core/network/network_info.dart';
+import 'package:risha_app/core/network/network_mixin.dart';
 import 'package:risha_app/core/utils/toast_utils.dart';
 import 'package:risha_app/features/account/data/datasources/account_remote_datasource.dart';
 
-class AccountResetPasswordController extends GetxController {
+class AccountResetPasswordController extends GetxController with NetworkMixin{
   final RxBool isLoading = false.obs;
-  final _networkService = Get.find<NetworkService>();
   final _accountRemoteDatasource = Get.find<AccountRemoteDatasource>();
 
   void updateLoading(bool val) {
@@ -15,7 +14,7 @@ class AccountResetPasswordController extends GetxController {
   }
 
   void updatePassword(String oldPassword, String newPassword) async {
-    if (!await _networkService.isConnected) {
+    if (!await isConnected) {
       return ToastUtils.showError(noInternetConnection);
     }
     updateLoading(true);

@@ -1,7 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:risha_app/config/app_colors.dart';
+import 'package:risha_app/core/enums/text_style_enum.dart';
+import 'package:risha_app/core/widgets/custom_appbar.dart';
+import 'package:risha_app/core/widgets/custom_button.dart';
+import 'package:risha_app/core/widgets/custom_form_field.dart';
+import 'package:risha_app/core/widgets/custom_text_widget.dart';
 import 'package:risha_app/features/account/data/models/countries_model.dart';
-import 'package:risha_app/features/account/data/static_data/countries_list.dart';
+import 'package:risha_app/config/countries_list.dart';
+import 'package:risha_app/features/account/presentation/controllers/edit_account_controller.dart';
 
 class CountryScreen extends StatefulWidget {
   const CountryScreen({super.key});
@@ -13,12 +22,11 @@ class CountryScreen extends StatefulWidget {
 class _CountryScreenState extends State<CountryScreen> {
   List<Country> filteredCountries = countriesList;
   TextEditingController searchController = TextEditingController();
+  Country? selectedCountry;
 
   @override
   void initState() {
     super.initState();
-    // Load the countries from the JSON file
-
     searchController.addListener(_onSearchChanged);
   }
 
@@ -26,10 +34,8 @@ class _CountryScreenState extends State<CountryScreen> {
     String searchText = searchController.text.trim().toLowerCase();
     setState(() {
       filteredCountries = countriesList.where((country) {
-        String countryName = Get.locale?.languageCode == 'en'
-            ? country.name.toLowerCase()
-            : country.name_ar.toLowerCase();
-        return countryName.contains(searchText);
+        return country.name!.toLowerCase().contains(searchText) ||
+            country.name_ar!.toLowerCase().contains(searchText);
       }).toList();
     });
   }
@@ -44,47 +50,104 @@ class _CountryScreenState extends State<CountryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Country List'),
+      appBar: const CustomAppBar(
+        title: "countryList",
       ),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
+            padding: const EdgeInsets.all(12.0),
+            child: CustomFormField(
               controller: searchController,
-              decoration: const InputDecoration(
-                labelText: 'Search',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(),
-              ),
+              hintText: 'searchByCountryName',
+              prefix: const Icon(Icons.search, color: SharedColors.grayColor),
             ),
           ),
           Expanded(
             child: filteredCountries.isEmpty
-                ? const Center(child: CircularProgressIndicator())
+                ? const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.search_off,
+                          size: 60, color: SharedColors.grayColor),
+                      SizedBox(height: 10),
+                      CustomTextWidget(
+                        text: "noMatchingCountriesFound",
+                      ),
+                    ],
+                  )
                 : ListView.builder(
                     itemCount: filteredCountries.length,
                     itemBuilder: (context, index) {
                       final country = filteredCountries[index];
-                      return ListTile(
-                        leading: Text(country.flag,
-                            style: const TextStyle(fontSize: 24)),
-                        title: Text(
-                          Get.locale?.languageCode == 'en'
-                              ? country.name
-                              : country.name_ar,
+                      final isSelected = selectedCountry == country;
+                      return Card(
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 5,
                         ),
-                        subtitle: Text(country.dial_code),
-                        onTap: () {
-                          // Handle country selection here if needed
-                        },
+                        elevation: 2,
+                        child: ListTile(
+                          splashColor: Colors.transparent,
+                          leading: CustomTextWidget(
+                            text: country.flag ?? "",
+                            fontSize: 38.sp,
+                          ),
+                          title: Get.locale?.languageCode == "ar"
+                              ? CustomTextWidget(
+                                  text: country.name_ar ?? "",
+                                  textThemeStyle:
+                                      TextThemeStyleEnum.displayLarge,
+                                )
+                              : CustomTextWidget(
+                                  text: country.name ?? "",
+                                  textThemeStyle:
+                                      TextThemeStyleEnum.displayLarge,
+                                ),
+                          subtitle:
+                              CustomTextWidget(text: country.dial_code ?? ""),
+                          trailing: isSelected
+                              ? Icon(CupertinoIcons.check_mark_circled,
+                                  color: Theme.of(context).primaryColor)
+                              : null,
+                          onTap: () {
+                            if (selectedCountry?.iso2 == country.iso2) {
+                              setState(() {
+                                selectedCountry = null;
+                              });
+                            } else {
+                              setState(() {
+                                selectedCountry = country;
+                              });
+                            }
+                          },
+                        ),
                       );
                     },
                   ),
           ),
         ],
       ),
+      extendBody: true,
+      bottomNavigationBar: selectedCountry != null
+          ? Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
+              child: CustomButton(
+                onPressed: () {
+                  if (selectedCountry != null &&
+                      selectedCountry?.dial_code != null) {
+                    Get.find<EditAccountController>()
+                        .updateTempCountry(selectedCountry!.iso2!);
+                    Get.back();
+                  }
+                },
+                child: CustomTextWidget(
+                  text: "confirmSelection",
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
+              ),
+            )
+          : null,
     );
   }
 }

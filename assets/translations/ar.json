@@ -110,5 +110,16 @@
   "changePicture": "تغيير الصورة",
   "choose": "اختيار",
   "accountUpdatedSuccessfully": "تم تحديث الحساب بنجاح",
-  "passwordUpdatedSuccessfully": "تم تحديث كلمة المرور بنجاح"
+  "passwordUpdatedSuccessfully": "تم تحديث كلمة المرور بنجاح",
+  "searchByCountryName": "البحث بإسم الدولة...",
+  "noMatchingCountriesFound": "لم يتم العثور على دول مطابقة",
+  "countryList": "قائمة الدول",
+  "confirmSelection": "تأكيد الاختيار",
+  "rank": "التصنيف",
+  "points": "النقاط",
+  "coins": "العملات",
+  "answers": "الأجوبة",
+  "correct": "الصحيحة",
+  "wrong": "الخاطئة",
+  "strike": "الحماسة"
 }

@@ -30,7 +30,6 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
   final _fullNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _usernameController = TextEditingController();
-  final _birthdayController = TextEditingController();
   final _selectedGender = ValueNotifier<String>("Male");
   final _selectedBirthday = ValueNotifier<String?>(null);
 
@@ -40,7 +39,7 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
     _emailController.text = _userController.user.value?.email ?? "";
     _usernameController.text = _userController.user.value?.username ?? "";
     _selectedGender.value = _userController.user.value?.gender?.name ?? "";
-    _birthdayController.text = _userController.user.value?.birthday ?? "";
+    _selectedBirthday.value = _userController.user.value?.birthday ?? "";
     super.initState();
   }
 
@@ -50,7 +49,8 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
     _fullNameController.dispose();
     _emailController.dispose();
     _usernameController.dispose();
-    _birthdayController.dispose();
+    _selectedBirthday.dispose();
+    _selectedGender.dispose();
     super.dispose();
   }
 
@@ -136,19 +136,47 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(() => const CountryScreen());
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  constraints: BoxConstraints(
+                    maxHeight: 0.9.sh,
+                    minWidth: 1.sw,
+                  ),
+                  context: context,
+                  builder: (context) {
+                    return const CountryScreen();
+                  },
+                );
               },
               child: AbsorbPointer(
                 absorbing: true,
-                child: TextWithTextField(
-                  text: "country",
-                  controller: _birthdayController,
-                  hintText: "country",
-                  suffix: Icon(
-                    Icons.arrow_forward_ios,
-                    size: 20.sp,
-                    color: Theme.of(context).colorScheme.inverseSurface,
-                  ),
+                child: Obx(
+                  () {
+                    final selectedCountry = (_accountController
+                                    .selectedCountry.value.name !=
+                                null &&
+                            _accountController.selectedCountry.value.flag !=
+                                null)
+                        ? (Get.locale?.languageCode == "ar"
+                            ? "${_accountController.selectedCountry.value.name_ar} ${_accountController.selectedCountry.value.flag}"
+                            : "${_accountController.selectedCountry.value.name} ${_accountController.selectedCountry.value.flag}")
+                        : null;
+
+                    return TextWithTextField(
+                      text: "country",
+                      controller: TextEditingController(
+                        text: selectedCountry ??
+                            _userController.user.value?.country?.name ??
+                            "",
+                      ),
+                      hintText: "country",
+                      suffix: Icon(
+                        Icons.arrow_forward_ios,
+                        size: 20.sp,
+                        color: Theme.of(context).colorScheme.inverseSurface,
+                      ),
+                    );
+                  },
                 ),
               ),
             ),

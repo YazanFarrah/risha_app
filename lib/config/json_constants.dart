@@ -6,17 +6,18 @@ class UserModelConstants {
   static const String gender = "gender";
   static const String email = "email";
   static const String notificationID = "fcmToken";
-  static const String isEmailVerified = "is-email-verified";
+  static const String isEmailVerified = "email_verified_at";
   static const String avatar = "avatar_url";
   static const String profileImage = "profile_image";
   static const String password = "password";
   static const String birthday = "birth_date";
+  static const String country = "country";
   static const String type = "type";
   static const String token = "token";
   static const String coins = "coins";
   static const String phoneNumber = "phone";
   static const String city = "city";
-  static const String totalPoints = "total-points";
+  static const String totalPoints = "total_points";
   static const String rank = "rank";
   static const String address = "address";
   static const String createdAt = "created_at";
@@ -27,8 +28,8 @@ class UserModelConstants {
   static const String totalWrongAnswers = "total_correct_answers";
   static const String strike = "strike";
   static const String degreeOfInsurance = "degree_of_insurance";
-  static const String isPremium = "is-premium";
-  static const String isHiddenFromLeaderBoard = "is-hidden-from-leaderboard";
+  static const String isPremium = "is_premium";
+  static const String isHiddenFromLeaderBoard = "leaderboard_visibility";
 }
 
 class UserNickNameModelConstants {
@@ -41,62 +42,11 @@ class UserNickNameModelConstants {
   static const String logo = "logo";
   static const String logoUrl = "logo_url";
 }
-
-class CityModelConstants {
+class TrendyQuizzesModelConstants {
   static const String id = "id";
-  static const String name = "name";
-  static const String imageUrl = "icon";
-}
-
-class SectionEventModelConstants {
-  static const String id = "id";
-  static const String title = "title";
-  static const String events = "events";
-}
-
-class EventsModelConstants {
-  static const String id = "id";
-  static const String title = "eventTitle";
-  static const String description = "description";
-  static const String topLevelLocation = "topLevelLocation";
-  static const String detailedLocation = "detailedLocation";
-  static const String latitude = "latitude";
-  static const String longitude = "longitude";
-  static const String price = "price";
-  static const String joinedUsers = "joinedUsers";
-  static const String date = "date";
-  static const String time = "time";
-  static const String images = "images";
-  static const String videos = "videos";
-  static const String sponsors = "sponsors";
-  static const String speakers = "speakers";
-  static const String category = "category";
-}
-
-class CategoryModelConstants {
-  static const String id = "id";
-  static const String title = "name";
-  static const String image = "icon";
-}
-
-class SpeakerModelConstants {
-  static const String id = "id";
-  static const String name = "name";
-  static const String bio = "bio";
-  static const String images = "images";
-  static const String videos = "videos";
-}
-
-class SponsorModelConstants {
-  static const String id = "id";
-  static const String name = "name";
-  static const String images = "images";
-  static const String videos = "videos";
-  static const String bio = "bio";
-}
-
-class MedicalNetworkCardsConstants {
-  static const String id = "id";
-  static const String title = "title";
-  static const String logo = "logo";
+  static const String arName = "ar_name";
+  static const String enName = "en_name";
+  static const String icon = "icon";
+  static const String quizzesCount = "quizzes_count";
+  static const String colorCode = "color_code";
 }

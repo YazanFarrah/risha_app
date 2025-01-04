@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/routes/route_paths.dart';
 import 'package:risha_app/core/utils/shared.dart';
+import 'package:risha_app/core/widgets/custom_cached_image.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 import 'package:risha_app/features/account/presentation/widgets/circular_icon_widget.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
@@ -23,18 +24,26 @@ class HomeAppbarWidget extends StatelessWidget {
           pinned: true,
           stretch: true,
           flexibleSpace: FlexibleSpaceBar(
+            titlePadding: EdgeInsets.only(bottom: 8.h),
             stretchModes: const [StretchMode.zoomBackground],
             title: Padding(
               padding: UIConstants.horizontalPadding,
               child: Row(
                 children: [
                   CircularIconWidget(
-                    size: 40,
-                    widget: const Icon(
-                      Icons.person,
-                    ),
-                    color: Theme.of(context).colorScheme.surface,
+                    widget: userController.user.value?.profileImage != null
+                        ? ClipOval(
+                            child: CustomCachedImage(
+                              image:
+                                  userController.user.value?.profileImage ?? "",
+                              asDecoration: true,
+                            ),
+                          )
+                        : const Icon(
+                            Icons.person,
+                          ),
                   ),
+                  
                   SizedBox(width: 14.w),
                   Expanded(
                     child: Column(

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/core/utils/responsive.dart';
 import 'package:flutter/material.dart';
@@ -130,7 +131,7 @@ class CustomFormField extends StatelessWidget {
               : BorderSide.none,
           borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
         ),
-        hintText: hintText,
+        hintText: hintText?.tr(context: context),
       ),
     );
   }

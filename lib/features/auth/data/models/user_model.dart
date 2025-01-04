@@ -1,5 +1,6 @@
 import 'package:risha_app/config/json_constants.dart';
 import 'package:risha_app/core/enums/user_gender_enum.dart';
+import 'package:risha_app/features/account/data/models/countries_model.dart';
 import 'package:risha_app/features/auth/data/models/user_nickname_model.dart';
 
 class UserModel {
@@ -11,6 +12,7 @@ class UserModel {
   final String? email;
   final String? password;
   final String? birthday;
+  final Country? country;
   final String? notificationID;
   final bool? isEmailVerified;
   final String? avatarUrl;
@@ -38,6 +40,7 @@ class UserModel {
     this.email,
     this.password,
     this.birthday,
+    this.country,
     this.notificationID,
     this.isEmailVerified,
     this.avatarUrl,
@@ -67,8 +70,12 @@ class UserModel {
           : null,
       gender: json[UserModelConstants.gender] ?? UserGender.male,
       email: json[UserModelConstants.email] ?? "",
-      birthday: json[UserModelConstants.birthday],
-      isEmailVerified: json[UserModelConstants.isEmailVerified],
+      birthday: json[UserModelConstants.birthday] ?? "1999-08-25",
+      country: json[UserModelConstants.country] != null
+          ? Country.fromJson(json[UserModelConstants.country])
+          : null,
+      isEmailVerified:
+          json[UserModelConstants.isEmailVerified] != null ? true : false,
       avatarUrl: json[UserModelConstants.avatar],
       profileImage: json[UserModelConstants.profileImage],
       token: json[UserModelConstants.token],
@@ -85,7 +92,7 @@ class UserModel {
       strike: json[UserModelConstants.strike] ?? 0,
       isPremium: json[UserModelConstants.isPremium] ?? false,
       isHiddenFromLeaderBoard:
-          json[UserModelConstants.isHiddenFromLeaderBoard] ?? false,
+          json[UserModelConstants.isHiddenFromLeaderBoard] == 0 ? false : true,
     );
   }
 
@@ -149,6 +156,7 @@ class UserModel {
     UserNicknameModel? nickname,
     String? email,
     String? birthday,
+    Country? country,
     UserGender? gender,
     bool? isEmailVerified,
     String? avatarUrl,
@@ -171,6 +179,7 @@ class UserModel {
       nickname: nickname ?? this.nickname,
       email: email ?? this.email,
       birthday: birthday ?? this.birthday,
+      country: country ?? this.country,
       gender: gender ?? this.gender,
       isEmailVerified: isEmailVerified ?? this.isEmailVerified,
       avatarUrl: avatarUrl ?? this.avatarUrl,

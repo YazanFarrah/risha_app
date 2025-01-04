@@ -1,28 +1,28 @@
 // ignore_for_file: non_constant_identifier_names
 
 class Country {
-  final String name; // Country name in English
-  final String name_ar; // Country name in Arabic
-  final String dial_code; // Country dialing code
-  final String currency; // Country currency
-  final String iso2; // ISO2 code
-  final String iso3; // ISO3 code
-  final bool is_arabian_country; // Flag to check if the country is Arabian
-  final bool is_khaliji_country; // Flag to check if the country is Khaliji
-  final String flag; // Country flag emoji
-  final int order; // Order for sorting
+  final String? name; // Country name in English
+  final String? name_ar; // Country name in Arabic
+  final String? dial_code; // Country dialing code
+  final String? currency; // Country currency
+  final String? iso2; // ISO2 code
+  final String? iso3; // ISO3 code
+  final bool? is_arabian_country; // Flag to check if the country is Arabian
+  final bool? is_khaliji_country; // Flag to check if the country is Khaliji
+  final String? flag; // Country flag emoji
+  final int? order; // Order for sorting
 
   Country({
-    required this.name,
-    required this.name_ar,
-    required this.dial_code,
-    required this.currency,
-    required this.iso2,
-    required this.iso3,
-    required this.is_arabian_country,
-    required this.is_khaliji_country,
-    required this.flag,
-    required this.order,
+    this.name,
+    this.name_ar,
+    this.dial_code,
+    this.currency,
+    this.iso2,
+    this.iso3,
+    this.is_arabian_country,
+    this.is_khaliji_country,
+    this.flag,
+    this.order,
   });
 
   // Factory constructor to convert from JSON to Country model

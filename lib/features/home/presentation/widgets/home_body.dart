@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:risha_app/core/utils/shared.dart';
 import 'package:risha_app/core/widgets/subscription_widget.dart';
+import 'package:risha_app/features/home/presentation/controllers/trendy_quizzes_controller.dart';
+import 'package:risha_app/features/home/presentation/shimmers/trending_quizzes_categories_shimmer.dart';
 import 'package:risha_app/features/home/presentation/widgets/favorite_categories_widget.dart';
 import 'package:risha_app/features/home/presentation/widgets/trending_quizzes_categories_widget.dart';
 import 'package:risha_app/features/home/presentation/widgets/trending_quizzes_widget.dart';
@@ -34,20 +36,28 @@ class HomeBody extends StatelessWidget {
           SizedBox(height: 12.h),
           SizedBox(
             height: 47.h,
-            child: ListView.separated(
-              padding: UIConstants.horizontalPadding,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return const TrendingQuizzesCategoriesWidget(
-                  color: Colors.green,
-                  icon: Icons.cases_outlined,
-                  title: "اعمال",
-                );
+            child: Obx(
+              () {
+                final trendyQuizzesController =
+                    Get.find<TrendyQuizzesController>();
+
+                return trendyQuizzesController.isLoading.value
+                    ? const TrendingQuizzesCategoriesShimmer()
+                    : ListView.separated(
+                        padding: UIConstants.horizontalPadding,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return TrendingQuizzesCategoriesWidget(
+                            trendyQuizzesModel:
+                                trendyQuizzesController.trendyQuizzes[index],
+                          );
+                        },
+                        separatorBuilder: (context, index) {
+                          return SizedBox(width: 10.w);
+                        },
+                        itemCount: trendyQuizzesController.trendyQuizzes.length,
+                      );
               },
-              separatorBuilder: (context, index) {
-                return SizedBox(width: 10.w);
-              },
-              itemCount: 4,
             ),
           ),
           SizedBox(height: 30.h),

@@ -81,6 +81,7 @@ class _TextWithTextFieldState extends State<TextWithTextField> {
                       text: widget.text,
                       fontWeight: FontWeight.w500,
                     ),
+                    const Spacer(),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 6.w),
                       child: CustomTextWidget(

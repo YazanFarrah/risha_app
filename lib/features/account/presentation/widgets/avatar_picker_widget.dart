@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/config/asset_paths.dart';
 import 'package:risha_app/core/services/file_picker_service.dart';
+import 'package:risha_app/core/widgets/custom_cached_image.dart';
 import 'package:risha_app/features/account/presentation/controllers/edit_account_controller.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
 
@@ -50,16 +51,9 @@ class AvatarPickerWidget extends StatelessWidget {
                     )
                   : avatarUrl != null
                       ? ClipOval(
-                          child: Image.network(
-                            avatarUrl,
+                          child: CustomCachedImage(
+                            image: avatarUrl,
                             fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) {
-                              return SvgPicture.asset(
-                                AssetPaths.personOutline,
-                                width: 40.w,
-                                fit: BoxFit.scaleDown,
-                              );
-                            },
                           ),
                         )
                       : SvgPicture.asset(

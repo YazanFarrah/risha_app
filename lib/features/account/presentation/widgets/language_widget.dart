@@ -52,10 +52,12 @@ class LanguageWidget extends StatelessWidget {
     bool isSelected = context.locale == locale;
 
     return GestureDetector(
-      onTap: () {
+      onTap: () async {
         if (!isSelected) {
-          context.setLocale(locale);
-          Get.updateLocale(locale);
+          await Future.wait([
+            context.setLocale(locale),
+            Get.updateLocale(locale),
+          ]);
         }
       },
       child: Container(

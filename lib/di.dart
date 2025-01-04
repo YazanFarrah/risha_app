@@ -4,7 +4,6 @@ import 'package:risha_app/features/shared/presentation/controllers/app_theme_con
 import 'package:risha_app/features/shared/presentation/controllers/bottom_nav_bar_controller.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
 import 'package:risha_app/core/network/network_controller.dart';
-import 'package:risha_app/core/network/network_info.dart';
 import 'package:risha_app/core/services/hive_services.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +15,6 @@ class DependencyInjection {
 
     Get.put<NetworkController>(NetworkController(), permanent: true);
 
-    Get.put<NetworkService>(NetworkService.instance);
      Get.put<SharedRemoteDatasources>(
       SharedRemoteDatasources(),
       permanent: true,

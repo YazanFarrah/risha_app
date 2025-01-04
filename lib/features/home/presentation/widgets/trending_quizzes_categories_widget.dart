@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:risha_app/core/utils/color_utils.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
+import 'package:risha_app/features/home/data/models/trendy_quizzes_model.dart';
 
 class TrendingQuizzesCategoriesWidget extends StatelessWidget {
-  final String title;
-  final Color color;
-  final IconData icon;
+  final TrendyQuizzesModel trendyQuizzesModel;
   const TrendingQuizzesCategoriesWidget({
     super.key,
-    required this.title,
-    required this.color,
-    required this.icon,
+    required this.trendyQuizzesModel,
   });
 
   @override
@@ -26,13 +25,18 @@ class TrendingQuizzesCategoriesWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              icon,
-              size: 24.sp,
-              color: color,
+            Image.network(
+              trendyQuizzesModel.icon,
             ),
             SizedBox(width: 8.w),
-            CustomTextWidget(text: title, color: color)
+            CustomTextWidget(
+              text: Get.locale?.languageCode == "ar"
+                  ? trendyQuizzesModel.arName
+                  : trendyQuizzesModel.enName,
+              color: ColorUtils().hexToColor(
+                trendyQuizzesModel.colorCode,
+              ),
+            ),
           ],
         ),
       ),

@@ -41,6 +41,7 @@ class AssetPaths {
   static const String faq = 'assets/svgs/faq.svg';
   static const String diamond = 'assets/svgs/diamond.svg';
   static const String people = 'assets/svgs/people.svg';
+  static const String rank = 'assets/svgs/rank.svg';
   
 
   // Images:

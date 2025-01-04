@@ -38,9 +38,9 @@ class LoadingOverlay extends StatelessWidget {
                 // Blur effect (optional)
                 Container(
                   color: Colors.black
-                      .withValues(alpha:  0.5), // Overlay color with opacity
+                      .withValues(alpha: 0.5), // Overlay color with opacity
                   child: const Center(
-                    child: CircularProgressIndicator(), // Loading indicator
+                    child: LoadingFadingCircle(), // Loading indicator
                   ),
                 ),
                 // Uncomment below if you want a blur effect (requires flutter_blurhash package)

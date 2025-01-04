@@ -9,6 +9,7 @@ import 'package:risha_app/features/account/presentation/screens/account_reset_pa
 import 'package:risha_app/features/account/presentation/screens/account_settings_screen.dart';
 import 'package:risha_app/features/auth/presentation/screens/auth_login_screen.dart';
 import 'package:risha_app/features/auth/presentation/screens/auth_signup_screen.dart';
+import 'package:risha_app/features/home/bindings/home_bindings.dart';
 import 'package:risha_app/features/shared/bindings/notifications_bindings.dart';
 import 'package:risha_app/features/shared/presentation/screens/nav_bar.dart';
 import 'package:risha_app/features/auth/bindings/auth_binding.dart';
@@ -25,6 +26,7 @@ class AppRouter {
     GetPage(
       name: RoutePaths.navScreen,
       page: () => NavBar(),
+      binding: HomeBindings(),
     ),
     GetPage(
       name: RoutePaths.login,

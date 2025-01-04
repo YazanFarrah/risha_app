@@ -110,5 +110,16 @@
   "changePicture": "Change Picture",
   "choose": "Choose",
   "accountUpdatedSuccessfully": "Account updated successfully",
-  "passwordUpdatedSuccessfully": "Password updated successfully"
+  "passwordUpdatedSuccessfully": "Password updated successfully",
+  "searchByCountryName": "Search by country name...",
+  "noMatchingCountriesFound": "No matching countries found",
+  "countryList": "Country List",
+  "confirmSelection": "Confirm Selection",
+  "rank": "Rank",
+  "points": "Points",
+  "coins": "Coins",
+  "answers": "Answers",
+  "correct": "Correct",
+  "wrong": "Wrong",
+  "strike": "Strike"
 }

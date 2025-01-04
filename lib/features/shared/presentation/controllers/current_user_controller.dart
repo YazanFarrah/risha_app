@@ -15,11 +15,6 @@ class CurrentUserController extends GetxController {
     log(this.user.toString());
   }
 
-  // void updateAvatarUrl(String? newUrl) {
-  //   user.value = user.value?.copyWith(avatarUrl: newUrl);
-  //   tempAvatarPath.value = null;
-  // }
-
   Future<void> getUser() async {
     final res = await _sharedRemoteDatasource.getUserData();
     res.fold((l) {

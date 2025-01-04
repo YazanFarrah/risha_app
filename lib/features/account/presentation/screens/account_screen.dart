@@ -7,9 +7,9 @@ import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/core/routes/route_paths.dart';
 import 'package:risha_app/core/utils/helper_functions.dart';
 import 'package:risha_app/core/utils/shared.dart';
+import 'package:risha_app/core/widgets/custom_cached_image.dart';
 import 'package:risha_app/core/widgets/custom_modal_bottom_sheet.dart';
 import 'package:risha_app/core/widgets/subscription_widget.dart';
-import 'package:risha_app/features/account/presentation/screens/account_edit_screen.dart';
 import 'package:risha_app/features/account/presentation/widgets/account_list_tile_widget.dart';
 import 'package:risha_app/features/account/presentation/widgets/circular_icon_widget.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
@@ -36,22 +36,26 @@ class AccountScreen extends StatelessWidget {
                     onTap: () {
                       Get.toNamed(RoutePaths.accountEdit);
                     },
-                    leadingWidget: const CircularIconWidget(
-                      widget: Icon(
-                        Icons.person,
-                      ),
+                    leadingWidget: CircularIconWidget(
+                      widget: userController?.profileImage != null
+                          ? ClipOval(
+                              child: CustomCachedImage(
+                                image: userController?.profileImage ?? "",
+                                asDecoration: true,
+                              ),
+                            )
+                          : const Icon(
+                              Icons.person,
+                            ),
                     ),
                     title: userController?.name ?? "",
                     subTitle: context.locale.languageCode == "ar"
                         ? "${userController?.username}@"
                         : "@${userController?.username}",
-                    trailingWidget: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                        size: 24.w,
-                        color: SharedColors.greyTextColor,
-                      ),
+                    trailingWidget: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 24.w,
+                      color: SharedColors.greyTextColor,
                     ),
                   ),
                   SizedBox(height: 18.h),
