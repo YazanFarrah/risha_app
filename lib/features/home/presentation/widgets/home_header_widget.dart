@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -51,15 +53,17 @@ class HomeHeaderWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               spacing: 8.h,
                               children: [
-                                const CustomTextWidget(
+                                CustomTextWidget(
                                   text: "rank",
                                   maxLines: 2,
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   spacing: 6.w,
                                   children: [
-                                    SvgPicture.asset(AssetPaths.rank),
+                                    SvgPicture.asset(AssetPaths.rank, height: 21.w,
+                                      width: 21.w,),
                                     CustomTextWidget(
                                       text:
                                           userController?.rank.toString() ?? "",
@@ -88,12 +92,37 @@ class HomeHeaderWidget extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            child: const Center(
-                              child: CustomTextWidget(
-                                text: 'Item 2 Item 2 Item 2 Item 2',
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                              ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              spacing: 8.h,
+                              children: [
+                                CustomTextWidget(
+                                  text: "points",
+                                  maxLines: 2,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  spacing: 6.w,
+                                  children: [
+                                    SvgPicture.asset(
+                                      AssetPaths.diamond,
+                                      height: 21.w,
+                                      width: 21.w,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                    ),
+                                    CustomTextWidget(
+                                      text: userController?.totalPoints
+                                              .toString() ??
+                                          "",
+                                      maxLines: 2,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -120,12 +149,34 @@ class HomeHeaderWidget extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            child: const Center(
-                              child: CustomTextWidget(
-                                text: 'Item 3 Item 3 Item 3 Item 3',
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                              ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              spacing: 8.h,
+                              children: [
+                                CustomTextWidget(
+                                  text: "coins",
+                                  maxLines: 2,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  spacing: 6.w,
+                                  children: [
+                                    SvgPicture.asset(
+                                      AssetPaths.coins,
+                                      height: 21.w,
+                                      width: 21.w,
+                                    ),
+                                    CustomTextWidget(
+                                      text: userController?.coins != 0
+                                          ? "${userController?.coins}X"
+                                          : "",
+                                      maxLines: 2,
+                                      color: const Color(0XFFF6AF02),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -144,12 +195,35 @@ class HomeHeaderWidget extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            child: const Center(
-                              child: CustomTextWidget(
-                                text: 'Item 4 Item 4 Item 4 Item 4',
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                              ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              spacing: 8.h,
+                              children: [
+                                CustomTextWidget(
+                                  text: "strike",
+                                  maxLines: 2,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  spacing: 6.w,
+                                  children: [
+                                    SvgPicture.asset(
+                                      AssetPaths.strike,
+                                      height: 21.w,
+                                      width: 21.w,
+                                    ),
+                                    CustomTextWidget(
+                                      text:
+                                          userController?.strike?.toString() ??
+                                              "0",
+                                      maxLines: 2,
+                                      color:
+                                          Theme.of(context).colorScheme.error,
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -176,13 +250,66 @@ class HomeHeaderWidget extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            child: const Center(
-                              child: CustomTextWidget(
-                                text: 'Item 5 Item 5 Item 5 Item 5',
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                              ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CustomTextWidget(
+                                  text: userController?.totalCorrectAnswers
+                                          ?.toString() ??
+                                      "0",
+                                  maxLines: 2,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .tertiary,
+                                ),
+                                SizedBox(width: 18.w),
+                                SizedBox(
+                                  height: 32.h,
+                                  
+                                  child: VerticalDivider(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .tertiary,
+                                    thickness: 2.5,
+                                  ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    if (Get.locale?.languageCode ==
+                                        "en") ...{
+                                      CustomTextWidget(
+                                        text: "Correct",
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .tertiary,
+                                      ),
+                                      CustomTextWidget(
+                                        text: "Answers",
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
+                                      ),
+                                    } else ...{
+                                      CustomTextWidget(
+                                        text: "الأجوبة",
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
+                                      ),
+                                      
+                                      CustomTextWidget(
+                                        text: "الصحيحة",
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .tertiary,
+                                      ),
+                                    }
+                                  ],
+                                ),
+                              ],
                             ),
+                          
                           ),
                         ),
                         Expanded(
@@ -200,13 +327,66 @@ class HomeHeaderWidget extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            child: const Center(
-                              child: CustomTextWidget(
-                                text: 'Item 6 Item 6 Item 6 Item 6',
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                              ),
+                            child:  Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CustomTextWidget(
+                                  text: userController?.totalCorrectAnswers
+                                          ?.toString() ??
+                                      "0",
+                                  maxLines: 2,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .error,
+                                ),
+                                SizedBox(width: 18.w),
+                                SizedBox(
+                                  height: 32.h,
+                                  
+                                  child: VerticalDivider(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .error,
+                                    thickness: 2.5,
+                                  ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    if (Get.locale?.languageCode ==
+                                        "en") ...{
+                                      CustomTextWidget(
+                                        text: "Wrong",
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .error,
+                                      ),
+                                      CustomTextWidget(
+                                        text: "Answers",
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
+                                      ),
+                                    } else ...{
+                                      CustomTextWidget(
+                                        text: "الأجوبة",
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
+                                      ),
+                                      
+                                      CustomTextWidget(
+                                        text: "الخاطئة",
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .error,
+                                      ),
+                                    }
+                                  ],
+                                ),
+                              ],
                             ),
+                          
                           ),
                         ),
                       ],

@@ -23,9 +23,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.systemUI,
     this.titleHeroTag,
     this.leadingWidth,
+    this.padding,
+    this.titleColor,
   });
 
   final String title;
+  final Color? titleColor;
   final SystemUiOverlayStyle? systemUI;
   final Color backgroundColor;
   final Widget? leading;
@@ -38,11 +41,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final String? titleHeroTag;
   final double? leadingWidth;
+  final double? padding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      padding: EdgeInsets.symmetric(horizontal: padding ?? 20.w),
       child: AppBar(
         scrolledUnderElevation: 0,
         systemOverlayStyle: systemUI ?? SystemUiOverlayStyle.dark,
@@ -81,6 +85,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             : CustomTextWidget(
                 text: title,
                 fontSize: 18,
+                color: titleColor,
               ),
         bottom: bottom,
       ),

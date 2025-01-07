@@ -19,5 +19,7 @@ class ApiPaths {
   static const String updateAccount = 'update-account';
   static const String resetPassword = 'reset-password';
 
-  static const String fetchTrendyQuizTypes = 'trendy-quiz-types';
+  static const String fetchTrendyQuizzesTypes = 'trendy-quiz-types';
+  static const String fetchTrendyQuizzes = 'trendy-quizzes';
+  
 }

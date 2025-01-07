@@ -1,5 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/config/asset_paths.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:risha_app/features/account/presentation/screens/account_screen.dart';
 import 'package:risha_app/features/home/presentation/screens/home_screen.dart';
+import 'package:risha_app/features/leaderboard/presentation/screens/leaderboard_screen.dart';
 import 'package:risha_app/features/shared/presentation/controllers/bottom_nav_bar_controller.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
 
@@ -15,6 +19,7 @@ class NavBar extends StatelessWidget {
 
   final List<Widget> _screens = [
     const HomeScreen(),
+    const LeaderboardScreen(),
     const AccountScreen(),
   ];
 
@@ -80,11 +85,22 @@ class NavBar extends StatelessWidget {
           ),
           label: "home".tr(context: context),
         ),
+        
         BottomNavigationBarItem(
           icon: _buildNavItemIcon(
             controller,
             context,
             index: 1,
+            asset: AssetPaths.leaderboardSvg,
+            filledAsset: AssetPaths.leaderboardFilledSvg,
+          ),
+          label: "leaderboard".tr(context: context),
+        ),
+        BottomNavigationBarItem(
+          icon: _buildNavItemIcon(
+            controller,
+            context,
+            index: 2,
             asset: AssetPaths.person,
             filledAsset: AssetPaths.personFilled,
           ),
@@ -103,14 +119,23 @@ class NavBar extends StatelessWidget {
   }) {
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 250),
-      child: Image.asset(
-        width: 29.w,
-        controller.currentIndex.value == index ? filledAsset : asset,
-        color: controller.currentIndex.value == index
-            ? Theme.of(context).colorScheme.inverseSurface
-            : SharedColors.greyTextColor,
-        key: ValueKey<int>(controller.currentIndex.value),
-      ),
+      child: asset.contains("svg")
+          ? SvgPicture.asset(
+              width: 29.w,
+              controller.currentIndex.value == index ? filledAsset : asset,
+              color: controller.currentIndex.value == index
+                  ? Theme.of(context).colorScheme.inverseSurface
+                  : SharedColors.greyTextColor,
+              key: ValueKey<int>(controller.currentIndex.value),
+            )
+          : Image.asset(
+              width: 29.w,
+              controller.currentIndex.value == index ? filledAsset : asset,
+              color: controller.currentIndex.value == index
+                  ? Theme.of(context).colorScheme.inverseSurface
+                  : SharedColors.greyTextColor,
+              key: ValueKey<int>(controller.currentIndex.value),
+            ),
     );
   }
 }

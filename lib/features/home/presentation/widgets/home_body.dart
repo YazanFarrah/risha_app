@@ -29,7 +29,7 @@ class HomeBody extends StatelessWidget {
           Padding(
             padding: UIConstants.horizontalPadding.copyWith(top: 25.h),
             child: ViewAllWithTitleWidget(
-              title: "BLAH BLAH",
+              title: "popularQuizzesTypes",
               onTap: () {},
             ),
           ),
@@ -64,7 +64,7 @@ class HomeBody extends StatelessWidget {
           Padding(
             padding: UIConstants.horizontalPadding,
             child: ViewAllWithTitleWidget(
-              title: "BLAH BLAH",
+              title: "popularQuizzes",
               onTap: () {},
             ),
           ),

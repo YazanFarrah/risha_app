@@ -18,8 +18,8 @@ class AppLightColors {
   static const Color backgroundColor = Color(0xFFfafafa);
   static const Color appBackgroundColor = Color(0XFFEEF1FF);
   static const Color whiteColor = Color(0xFFFFFFFF);
-  static const Color greenColor = Color.fromARGB(255, 113, 195, 31);
-  static const Color redColor = Color.fromARGB(255, 255, 0, 0);
+  static const Color greenColor = Color(0XFF71C31F);
+  static const Color redColor = Color(0XFFFF0000);
   static const Color yellowColor = Color.fromARGB(255, 250, 192, 44);
   static const Color blueColor = Color.fromARGB(255, 109, 103, 228);
   static const Color blackColor = Color(0xFF000000);

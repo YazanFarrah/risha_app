@@ -1,4 +1,5 @@
 import 'package:risha_app/features/account/data/datasources/account_remote_datasource.dart';
+import 'package:risha_app/features/leaderboard/presentation/controllers/leaderboard_filters_controller.dart';
 import 'package:risha_app/features/shared/data/datasources/shared_remote_datasources.dart';
 import 'package:risha_app/features/shared/presentation/controllers/app_theme_controller.dart';
 import 'package:risha_app/features/shared/presentation/controllers/bottom_nav_bar_controller.dart';
@@ -15,7 +16,7 @@ class DependencyInjection {
 
     Get.put<NetworkController>(NetworkController(), permanent: true);
 
-     Get.put<SharedRemoteDatasources>(
+    Get.put<SharedRemoteDatasources>(
       SharedRemoteDatasources(),
       permanent: true,
     );
@@ -24,9 +25,15 @@ class DependencyInjection {
 
     Get.put<ThemeController>(ThemeController(), permanent: true);
 
-    Get.put<AccountRemoteDatasource>(AccountRemoteDatasource(), permanent: true);
+    Get.put<AccountRemoteDatasource>(
+      AccountRemoteDatasource(),
+      permanent: true,
+    );
 
-   
+    Get.put<LeaderboardFiltersController>(
+      LeaderboardFiltersController(),
+      permanent: true,
+    );
 
     // profile
 

@@ -121,5 +121,8 @@
   "answers": "Answers",
   "correct": "Correct",
   "wrong": "Wrong",
-  "strike": "Strike"
+  "strike": "Strike",
+  "popularQuizzesTypes": "Popular Quizzes Types",
+  "popularQuizzes": "Popular Quizzes",
+  "leaderboard": "Leaderboard"
 }

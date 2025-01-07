@@ -17,7 +17,7 @@ class TrendyQuizzesController extends GetxController {
 
   void fetchTrendyQuizzes() async {
     isLoading(true);
-    final res = await _homeRemoteDatasource.fetchTrendyQuizzes();
+    final res = await _homeRemoteDatasource.fetchTrendyQuizzesTypes();
     res.fold(
       (l) => ToastUtils.showError(l.message),
       (r) => trendyQuizzes(r),

@@ -10,12 +10,29 @@ import 'package:risha_app/core/services/api_services.dart';
 import 'package:risha_app/features/home/data/models/trendy_quizzes_model.dart';
 
 class HomeRemoteDatasource with NetworkMixin {
+  Future<Either<Failure, List<TrendyQuizzesModel>>> fetchTrendyQuizzesTypes() async {
+    try {
+      if (!await isConnected) {
+        return left(NetworkFailure(noInternetConnection));
+      }
+      final res = await RestApiService.get(ApiPaths.fetchTrendyQuizzesTypes);
+      log(res.body);
+      return ApiResponseHandler.handleListResponse<TrendyQuizzesModel>(
+        res,
+        (json) => TrendyQuizzesModel.fromJson(json),
+        jsonPath: "data",
+      );
+    } catch (e) {
+      return left(UnknownFailure(e.toString()));
+    }
+  }
+
   Future<Either<Failure, List<TrendyQuizzesModel>>> fetchTrendyQuizzes() async {
     try {
       if (!await isConnected) {
         return left(NetworkFailure(noInternetConnection));
       }
-      final res = await RestApiService.get(ApiPaths.fetchTrendyQuizTypes);
+      final res = await RestApiService.get(ApiPaths.fetchTrendyQuizzes);
       log(res.body);
       return ApiResponseHandler.handleListResponse<TrendyQuizzesModel>(
         res,

@@ -121,5 +121,9 @@
   "answers": "الأجوبة",
   "correct": "الصحيحة",
   "wrong": "الخاطئة",
-  "strike": "الحماسة"
+  "strike": "الحماسة",
+  "popularQuizzesTypes": "أنواع الاختبارات الشائعة",
+  "popularQuizzes": "الاختبارات الشائعة",
+  "leaderboard": "التصنيفات"
+
 }
