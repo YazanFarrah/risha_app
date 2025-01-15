@@ -143,7 +143,7 @@ class _CountryScreenState extends State<CountryScreen> {
                 },
                 child: CustomTextWidget(
                   text: "confirmSelection",
-                  color: Theme.of(context).colorScheme.onSurface,
+                  color: Get.theme.colorScheme.onSurface,
                 ),
               ),
             )

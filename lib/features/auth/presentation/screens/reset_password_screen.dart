@@ -70,7 +70,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
             },
             child: resetPasswordController.isResetingPassword.value
                 ? const LoadingFadingCircle()
-                :  CustomTextWidget(text: "resetPassword", color: Theme.of(context).colorScheme.onSurface,),
+                :  CustomTextWidget(text: "resetPassword", color: Get.theme.colorScheme.onSurface,),
           ),
         ),
       ),
@@ -86,7 +86,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 controller: _newPasswordController,
                 hintText: "newPassword",
                 filled: true,
-                fillColor: Theme.of(context).colorScheme.onSurface,
+                fillColor: Get.theme.colorScheme.onSurface,
                 validator: (value) => isNotEmpty(value, context),
                 isPass: !showNewPass,
                 prefix: const Icon(
@@ -110,7 +110,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 controller: _confirmPasswordController,
                 hintText: "confirmNewPassword",
                 filled: true,
-                fillColor: Theme.of(context).colorScheme.onSurface,
+                fillColor: Get.theme.colorScheme.onSurface,
                 isPass: !showConfirmNewPass,
                 prefix: const Icon(
                   Icons.lock,

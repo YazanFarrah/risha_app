@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -69,9 +70,9 @@ class CustomDropdownButton2 extends StatelessWidget {
         //To avoid long text overflowing.
         isExpanded: true,
         style: Theme.of(context).textTheme.displaySmall!.copyWith(
-              color: Theme.of(context).colorScheme.surface,
+              color: Get.theme.colorScheme.surface,
             ),
-        barrierColor: Theme.of(context).colorScheme.surface.withValues( alpha: 0.8),
+        barrierColor: Get.theme.colorScheme.surface.withValues(alpha: 0.8),
         hint: Container(
             alignment: hintAlignment, child: CustomTextWidget(text: hint)),
         value: value,
@@ -86,7 +87,7 @@ class CustomDropdownButton2 extends StatelessWidget {
                     child: CustomTextWidget(
                       text: item,
                       textThemeStyle: TextThemeStyleEnum.displaySmall,
-                      color: Theme.of(context).colorScheme.primaryContainer,
+                      color: Get.theme.colorScheme.primaryContainer,
                     )),
               ),
             )
@@ -112,7 +113,7 @@ class CustomDropdownButton2 extends StatelessWidget {
               BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0.r),
                 border: Border.all(
-                  color: Theme.of(context).colorScheme.primaryContainer,
+                  color: Get.theme.colorScheme.primaryContainer,
                 ),
               ),
           elevation: buttonElevation,
@@ -139,7 +140,8 @@ class CustomDropdownButton2 extends StatelessWidget {
           elevation: dropdownElevation ?? 8,
           scrollbarTheme: ScrollbarThemeData(
             thumbColor: WidgetStateProperty.all(
-                Theme.of(context).colorScheme.primaryContainer),
+              Get.theme.colorScheme.primaryContainer,
+            ),
             radius: scrollbarRadius ?? Radius.circular(10.0.r),
             thickness: WidgetStateProperty.all(scrollbarThickness ?? 8.0.w),
             trackVisibility: WidgetStateProperty.all(

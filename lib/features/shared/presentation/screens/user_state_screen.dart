@@ -72,7 +72,7 @@ class _UserStateState extends State<UserState> {
             child: CustomTextWidget(
               text: "ريشة",
               textAlign: TextAlign.center,
-              color: Theme.of(context).colorScheme.onSurface,
+              color: Get.theme.colorScheme.onSurface,
               textThemeStyle: TextThemeStyleEnum.displayLarge,
               isLocalize: false,
               fontSize: 24,

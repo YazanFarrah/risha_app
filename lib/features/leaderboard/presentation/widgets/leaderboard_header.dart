@@ -2,72 +2,69 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
-
 import 'package:risha_app/features/leaderboard/presentation/controllers/leaderboard_filters_controller.dart';
 import 'package:risha_app/features/shared/presentation/controllers/current_user_controller.dart';
 
-class LeaderboardHeader extends StatelessWidget {
-  const LeaderboardHeader({super.key});
+class LeaderboardAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const LeaderboardAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 1.sh,
-      color: Theme.of(context).colorScheme.primary,
-      child: Obx(
+    final leaderboardFiltersController =
+        Get.find<LeaderboardFiltersController>();
+    final userController = Get.find<CurrentUserController>();
+    return AppBar(
+      backgroundColor: Get.theme.colorScheme.primary,
+      elevation: 4,
+      shadowColor: const Color.fromRGBO(0, 0, 0, 1).withValues(alpha: 0.1),
+      centerTitle: true,
+      title: CustomTextWidget(
+        text: "leaderboard",
+        color: Get.theme.colorScheme.onSurface,
+      ),
+      leading: Obx(
         () {
-          final leaderboardFiltersController =
-              Get.find<LeaderboardFiltersController>();
-          final userController = Get.find<CurrentUserController>();
-          return Column(
-            children: [
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      leaderboardFiltersController.toggleLocale();
-                    },
-                    child: leaderboardFiltersController.isLocale.value
-                        ? Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5.r),
-                              border: Border.all(
-                                color: Theme.of(context).colorScheme.onSurface,
-                              ),
+          return Padding(
+            padding: EdgeInsetsDirectional.only(start: 10.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    leaderboardFiltersController.toggleLocale();
+                  },
+                  child: leaderboardFiltersController.isLocale.value
+                      ? Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.r),
+                            border: Border.all(
+                              color: Get.theme.colorScheme.onSurface,
                             ),
-                            child: CustomTextWidget(
-                              text: Get.locale?.languageCode == "ar"
-                                  ? userController
-                                          .user.value?.country?.name_ar ??
-                                      ""
-                                  : userController.user.value?.country?.name ??
-                                      "",
-                              color: Theme.of(context).colorScheme.onSurface,
-                            ),
-                          )
-                        : Icon(
-                            Icons.language,
-                            color: Theme.of(context).colorScheme.onSurface,
                           ),
-                  ),
-                 
-                  // Spacer to push the "leaderboard" text to the center
-                  Expanded(
-                    child: CustomTextWidget(
-                      text: "leaderboard",
-                      textAlign: TextAlign.center,
-                      fontSize: 18,
-                      color: Theme.of(context).colorScheme.onSurface,
-                    ),
-                  ),
-                ],
-              ),
-              Row(),
-            ],
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 8.w, vertical: 4.h),
+                          child: CustomTextWidget(
+                            text: Get.locale?.languageCode == "ar"
+                                ? userController.user.value?.country?.name_ar ??
+                                    ""
+                                : userController.user.value?.country?.name ??
+                                    "",
+                            color: Get.theme.colorScheme.onSurface,
+                          ),
+                        )
+                      : Icon(
+                          Icons.language,
+                          color: Get.theme.colorScheme.onSurface,
+                        ),
+                ),
+              ],
+            ),
           );
         },
       ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

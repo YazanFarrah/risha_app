@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 
 class StatsWidget extends StatelessWidget {
@@ -20,7 +21,7 @@ class StatsWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 2.w),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.onSurface,
+        color: Get.theme.colorScheme.onSurface,
         borderRadius: BorderRadius.circular(12),
         boxShadow: const [
           BoxShadow(

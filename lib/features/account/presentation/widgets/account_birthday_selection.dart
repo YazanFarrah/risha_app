@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart' hide Trans;
 import 'package:risha_app/core/widgets/text_with_text_field.dart';
 
 class AccountBirthdaySelection extends StatelessWidget {
@@ -111,7 +112,7 @@ class AccountBirthdaySelection extends StatelessWidget {
               suffix: Icon(
                 CupertinoIcons.calendar,
                 size: 20.sp,
-                color: Theme.of(context).colorScheme.inverseSurface,
+                color: Get.theme.colorScheme.inverseSurface,
               ),
             ),
           ),

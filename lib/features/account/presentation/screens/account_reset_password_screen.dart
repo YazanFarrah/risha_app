@@ -145,7 +145,7 @@ class _AccountResetPasswordScreenState
                   ? const LoadingFadingCircle()
                   : CustomTextWidget(
                       text: "savePassword",
-                      color: Theme.of(context).colorScheme.onSurface,
+                      color: Get.theme.colorScheme.onSurface,
                     ),
             );
           },

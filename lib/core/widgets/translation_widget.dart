@@ -24,13 +24,13 @@ class TranslationWidget extends StatelessWidget {
         padding: EdgeInsets.all(8.r),
         decoration: BoxDecoration(
           border: Border.all(
-            color: Theme.of(context).colorScheme.onSurface,
+            color: Get.theme.colorScheme.onSurface,
           ),
           borderRadius: BorderRadius.circular(10.r),
         ),
         child: CustomTextWidget(
           text: context.locale.languageCode == "en" ? "عربي" : "EN",
-          color: Theme.of(context).colorScheme.onSurface,
+          color: Get.theme.colorScheme.onSurface,
           isLocalize: false,
         ),
       ),

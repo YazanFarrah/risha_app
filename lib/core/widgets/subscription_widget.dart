@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart' hide Trans;
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/config/asset_paths.dart';
 import 'package:risha_app/core/enums/text_style_enum.dart';
@@ -51,7 +52,7 @@ class SubscriptionWidget extends StatelessWidget {
                         text: "${"risha".tr(context: context)} ",
                         style:
                             Theme.of(context).textTheme.displayLarge!.copyWith(
-                                  color: Theme.of(context).colorScheme.onSurface,
+                                  color: Get.theme.colorScheme.onSurface,
                                 ),
                       ),
                       TextSpan(
@@ -69,7 +70,7 @@ class SubscriptionWidget extends StatelessWidget {
                   children: [
                      CustomTextWidget(
                       text: "forSubPrice",
-                      color: Theme.of(context).colorScheme.onSurface,
+                      color: Get.theme.colorScheme.onSurface,
                       textThemeStyle: TextThemeStyleEnum.bodySmall,
                       fontWeight: FontWeight.w700,
                       maxLines: 2,
@@ -77,7 +78,7 @@ class SubscriptionWidget extends StatelessWidget {
                     if (showDetails == true)
                        CustomTextWidget(
                         text: "getRishaPlus",
-                        color: Theme.of(context).colorScheme.onSurface,
+                        color: Get.theme.colorScheme.onSurface,
                         textThemeStyle: TextThemeStyleEnum.bodySmall,
                         maxLines: 2,
                       ),
@@ -88,7 +89,7 @@ class SubscriptionWidget extends StatelessWidget {
           ),
           CustomButton(
             onPressed: () {},
-            backgroundColor: Theme.of(context).colorScheme.onSurface,
+            backgroundColor: Get.theme.colorScheme.onSurface,
             height: 34.h,
             width: 114.w,
             child: const CustomTextWidget(

@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart' hide Trans;
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/utils/shared.dart';
@@ -94,9 +95,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
               }
             },
             width: double.infinity,
-            child:  CustomTextWidget(
+            child: CustomTextWidget(
               text: "resetPassword",
-              color: Theme.of(context).colorScheme.onSurface,
+              color: Get.theme.colorScheme.onSurface,
             ),
           ),
           SizedBox(height: 10.h),
@@ -105,11 +106,11 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
               Navigator.pop(context);
             },
             width: double.infinity,
-            backgroundColor: Theme.of(context).colorScheme.onSurface,
-            borderColor: Theme.of(context).colorScheme.primary,
+            backgroundColor: Get.theme.colorScheme.onSurface,
+            borderColor: Get.theme.colorScheme.primary,
             child: CustomTextWidget(
               text: "login",
-              color: Theme.of(context).colorScheme.primary,
+              color: Get.theme.colorScheme.primary,
             ),
           ),
         ],

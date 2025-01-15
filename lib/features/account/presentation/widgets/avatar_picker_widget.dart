@@ -39,7 +39,7 @@ class AvatarPickerWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: Theme.of(context).colorScheme.primary,
+                  color: Get.theme.colorScheme.primary,
                 ),
               ),
               child: tempAvatarPath != null
@@ -73,7 +73,7 @@ class AvatarPickerWidget extends StatelessWidget {
                     shape: BoxShape.circle,
                     color: tempAvatarPath != null
                         ? SharedColors.redColor
-                        : Theme.of(context).colorScheme.primary,
+                        : Get.theme.colorScheme.primary,
                   ),
                   width: 27.w,
                   height: 27.w,
@@ -83,7 +83,7 @@ class AvatarPickerWidget extends StatelessWidget {
                         : avatarUrl != null
                             ? CupertinoIcons.pencil
                             : Icons.add,
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: Get.theme.colorScheme.onSurface,
                   ),
                 ),
               ),

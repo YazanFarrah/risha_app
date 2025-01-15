@@ -77,7 +77,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                       ? const LoadingFadingCircle()
                       :  CustomTextWidget(
                           text: "login",
-                          color: Theme.of(context).colorScheme.onSurface,
+                          color: Get.theme.colorScheme.onSurface,
                         ),
                 );
               },
@@ -90,10 +90,10 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
               width: double.infinity,
               elevation: 8,
               backgroundColor: Colors.transparent,
-              borderColor: Theme.of(context).colorScheme.primary,
+              borderColor: Get.theme.colorScheme.primary,
               child: CustomTextWidget(
                 text: "signup",
-                color: Theme.of(context).colorScheme.primary,
+                color: Get.theme.colorScheme.primary,
               ),
             ),
             SizedBox(height: 30.h),
@@ -103,7 +103,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
               children: [
                 Expanded(
                   child: CustomButton(
-                    backgroundColor: Theme.of(context).colorScheme.onSurface,
+                    backgroundColor: Get.theme.colorScheme.onSurface,
                     onPressed: () {},
                     child: SvgPicture.asset(
                       AssetPaths.googleSvg,
@@ -114,7 +114,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                   SizedBox(width: 12.w),
                   Expanded(
                     child: CustomButton(
-                      backgroundColor: Theme.of(context).colorScheme.onSurface,
+                      backgroundColor: Get.theme.colorScheme.onSurface,
                       onPressed: () {},
                       child: SvgPicture.asset(
                         AssetPaths.appleSvg,
@@ -151,11 +151,11 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                             children: [
                               CustomTextWidget(
                                 text: "welcome",
-                                color: Theme.of(context).colorScheme.onSurface,
+                                color: Get.theme.colorScheme.onSurface,
                               ),
                               CustomTextWidget(
                                 text: "loginToUseRisha",
-                                color: Theme.of(context).colorScheme.onSurface,
+                                color: Get.theme.colorScheme.onSurface,
                                 maxLines: 2,
                               ),
                             ],
@@ -173,7 +173,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                 child: Padding(
                   padding: EdgeInsets.only(top: 150.h, left: 10.w, right: 10.w),
                   child: Card(
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: Get.theme.colorScheme.onSurface,
                     child: Padding(
                       padding: UIConstants.bodyPadding,
                       child: Form(
@@ -185,7 +185,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                             Center(
                               child: CustomTextWidget(
                                 text: "login",
-                                color: Theme.of(context).colorScheme.primary,
+                                color: Get.theme.colorScheme.primary,
                                 textThemeStyle: TextThemeStyleEnum.displayLarge,
                               ),
                             ),
@@ -253,7 +253,7 @@ class _AuthLoginScreenState extends State<AuthLoginScreen> {
                               },
                               child: CustomTextWidget(
                                 text: "forgotPassword",
-                                color: Theme.of(context).colorScheme.primary,
+                                color: Get.theme.colorScheme.primary,
                               ),
                             ),
                           ],

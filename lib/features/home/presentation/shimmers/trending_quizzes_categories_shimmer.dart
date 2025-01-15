@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:risha_app/config/countries_list.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -20,7 +21,7 @@ class TrendingQuizzesCategoriesShimmer extends StatelessWidget {
             constraints: BoxConstraints(minWidth: 124.w),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
-              color: Theme.of(context).colorScheme.onSurface,
+              color: Get.theme.colorScheme.onSurface,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

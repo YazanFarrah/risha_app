@@ -53,7 +53,7 @@ class HomeAppbarWidget extends StatelessWidget {
                       children: [
                         CustomTextWidget(
                           text: "welcomeBack",
-                          color: Theme.of(context).colorScheme.surface,
+                          color: Get.theme.colorScheme.surface,
                           maxLines: 2,
                           textThemeStyle: TextThemeStyleEnum.displayLarge,
                         ),
@@ -61,7 +61,7 @@ class HomeAppbarWidget extends StatelessWidget {
                           CustomTextWidget(
                             textThemeStyle: TextThemeStyleEnum.displaySmall,
                             text: userController.user.value!.name!,
-                            color: Theme.of(context).colorScheme.surface,
+                            color: Get.theme.colorScheme.surface,
                             maxLines: 2,
                           ),
                       ],
@@ -70,7 +70,7 @@ class HomeAppbarWidget extends StatelessWidget {
                   GestureDetector(
                     child: Icon(
                       Icons.search,
-                      color: Theme.of(context).colorScheme.surface,
+                      color: Get.theme.colorScheme.surface,
                     ),
                     onTap: () {},
                   ),
@@ -78,7 +78,7 @@ class HomeAppbarWidget extends StatelessWidget {
                   GestureDetector(
                     child: Icon(
                       Icons.notifications,
-                      color: Theme.of(context).colorScheme.surface,
+                      color: Get.theme.colorScheme.surface,
                     ),
                     onTap: () {
                       Get.toNamed(RoutePaths.notifications);

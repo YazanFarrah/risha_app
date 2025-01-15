@@ -33,7 +33,7 @@ class AccountSettingsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         padding: UIConstants.bodyPadding.copyWith(top: 0),
         child: Card(
-          color: Theme.of(context).colorScheme.onSurface,
+          color: Get.theme.colorScheme.onSurface,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 18.h),
             child: Column(
@@ -72,8 +72,8 @@ class AccountSettingsScreen extends StatelessWidget {
                         onChanged: (value) {
                           themeController.toggleThemeToDark(value);
                         },
-                        activeColor: Theme.of(context).colorScheme.primary,
-                        inactiveThumbColor: Theme.of(context).colorScheme.onSurface,
+                        activeColor: Get.theme.colorScheme.primary,
+                        inactiveThumbColor: Get.theme.colorScheme.onSurface,
                         inactiveTrackColor: SharedColors.inActiveSwitchColor,
                       ),
                     );
@@ -98,8 +98,8 @@ class AccountSettingsScreen extends StatelessWidget {
                           settingsController
                               .toggleDailyCoinsCollectionReminder(value);
                         },
-                        activeColor: Theme.of(context).colorScheme.primary,
-                        inactiveThumbColor: Theme.of(context).colorScheme.onSurface,
+                        activeColor: Get.theme.colorScheme.primary,
+                        inactiveThumbColor: Get.theme.colorScheme.onSurface,
                         inactiveTrackColor: SharedColors.inActiveSwitchColor,
                       ),
                     );
@@ -122,8 +122,8 @@ class AccountSettingsScreen extends StatelessWidget {
                         onChanged: (value) {
                           settingsController.toggleNewQuizReminder(value);
                         },
-                        activeColor: Theme.of(context).colorScheme.primary,
-                        inactiveThumbColor: Theme.of(context).colorScheme.onSurface,
+                        activeColor: Get.theme.colorScheme.primary,
+                        inactiveThumbColor: Get.theme.colorScheme.onSurface,
                         inactiveTrackColor: SharedColors.inActiveSwitchColor,
                       ),
                     );
@@ -146,8 +146,8 @@ class AccountSettingsScreen extends StatelessWidget {
                         onChanged: (value) {
                           settingsController.toggleHideMeInLeaderboard(value);
                         },
-                        activeColor: Theme.of(context).colorScheme.primary,
-                        inactiveThumbColor: Theme.of(context).colorScheme.onSurface,
+                        activeColor: Get.theme.colorScheme.primary,
+                        inactiveThumbColor: Get.theme.colorScheme.onSurface,
                         inactiveTrackColor: SharedColors.inActiveSwitchColor,
                       ),
                     );
@@ -170,8 +170,8 @@ class AccountSettingsScreen extends StatelessWidget {
                         onChanged: (value) {
                           settingsController.vibrateOnWrongAnswer(value);
                         },
-                        activeColor: Theme.of(context).colorScheme.primary,
-                        inactiveThumbColor: Theme.of(context).colorScheme.onSurface,
+                        activeColor: Get.theme.colorScheme.primary,
+                        inactiveThumbColor: Get.theme.colorScheme.onSurface,
                         inactiveTrackColor: SharedColors.inActiveSwitchColor,
                       ),
                     );

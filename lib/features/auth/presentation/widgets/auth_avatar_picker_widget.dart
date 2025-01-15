@@ -36,7 +36,7 @@ class AuthAvatarPicker extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: Theme.of(context).colorScheme.primary,
+                  color: Get.theme.colorScheme.primary,
                 ),
               ),
               child: avatarUrl != null
@@ -65,13 +65,13 @@ class AuthAvatarPicker extends StatelessWidget {
                     shape: BoxShape.circle,
                     color: avatarUrl != null
                         ? SharedColors.redColor
-                        : Theme.of(context).colorScheme.primary,
+                        : Get.theme.colorScheme.primary,
                   ),
                   width: 27.w,
                   height: 27.w,
                   child: Icon(
                     avatarUrl != null ? CupertinoIcons.delete_solid : Icons.add,
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: Get.theme.colorScheme.onSurface,
                   ),
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart' hide Trans;
 import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 import 'package:risha_app/features/home/presentation/widgets/progress_indicator_widget.dart';
@@ -22,14 +23,14 @@ class FavoriteCategoriesWidget extends StatelessWidget {
             CustomTextWidget(
               text: "edit".tr(context: context),
               textThemeStyle: TextThemeStyleEnum.displaySmall,
-              color: Theme.of(context).colorScheme.primary,
+              color: Get.theme.colorScheme.primary,
               fontWeight: FontWeight.w700,
             ),
             SizedBox(width: 1.w),
             Icon(
               Icons.edit,
               size: 15.w,
-              color: Theme.of(context).colorScheme.primary,
+              color: Get.theme.colorScheme.primary,
             ),
           ],
         ),
@@ -42,7 +43,7 @@ class FavoriteCategoriesWidget extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.r),
-                color: Theme.of(context).colorScheme.onSurface,
+                color: Get.theme.colorScheme.onSurface,
               ),
               child: Row(
                 children: [

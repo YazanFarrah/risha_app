@@ -92,12 +92,12 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                                 CustomTextWidget(
                                   text: "joinRisha",
                                   color:
-                                      Theme.of(context).colorScheme.onSurface,
+                                      Get.theme.colorScheme.onSurface,
                                 ),
                                 CustomTextWidget(
                                   text: "startLearningWithRisha",
                                   color:
-                                      Theme.of(context).colorScheme.onSurface,
+                                      Get.theme.colorScheme.onSurface,
                                   maxLines: 2,
                                 ),
                               ],
@@ -115,7 +115,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                     padding:
                         EdgeInsets.only(top: 105.h, left: 10.w, right: 10.w),
                     child: Card(
-                      color: Theme.of(context).colorScheme.onSurface,
+                      color: Get.theme.colorScheme.onSurface,
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 20.w,
@@ -254,7 +254,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                           ? const LoadingFadingCircle()
                           : CustomTextWidget(
                               text: "signup",
-                              color: Theme.of(context).colorScheme.onSurface,
+                              color: Get.theme.colorScheme.onSurface,
                             ),
                     ),
                     SizedBox(height: 10.h),
@@ -265,10 +265,10 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                       width: double.infinity,
                       elevation: 8,
                       backgroundColor: Colors.transparent,
-                      borderColor: Theme.of(context).colorScheme.primary,
+                      borderColor: Get.theme.colorScheme.primary,
                       child: CustomTextWidget(
                         text: "login",
-                        color: Theme.of(context).colorScheme.primary,
+                        color: Get.theme.colorScheme.primary,
                       ),
                     ),
                     SizedBox(height: 30.h),
@@ -279,7 +279,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                         Expanded(
                           child: CustomButton(
                             backgroundColor:
-                                Theme.of(context).colorScheme.onSurface,
+                                Get.theme.colorScheme.onSurface,
                             onPressed: () {},
                             child: SvgPicture.asset(
                               AssetPaths.googleSvg,
@@ -291,7 +291,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen> {
                           Expanded(
                             child: CustomButton(
                               backgroundColor:
-                                  Theme.of(context).colorScheme.onSurface,
+                                  Get.theme.colorScheme.onSurface,
                               onPressed: () {},
                               child: SvgPicture.asset(
                                 AssetPaths.appleSvg,

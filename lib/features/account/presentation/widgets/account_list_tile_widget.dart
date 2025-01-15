@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:risha_app/core/enums/text_style_enum.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 
@@ -24,7 +25,7 @@ class AccountListTileWidget extends StatelessWidget {
       onTap: onTap,
       child: Card(
         margin: EdgeInsets.zero,
-        color: Theme.of(context).colorScheme.onSurface,
+        color: Get.theme.colorScheme.onSurface,
         child: ListTile(
           minVerticalPadding: 20.h,
           leading: Padding(

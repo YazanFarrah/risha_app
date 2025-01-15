@@ -39,7 +39,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             constraints: BoxConstraints(minHeight: 75.h),
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.onSurface,
+                              color: Get.theme.colorScheme.onSurface,
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: const [
                                 BoxShadow(
@@ -56,7 +56,7 @@ class HomeHeaderWidget extends StatelessWidget {
                                 CustomTextWidget(
                                   text: "rank",
                                   maxLines: 2,
-                                  color: Theme.of(context).colorScheme.primary,
+                                  color: Get.theme.colorScheme.primary,
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +69,7 @@ class HomeHeaderWidget extends StatelessWidget {
                                           userController?.rank.toString() ?? "",
                                       maxLines: 2,
                                       color:
-                                          Theme.of(context).colorScheme.primary,
+                                          Get.theme.colorScheme.primary,
                                     ),
                                   ],
                                 ),
@@ -82,7 +82,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             constraints: BoxConstraints(minHeight: 75.h),
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.onSurface,
+                              color: Get.theme.colorScheme.onSurface,
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: const [
                                 BoxShadow(
@@ -99,7 +99,7 @@ class HomeHeaderWidget extends StatelessWidget {
                                 CustomTextWidget(
                                   text: "points",
                                   maxLines: 2,
-                                  color: Theme.of(context).colorScheme.primary,
+                                  color: Get.theme.colorScheme.primary,
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -110,7 +110,7 @@ class HomeHeaderWidget extends StatelessWidget {
                                       height: 21.w,
                                       width: 21.w,
                                       color:
-                                          Theme.of(context).colorScheme.primary,
+                                          Get.theme.colorScheme.primary,
                                     ),
                                     CustomTextWidget(
                                       text: userController?.totalPoints
@@ -118,7 +118,7 @@ class HomeHeaderWidget extends StatelessWidget {
                                           "",
                                       maxLines: 2,
                                       color:
-                                          Theme.of(context).colorScheme.primary,
+                                          Get.theme.colorScheme.primary,
                                     ),
                                   ],
                                 ),
@@ -139,7 +139,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             constraints: BoxConstraints(minHeight: 75.h),
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.onSurface,
+                              color: Get.theme.colorScheme.onSurface,
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: const [
                                 BoxShadow(
@@ -156,7 +156,7 @@ class HomeHeaderWidget extends StatelessWidget {
                                 CustomTextWidget(
                                   text: "coins",
                                   maxLines: 2,
-                                  color: Theme.of(context).colorScheme.primary,
+                                  color: Get.theme.colorScheme.primary,
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -185,7 +185,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             constraints: BoxConstraints(minHeight: 75.h),
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.onSurface,
+                              color: Get.theme.colorScheme.onSurface,
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: const [
                                 BoxShadow(
@@ -202,7 +202,7 @@ class HomeHeaderWidget extends StatelessWidget {
                                 CustomTextWidget(
                                   text: "strike",
                                   maxLines: 2,
-                                  color: Theme.of(context).colorScheme.primary,
+                                  color: Get.theme.colorScheme.primary,
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -219,7 +219,7 @@ class HomeHeaderWidget extends StatelessWidget {
                                               "0",
                                       maxLines: 2,
                                       color:
-                                          Theme.of(context).colorScheme.error,
+                                          Get.theme.colorScheme.error,
                                     ),
                                   ],
                                 ),
@@ -240,7 +240,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             constraints: BoxConstraints(minHeight: 75.h),
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.onSurface,
+                              color: Get.theme.colorScheme.onSurface,
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: const [
                                 BoxShadow(
@@ -317,7 +317,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             constraints: BoxConstraints(minHeight: 75.h),
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.onSurface,
+                              color: Get.theme.colorScheme.onSurface,
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: const [
                                 BoxShadow(

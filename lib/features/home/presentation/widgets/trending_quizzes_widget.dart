@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:risha_app/config/asset_paths.dart';
 import 'package:risha_app/core/enums/text_style_enum.dart';
@@ -30,7 +31,7 @@ class TrendingQuizzesWidget extends StatelessWidget {
         constraints: BoxConstraints(minWidth: 153.w),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
-          color: Theme.of(context).colorScheme.onSurface,
+          color: Get.theme.colorScheme.onSurface,
         ),
         child: Column(
           children: [

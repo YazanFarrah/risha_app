@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:risha_app/core/widgets/index_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
@@ -41,7 +42,7 @@ class _PhotosGalleryScreenState extends State<PhotosGalleryScreen> {
           },
           icon:  Icon(
             Icons.close,
-            color: Theme.of(context).colorScheme.onSurface,
+            color: Get.theme.colorScheme.onSurface,
           ),
         ),
       ),

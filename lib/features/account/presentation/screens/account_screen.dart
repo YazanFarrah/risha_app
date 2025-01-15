@@ -124,7 +124,7 @@ class AccountScreen extends StatelessWidget {
                     leadingWidget: CircularIconWidget(
                       widget: Icon(
                         Icons.store,
-                        color: Theme.of(context).colorScheme.inverseSurface,
+                        color: Get.theme.colorScheme.inverseSurface,
                       ),
                     ),
                     title: "currencyStoreTitle",

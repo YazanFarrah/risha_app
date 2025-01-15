@@ -32,7 +32,7 @@ class AccountCategoriesScreen extends StatelessWidget {
               onPressed: () {},
               child:  CustomTextWidget(
                 text: "saveFav",
-                color: Theme.of(context).colorScheme.onSurface,
+                color: Get.theme.colorScheme.onSurface,
               ),
             ),
           );
@@ -42,7 +42,7 @@ class AccountCategoriesScreen extends StatelessWidget {
         if (categoryController.isLoading.value == true) {
           return Center(
               child: LoadingFadingCircle(
-            color: Theme.of(context).colorScheme.primary,
+            color: Get.theme.colorScheme.primary,
           ));
         }
 

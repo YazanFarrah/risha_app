@@ -34,11 +34,11 @@ class CategoryWidget extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.onSurface,
+                color: Get.theme.colorScheme.onSurface,
                 borderRadius: BorderRadius.circular(10.r),
                 border: isSelected
                     ? Border.all(
-                        color: Theme.of(context).colorScheme.primary,
+                        color: Get.theme.colorScheme.primary,
                         width: 1,
                       )
                     : Border.all(color: Colors.transparent),
@@ -62,13 +62,13 @@ class CategoryWidget extends StatelessWidget {
                   width: 20.w,
                   height: 20.w,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary,
+                    color: Get.theme.colorScheme.primary,
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
                     Icons.check,
                     size: 12.r,
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: Get.theme.colorScheme.onSurface,
                   ),
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 
 class Loader extends StatelessWidget {
   final Color? color;
@@ -10,7 +11,7 @@ class Loader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: CircularProgressIndicator.adaptive(
-        backgroundColor: color ?? Theme.of(context).colorScheme.onSurface,
+        backgroundColor: color ?? Get.theme.colorScheme.onSurface,
       ),
     );
   }
@@ -63,7 +64,7 @@ class LoadingFadingCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final spinkit = SpinKitFadingCircle(
-      color: color ?? Theme.of(context).colorScheme.onSurface,
+      color: color ?? Get.theme.colorScheme.onSurface,
       // itemBuilder: (BuildContext context, int index) {
       //   return DecoratedBox(
       //     decoration: BoxDecoration(

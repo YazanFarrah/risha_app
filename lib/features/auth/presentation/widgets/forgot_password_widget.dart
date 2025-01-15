@@ -208,7 +208,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   width: double.infinity,
                   child:  CustomTextWidget(
                     text: "check",
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: Get.theme.colorScheme.onSurface,
                   ),
                 ),
                 SizedBox(height: 10.h),
@@ -217,11 +217,11 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                     Navigator.pop(context);
                   },
                   width: double.infinity,
-                  backgroundColor: Theme.of(context).colorScheme.onSurface,
-                  borderColor: Theme.of(context).colorScheme.primary,
+                  backgroundColor: Get.theme.colorScheme.onSurface,
+                  borderColor: Get.theme.colorScheme.primary,
                   child: CustomTextWidget(
                     text: "login",
-                    color: Theme.of(context).colorScheme.primary,
+                    color: Get.theme.colorScheme.primary,
                   ),
                 ),
               } else ...{
@@ -239,7 +239,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                       ? const Loader()
                       :  CustomTextWidget(
                           text: "resetPassword",
-                          color: Theme.of(context).colorScheme.onSurface,
+                          color: Get.theme.colorScheme.onSurface,
                         ),
                 ),
                 SizedBox(height: 10.h),
@@ -248,11 +248,11 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                     Navigator.pop(context);
                   },
                   width: double.infinity,
-                  backgroundColor: Theme.of(context).colorScheme.onSurface,
-                  borderColor: Theme.of(context).colorScheme.primary,
+                  backgroundColor: Get.theme.colorScheme.onSurface,
+                  borderColor: Get.theme.colorScheme.primary,
                   child: CustomTextWidget(
                     text: "login",
-                    color: Theme.of(context).colorScheme.primary,
+                    color: Get.theme.colorScheme.primary,
                   ),
                 ),
               },

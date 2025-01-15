@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:risha_app/core/utils/shared.dart';
 import 'package:risha_app/core/widgets/custom_appbar.dart';
 
@@ -16,8 +17,8 @@ class AccountFaqScreen extends StatelessWidget {
         padding: UIConstants.bodyPadding,
         child: ExpansionTile(
           title: const Text("data"),
-          backgroundColor: Theme.of(context).colorScheme.onSurface,
-          collapsedBackgroundColor: Theme.of(context).colorScheme.onSurface,
+          backgroundColor: Get.theme.colorScheme.onSurface,
+          collapsedBackgroundColor: Get.theme.colorScheme.onSurface,
           shape: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide.none,

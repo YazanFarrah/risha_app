@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'custom_text_widget.dart';
 
@@ -48,7 +49,7 @@ class CustomButton extends StatelessWidget {
                     backgroundColor ?? Theme.of(context).primaryColor,
                 side: borderColor != null
                     ? BorderSide(
-                        color: borderColor ?? Theme.of(context).colorScheme.onSurface,
+                        color: borderColor ?? Get.theme.colorScheme.onSurface,
                         width: 1,
                       )
                     : null,
@@ -69,7 +70,7 @@ class CustomButton extends StatelessWidget {
                     backgroundColor ?? Theme.of(context).primaryColor,
                 side: borderColor != null
                     ? BorderSide(
-                        color: borderColor ?? Theme.of(context).colorScheme.onSurface,
+                        color: borderColor ?? Get.theme.colorScheme.onSurface,
                         width: 1,
                       )
                     : null,

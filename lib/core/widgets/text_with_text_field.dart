@@ -1,3 +1,4 @@
+import 'package:get/get.dart'hide Trans;
 import 'package:risha_app/core/widgets/custom_form_field.dart';
 import 'package:risha_app/core/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
@@ -122,7 +123,7 @@ class _TextWithTextFieldState extends State<TextWithTextField> {
                       : null,
               filled: widget.filled,
               filledColor:
-                  widget.fillColor ?? Theme.of(context).colorScheme.onSurface,
+                  widget.fillColor ?? Get.theme.colorScheme.onSurface,
               hasBorderSide: widget.hasBorderSide,
               enabled: widget.enabled,
               suffix: widget.suffix,

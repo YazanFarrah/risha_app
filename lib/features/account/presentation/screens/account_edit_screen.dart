@@ -80,7 +80,7 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
                 ? const LoadingFadingCircle()
                 : CustomTextWidget(
                     text: "saveInfo",
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: Get.theme.colorScheme.onSurface,
                   ),
           ),
         ),
@@ -173,7 +173,7 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
                       suffix: Icon(
                         Icons.arrow_forward_ios,
                         size: 20.sp,
-                        color: Theme.of(context).colorScheme.inverseSurface,
+                        color: Get.theme.colorScheme.inverseSurface,
                       ),
                     );
                   },
@@ -198,7 +198,7 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
                   suffix: Icon(
                     Icons.arrow_forward_ios,
                     size: 20.sp,
-                    color: Theme.of(context).colorScheme.inverseSurface,
+                    color: Get.theme.colorScheme.inverseSurface,
                   ),
                 ),
               ),

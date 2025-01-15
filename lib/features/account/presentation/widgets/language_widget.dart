@@ -76,7 +76,7 @@ class LanguageWidget extends StatelessWidget {
             text,
             style: TextStyle(
               color: isSelected
-                  ? Theme.of(context).colorScheme.onSurface
+                  ? Get.theme.colorScheme.onSurface
                   : Colors.black,
               fontSize: 14.sp,
               fontWeight: FontWeight.w400,
