@@ -24,8 +24,8 @@ class UserModelConstants {
   static const String updatedAt = "updated_at";
   static const String lastCoinsClaimedAt = "last-coins-claimed-at";
   static const String lastSeenAt = "last_seen";
-  static const String totalCorrectAnswers = "total_wrong_answers";
-  static const String totalWrongAnswers = "total_correct_answers";
+  static const String totalCorrectAnswers = "total_correct_answers";
+  static const String totalWrongAnswers = "total_wrong_answers";
   static const String strike = "strike";
   static const String degreeOfInsurance = "degree_of_insurance";
   static const String isPremium = "is_premium";
@@ -42,6 +42,7 @@ class UserNickNameModelConstants {
   static const String logo = "logo";
   static const String logoUrl = "logo_url";
 }
+
 class TrendyQuizzesModelConstants {
   static const String id = "id";
   static const String arName = "ar_name";
@@ -49,4 +50,13 @@ class TrendyQuizzesModelConstants {
   static const String icon = "icon";
   static const String quizzesCount = "quizzes_count";
   static const String colorCode = "color_code";
+}
+
+class CategoriesJsonConstants {
+  static const String id = "id";
+  static const String arTitle = "ar_name";
+  static const String enTitle = "en_name";
+  static const String icon = "icon";
+  static const String hexColor = "color_code";
+  static const String isFavorite = "is_favorite";
 }

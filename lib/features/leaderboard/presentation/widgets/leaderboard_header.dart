@@ -16,6 +16,7 @@ class LeaderboardAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Get.theme.colorScheme.primary,
       elevation: 4,
+      leadingWidth: 120.w,
       shadowColor: const Color.fromRGBO(0, 0, 0, 1).withValues(alpha: 0.1),
       centerTitle: true,
       title: CustomTextWidget(
@@ -42,7 +43,9 @@ class LeaderboardAppBar extends StatelessWidget implements PreferredSizeWidget {
                             ),
                           ),
                           padding: EdgeInsets.symmetric(
-                              horizontal: 8.w, vertical: 4.h),
+                            horizontal: 8.w,
+                            vertical: 4.h,
+                          ),
                           child: CustomTextWidget(
                             text: Get.locale?.languageCode == "ar"
                                 ? userController.user.value?.country?.name_ar ??

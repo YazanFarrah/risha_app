@@ -124,6 +124,9 @@
   "strike": "الحماسة",
   "popularQuizzesTypes": "أنواع الاختبارات الشائعة",
   "popularQuizzes": "الاختبارات الشائعة",
-  "leaderboard": "التصنيفات"
-
+  "leaderboard": "التصنيفات",
+  "allTime": "كل الوقت",
+  "thisWeek": "هذا الأسبوع",
+  "today": "اليوم",
+  "updatedCategoriesSuccessfully": "تم تحديث الأقسام بنجاح"
 }

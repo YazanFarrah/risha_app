@@ -29,11 +29,15 @@ class AccountCategoriesScreen extends StatelessWidget {
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
             child: CustomButton(
-              onPressed: () {},
-              child:  CustomTextWidget(
-                text: "saveFav",
-                color: Get.theme.colorScheme.onSurface,
-              ),
+              onPressed: () {
+                categoryController.updateFavoriteCategories();
+              },
+              child: categoryController.isUpdatingCategories.value
+                  ? const LoadingFadingCircle()
+                  : CustomTextWidget(
+                      text: "saveFav",
+                      color: Get.theme.colorScheme.onSurface,
+                    ),
             ),
           );
         },

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -18,6 +20,7 @@ class CategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final categoryController = Get.find<CategoryController>();
+    log(category.isFavorite.toString());
 
     return Obx(() {
       bool isSelected = categoryController.selectedCategories
@@ -46,11 +49,13 @@ class CategoryWidget extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CustomImage(image: category.logo),
+                  CustomImage(image: category.icon ?? ""),
                   SizedBox(height: 20.h),
                   CustomTextWidget(
-                    text: category.title,
-                    color: ColorUtils().hexToColor(category.hexColor),
+                    text: Get.locale?.languageCode == "ar"
+                        ? (category.arTitle ?? "")
+                        : (category.enTitle ?? ""),
+                    color: ColorUtils().hexToColor(category.hexColor!),
                   ),
                 ],
               ),

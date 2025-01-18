@@ -124,5 +124,9 @@
   "strike": "Strike",
   "popularQuizzesTypes": "Popular Quizzes Types",
   "popularQuizzes": "Popular Quizzes",
-  "leaderboard": "Leaderboard"
+  "leaderboard": "Leaderboard",
+  "allTime": "All Time",
+  "thisWeek": "This Week",
+  "today": "Today",
+  "updatedCategoriesSuccessfully" : "Updated Categories Successfully"
 }

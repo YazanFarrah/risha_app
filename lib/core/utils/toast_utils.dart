@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Trans;
 class ToastUtils {
@@ -9,7 +10,7 @@ class ToastUtils {
       Future.delayed(Duration.zero, () => Get.closeAllSnackbars());
     }
     Get.rawSnackbar(
-      message: error,
+      message: error.tr(),
       backgroundColor: Colors.red.withValues(alpha: 0.9),
       snackPosition: SnackPosition.TOP,
       margin: const EdgeInsets.all(10),
@@ -26,7 +27,7 @@ class ToastUtils {
       Future.delayed(Duration.zero, () => Get.closeAllSnackbars());
     }
     Get.rawSnackbar(
-      message: message,
+      message: message.tr(),
       backgroundColor: Colors.green.withValues(alpha: 0.8),
       snackPosition: SnackPosition.BOTTOM,
       margin: const EdgeInsets.all(10),

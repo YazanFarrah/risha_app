@@ -27,6 +27,7 @@ class HomeHeaderWidget extends StatelessWidget {
               () {
                 final userController =
                     Get.find<CurrentUserController>().user.value;
+
                 return Column(
                   children: [
                     // Row 1
@@ -331,7 +332,7 @@ class HomeHeaderWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 CustomTextWidget(
-                                  text: userController?.totalCorrectAnswers
+                                  text: userController?.totalWrongAnswers
                                           ?.toString() ??
                                       "0",
                                   maxLines: 2,

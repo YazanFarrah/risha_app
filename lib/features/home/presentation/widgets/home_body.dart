@@ -17,31 +17,30 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final userController = Get.find<CurrentUserController>();
+    final trendyQuizzesController = Get.find<TrendyQuizzesController>();
     return SliverToBoxAdapter(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (userController.user.value?.isPremium == false)
-            Padding(
-              padding: EdgeInsets.only(left: 19.w, right: 19.w, top: 25.h),
-              child: SubscriptionWidget(height: 66.h),
-            ),
-          Padding(
-            padding: UIConstants.horizontalPadding.copyWith(top: 25.h),
-            child: ViewAllWithTitleWidget(
-              title: "popularQuizzesTypes",
-              onTap: () {},
-            ),
-          ),
-          SizedBox(height: 12.h),
-          SizedBox(
-            height: 47.h,
-            child: Obx(
-              () {
-                final trendyQuizzesController =
-                    Get.find<TrendyQuizzesController>();
-
-                return trendyQuizzesController.isLoading.value
+      child: Obx(
+        () {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (userController.user.value?.isPremium == false)
+                Padding(
+                  padding: EdgeInsets.only(left: 19.w, right: 19.w, top: 25.h),
+                  child: SubscriptionWidget(height: 66.h),
+                ),
+              if (trendyQuizzesController.trendyQuizzes.isNotEmpty)
+                Padding(
+                  padding: UIConstants.horizontalPadding.copyWith(top: 25.h),
+                  child: ViewAllWithTitleWidget(
+                    title: "popularQuizzesTypes",
+                    onTap: () {},
+                  ),
+                ),
+              SizedBox(height: 12.h),
+              SizedBox(
+                height: 47.h,
+                child: trendyQuizzesController.isLoading.value
                     ? const TrendingQuizzesCategoriesShimmer()
                     : ListView.separated(
                         padding: UIConstants.horizontalPadding,
@@ -56,45 +55,50 @@ class HomeBody extends StatelessWidget {
                           return SizedBox(width: 10.w);
                         },
                         itemCount: trendyQuizzesController.trendyQuizzes.length,
-                      );
-              },
-            ),
-          ),
-          SizedBox(height: 30.h),
-          Padding(
-            padding: UIConstants.horizontalPadding,
-            child: ViewAllWithTitleWidget(
-              title: "popularQuizzes",
-              onTap: () {},
-            ),
-          ),
-          SizedBox(height: 12.h),
-          SizedBox(
-            height: 124.h,
-            child: ListView.separated(
-              padding: UIConstants.horizontalPadding,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return const TrendingQuizzesWidget(
-                  color: Colors.red,
-                  icon: Icons.cases_outlined,
-                  title: "علوم-115",
-                  points: "مجموع النقاط 18",
-                  subs: "عدد المشاركين 132",
-                );
-              },
-              separatorBuilder: (context, index) {
-                return SizedBox(width: 10.w);
-              },
-              itemCount: 4,
-            ),
-          ),
-          SizedBox(height: 30.h),
-          Padding(
-            padding: UIConstants.horizontalPadding,
-            child: const FavoriteCategoriesWidget(),
-          ),
-        ],
+                      ),
+              ),
+              SizedBox(height: 30.h),
+              Column(
+                children: [
+                  Padding(
+                    padding: UIConstants.horizontalPadding,
+                    child: ViewAllWithTitleWidget(
+                      title: "popularQuizzes",
+                      onTap: () {},
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 12.h),
+              SizedBox(
+                height: 124.h,
+                child: ListView.separated(
+                  padding: UIConstants.horizontalPadding,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return const TrendingQuizzesWidget(
+                      color: Colors.red,
+                      icon: Icons.cases_outlined,
+                      title: "علوم-115",
+                      points: "مجموع النقاط 18",
+                      subs: "عدد المشاركين 132",
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return SizedBox(width: 10.w);
+                  },
+                  itemCount: 4,
+                ),
+              ),
+
+              SizedBox(height: 30.h),
+              Padding(
+                padding: UIConstants.horizontalPadding,
+                child: const FavoriteCategoriesWidget(),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

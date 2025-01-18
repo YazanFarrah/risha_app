@@ -13,6 +13,12 @@ class ApiPaths {
   //categories
   static const String fetchCities = 'cities';
   static const String fetchCategories = 'categories';
+  static const String allCategoriesAndUserFavoriteCategories = 'all-categories-with-favorite';
+  static const String userFavoriteCategories = 'favorite-categories';
+  static const String updateFavoriteCategories = 'update-favorite-categories';
+  
+  
+  
 
   //user
   static const String fetchUserData = 'account';
@@ -21,5 +27,7 @@ class ApiPaths {
 
   static const String fetchTrendyQuizzesTypes = 'trendy-quiz-types';
   static const String fetchTrendyQuizzes = 'trendy-quizzes';
+
+  
   
 }

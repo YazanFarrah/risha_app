@@ -11,6 +11,7 @@ class CurrentUserController extends GetxController {
   final _sharedRemoteDatasource = Get.find<SharedRemoteDatasources>();
 
   void setUser(UserModel user) {
+    log("user strike: ${user.strike}");
     this.user.value = user;
     log(this.user.toString());
   }

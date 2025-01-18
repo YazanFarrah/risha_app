@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:risha_app/config/json_constants.dart';
 import 'package:risha_app/core/enums/user_gender_enum.dart';
 import 'package:risha_app/features/account/data/models/countries_model.dart';
@@ -61,6 +63,7 @@ class UserModel {
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
+    log("JSON:: ${json[UserModelConstants.strike]}  ${json[UserModelConstants.strike].runtimeType}");
     return UserModel(
       id: json[UserModelConstants.id],
       name: json[UserModelConstants.name] ?? "",
@@ -164,6 +167,7 @@ class UserModel {
     int? totalPoints,
     int? coins,
     int? rank,
+    int? strike,
     String? token,
     DateTime? createdAt,
     DateTime? lastCoinsClaimedAt,
@@ -187,6 +191,7 @@ class UserModel {
       totalPoints: totalPoints ?? this.totalPoints,
       coins: coins ?? this.coins,
       rank: rank ?? this.rank,
+      strike: strike?? this.strike,
       token: token ?? this.token,
       createdAt: createdAt ?? this.createdAt,
       lastCoinsClaimedAt: lastCoinsClaimedAt ?? this.lastCoinsClaimedAt,
