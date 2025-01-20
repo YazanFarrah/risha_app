@@ -46,7 +46,8 @@ class HomeRemoteDatasource with NetworkMixin {
     }
   }
 
-  Future<Either<Failure, List<CategoryModel>>> fetchUserFavoriteCategories() async {
+  Future<Either<Failure, List<CategoryModel>>>
+      fetchUserFavoriteCategories() async {
     try {
       if (!await isConnected) {
         return left(NetworkFailure(noInternetConnection));

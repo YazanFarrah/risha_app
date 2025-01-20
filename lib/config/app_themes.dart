@@ -19,17 +19,19 @@ class AppThemes {
       error: AppLightColors.redColor,
       tertiary: AppLightColors.greenColor,
       inverseSurface: Colors.black,
-      shadow: const Color(0x0fff4f4f),
+      shadow: AppLightColors.darkGrayColor,
       onSecondaryContainer: AppLightColors.cardBackgroundColor,
       onTertiaryContainer: AppLightColors.cardWhiteColor,
       tertiaryContainer: AppLightColors.scaffoldBackground,
       inversePrimary: AppLightColors.settingCardBackground,
+
     ),
+
     appBarTheme: const AppBarTheme().copyWith(
       iconTheme: const IconThemeData(color: Colors.black),
     ),
     bottomSheetTheme: const BottomSheetThemeData().copyWith(
-      backgroundColor: Colors.white,
+      backgroundColor: AppLightColors.appBackgroundColor,
       dragHandleColor: AppLightColors.grayTextColor,
     ),
     shadowColor: AppLightColors.grayColor,
@@ -122,8 +124,9 @@ class AppThemes {
     iconTheme: const IconThemeData().copyWith(
       color: AppDarkColors.primaryColor,
     ),
-    // bottomSheetTheme: const BottomSheetThemeData(
-    //   backgroundColor: AppDarkColors.backgroundColor,
+    //  bottomSheetTheme: const BottomSheetThemeData().copyWith(
+    //   backgroundColor: AppDarkColors.appBackgroundColor,
+    //   dragHandleColor: AppDarkColors.grayTextColor,
     // ),
     shadowColor: AppDarkColors.grayColor,
     textTheme: TextTheme(

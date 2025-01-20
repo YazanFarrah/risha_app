@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,9 +7,11 @@ class CustomRichText extends StatelessWidget {
   final String firstText;
   final String clickableText;
   final Function()? onTap;
+  final Color? clickableTextColor;
 
   const CustomRichText({
     super.key,
+    this.clickableTextColor,
     required this.firstText,
     required this.clickableText,
     required this.onTap,
@@ -20,13 +23,13 @@ class CustomRichText extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: "$firstText ",
+            text: "${firstText.tr(context: context)} ",
             style: Theme.of(context).textTheme.displaySmall,
           ),
           TextSpan(
-            text: clickableText,
+            text: clickableText.tr(),
             style: TextStyle(
-              color: Theme.of(context).primaryColor,
+              color: clickableTextColor ?? Theme.of(context).primaryColor,
               fontWeight: FontWeight.w700,
               fontSize: 16.sp,
             ),

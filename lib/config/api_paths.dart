@@ -18,6 +18,9 @@ class ApiPaths {
   static const String updateFavoriteCategories = 'update-favorite-categories';
   
   
+  //quizzes
+  static const String allQuizzesById = 'the-quizzes';
+
   
 
   //user

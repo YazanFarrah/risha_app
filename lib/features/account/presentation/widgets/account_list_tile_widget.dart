@@ -26,6 +26,7 @@ class AccountListTileWidget extends StatelessWidget {
       child: Card(
         margin: EdgeInsets.zero,
         color: Get.theme.colorScheme.onSurface,
+        elevation: 0,
         child: ListTile(
           minVerticalPadding: 20.h,
           leading: Padding(

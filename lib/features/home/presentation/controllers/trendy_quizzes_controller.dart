@@ -24,4 +24,5 @@ class TrendyQuizzesController extends GetxController {
     );
     isLoading(false);
   }
+
 }

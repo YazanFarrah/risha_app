@@ -105,7 +105,7 @@
   "deleteImage": "مسح الصورة",
   "emailVerified": "تم التحقق",
   "emailNotVerified": "لم يتم التحقق",
-  "all": "الكل",
+  "viewAll": "الكل",
   "saveInfo": "حفظ البيانات",
   "changePicture": "تغيير الصورة",
   "choose": "اختيار",
@@ -128,5 +128,11 @@
   "allTime": "كل الوقت",
   "thisWeek": "هذا الأسبوع",
   "today": "اليوم",
-  "updatedCategoriesSuccessfully": "تم تحديث الأقسام بنجاح"
+  "updatedCategoriesSuccessfully": "تم تحديث الأقسام بنجاح",
+  "chooseSection": "اختر القسم",
+  "chooseYourFavAndMostImportantSection" : "اختر قسم الاختبارات المفضل والأكثر أهمية بالنسبة لك!",
+  "availableQuizzesIn": "الاختبارات المتاحة في قسم",
+  "all": "الكل",
+  "leftOnly": "المتبقية فقط",
+  "incompleted": "الغير مكتملة"
 }

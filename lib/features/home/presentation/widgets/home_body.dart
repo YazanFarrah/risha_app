@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:risha_app/core/utils/shared.dart';
 import 'package:risha_app/core/widgets/subscription_widget.dart';
 import 'package:risha_app/features/home/presentation/controllers/trendy_quizzes_controller.dart';
+import 'package:risha_app/features/home/presentation/screens/all_trendy_quizzes_screen.dart';
 import 'package:risha_app/features/home/presentation/shimmers/trending_quizzes_categories_shimmer.dart';
 import 'package:risha_app/features/home/presentation/widgets/favorite_categories_widget.dart';
 import 'package:risha_app/features/home/presentation/widgets/trending_quizzes_categories_widget.dart';
@@ -34,12 +35,14 @@ class HomeBody extends StatelessWidget {
                   padding: UIConstants.horizontalPadding.copyWith(top: 25.h),
                   child: ViewAllWithTitleWidget(
                     title: "popularQuizzesTypes",
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => const AllTrendyQuizzesScreen());
+                    },
                   ),
                 ),
               SizedBox(height: 12.h),
               SizedBox(
-                height: 47.h,
+                height: 50.h,
                 child: trendyQuizzesController.isLoading.value
                     ? const TrendingQuizzesCategoriesShimmer()
                     : ListView.separated(
@@ -90,7 +93,6 @@ class HomeBody extends StatelessWidget {
                   itemCount: 4,
                 ),
               ),
-
               SizedBox(height: 30.h),
               Padding(
                 padding: UIConstants.horizontalPadding,

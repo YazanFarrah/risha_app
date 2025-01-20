@@ -12,7 +12,7 @@ class AppLightColors {
   static const Color scaffoldBackground = Color(0xfff9f9f9);
   static const Color settingCardBackground = Color(0xffF5F5F5);
   static const Color textLightColor = Color(0x98000000);
-  static const Color darkGrayColor = Color(0XFF868686);
+  static const Color darkGrayColor = Color(0xFF4F4F4F);
   static const Color grayColor = Color(0xFFE1E1E1);
   static const Color lightGrayColor = Color(0xffA5A5A5);
   static const Color backgroundColor = Color(0xFFfafafa);

@@ -1,0 +1,1 @@
+enum QuizStatusEnum {newQuiz, completed, incompleted}

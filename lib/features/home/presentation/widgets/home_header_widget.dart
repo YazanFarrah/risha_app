@@ -41,14 +41,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             decoration: BoxDecoration(
                               color: Get.theme.colorScheme.onSurface,
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.black26,
-                                  blurRadius: 4,
-                                  offset: Offset(0, 2),
-                                ),
-                              ],
+                              borderRadius: BorderRadius.circular(12.r),
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -63,14 +56,16 @@ class HomeHeaderWidget extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   spacing: 6.w,
                                   children: [
-                                    SvgPicture.asset(AssetPaths.rank, height: 21.w,
-                                      width: 21.w,),
+                                    SvgPicture.asset(
+                                      AssetPaths.rank,
+                                      height: 21.w,
+                                      width: 21.w,
+                                    ),
                                     CustomTextWidget(
                                       text:
                                           userController?.rank.toString() ?? "",
                                       maxLines: 2,
-                                      color:
-                                          Get.theme.colorScheme.primary,
+                                      color: Get.theme.colorScheme.primary,
                                     ),
                                   ],
                                 ),
@@ -84,14 +79,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             decoration: BoxDecoration(
                               color: Get.theme.colorScheme.onSurface,
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.black26,
-                                  blurRadius: 4,
-                                  offset: Offset(0, 2),
-                                ),
-                              ],
+                              borderRadius: BorderRadius.circular(12.r),
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -110,16 +98,14 @@ class HomeHeaderWidget extends StatelessWidget {
                                       AssetPaths.diamond,
                                       height: 21.w,
                                       width: 21.w,
-                                      color:
-                                          Get.theme.colorScheme.primary,
+                                      color: Get.theme.colorScheme.primary,
                                     ),
                                     CustomTextWidget(
                                       text: userController?.totalPoints
                                               .toString() ??
                                           "",
                                       maxLines: 2,
-                                      color:
-                                          Get.theme.colorScheme.primary,
+                                      color: Get.theme.colorScheme.primary,
                                     ),
                                   ],
                                 ),
@@ -141,14 +127,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             decoration: BoxDecoration(
                               color: Get.theme.colorScheme.onSurface,
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.black26,
-                                  blurRadius: 4,
-                                  offset: Offset(0, 2),
-                                ),
-                              ],
+                              borderRadius: BorderRadius.circular(12.r),
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -187,14 +166,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             decoration: BoxDecoration(
                               color: Get.theme.colorScheme.onSurface,
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.black26,
-                                  blurRadius: 4,
-                                  offset: Offset(0, 2),
-                                ),
-                              ],
+                              borderRadius: BorderRadius.circular(12.r),
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -219,8 +191,7 @@ class HomeHeaderWidget extends StatelessWidget {
                                           userController?.strike?.toString() ??
                                               "0",
                                       maxLines: 2,
-                                      color:
-                                          Get.theme.colorScheme.error,
+                                      color: Get.theme.colorScheme.error,
                                     ),
                                   ],
                                 ),
@@ -242,14 +213,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             decoration: BoxDecoration(
                               color: Get.theme.colorScheme.onSurface,
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.black26,
-                                  blurRadius: 4,
-                                  offset: Offset(0, 2),
-                                ),
-                              ],
+                              borderRadius: BorderRadius.circular(12.r),
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -259,26 +223,21 @@ class HomeHeaderWidget extends StatelessWidget {
                                           ?.toString() ??
                                       "0",
                                   maxLines: 2,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .tertiary,
+                                  color: Theme.of(context).colorScheme.tertiary,
                                 ),
                                 SizedBox(width: 18.w),
                                 SizedBox(
                                   height: 32.h,
-                                  
                                   child: VerticalDivider(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .tertiary,
+                                    color:
+                                        Theme.of(context).colorScheme.tertiary,
                                     thickness: 2.5,
                                   ),
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    if (Get.locale?.languageCode ==
-                                        "en") ...{
+                                    if (Get.locale?.languageCode == "en") ...{
                                       CustomTextWidget(
                                         text: "Correct",
                                         color: Theme.of(context)
@@ -298,7 +257,6 @@ class HomeHeaderWidget extends StatelessWidget {
                                             .colorScheme
                                             .primary,
                                       ),
-                                      
                                       CustomTextWidget(
                                         text: "الصحيحة",
                                         color: Theme.of(context)
@@ -310,7 +268,6 @@ class HomeHeaderWidget extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          
                           ),
                         ),
                         Expanded(
@@ -319,16 +276,9 @@ class HomeHeaderWidget extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             decoration: BoxDecoration(
                               color: Get.theme.colorScheme.onSurface,
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.black26,
-                                  blurRadius: 4,
-                                  offset: Offset(0, 2),
-                                ),
-                              ],
+                              borderRadius: BorderRadius.circular(12.r),
                             ),
-                            child:  Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 CustomTextWidget(
@@ -336,31 +286,24 @@ class HomeHeaderWidget extends StatelessWidget {
                                           ?.toString() ??
                                       "0",
                                   maxLines: 2,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .error,
+                                  color: Theme.of(context).colorScheme.error,
                                 ),
                                 SizedBox(width: 18.w),
                                 SizedBox(
                                   height: 32.h,
-                                  
                                   child: VerticalDivider(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .error,
+                                    color: Theme.of(context).colorScheme.error,
                                     thickness: 2.5,
                                   ),
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    if (Get.locale?.languageCode ==
-                                        "en") ...{
+                                    if (Get.locale?.languageCode == "en") ...{
                                       CustomTextWidget(
                                         text: "Wrong",
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .error,
+                                        color:
+                                            Theme.of(context).colorScheme.error,
                                       ),
                                       CustomTextWidget(
                                         text: "Answers",
@@ -375,19 +318,16 @@ class HomeHeaderWidget extends StatelessWidget {
                                             .colorScheme
                                             .primary,
                                       ),
-                                      
                                       CustomTextWidget(
                                         text: "الخاطئة",
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .error,
+                                        color:
+                                            Theme.of(context).colorScheme.error,
                                       ),
                                     }
                                   ],
                                 ),
                               ],
                             ),
-                          
                           ),
                         ),
                       ],

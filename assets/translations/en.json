@@ -105,7 +105,7 @@
   "deleteImage": "Delete Image",
   "emailVerified": "Verified",
   "emailNotVerified": "Not Verified",
-  "all": "View All",
+  "viewAll": "View All",
   "saveInfo": "Save Info",
   "changePicture": "Change Picture",
   "choose": "Choose",
@@ -128,5 +128,11 @@
   "allTime": "All Time",
   "thisWeek": "This Week",
   "today": "Today",
-  "updatedCategoriesSuccessfully" : "Updated Categories Successfully"
+  "updatedCategoriesSuccessfully" : "Updated Categories Successfully",
+  "chooseSection" : "Choose Section",
+  "chooseYourFavAndMostImportantSection" : "Choose your most favorite and important quizzes section!",
+  "availableQuizzesIn": "Available quizzes in",
+  "all": "All",
+  "leftOnly": "Left Only",
+  "incompleted": "Incomplete"
 }

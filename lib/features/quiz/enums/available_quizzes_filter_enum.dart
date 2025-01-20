@@ -1,0 +1,1 @@
+enum AvailableQuizzesFilterEnum {all, left, completed}

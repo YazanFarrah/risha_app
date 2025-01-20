@@ -9,7 +9,7 @@ extension StringExtension on String {
 
 extension ClearClose on RxList {
   void clearClose() {
-    clear();
     close();
+    clear();
   }
 }

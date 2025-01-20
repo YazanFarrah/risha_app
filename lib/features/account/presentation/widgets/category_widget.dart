@@ -55,7 +55,7 @@ class CategoryWidget extends StatelessWidget {
                     text: Get.locale?.languageCode == "ar"
                         ? (category.arTitle ?? "")
                         : (category.enTitle ?? ""),
-                    color: ColorUtils().hexToColor(category.hexColor!),
+                    color: ColorUtils.hexToColor(category.hexColor!),
                   ),
                 ],
               ),

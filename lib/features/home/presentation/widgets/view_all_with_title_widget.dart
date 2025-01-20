@@ -27,7 +27,7 @@ class ViewAllWithTitleWidget extends StatelessWidget {
           child: Row(
             children: [
               CustomTextWidget(
-                text: "all".tr(context: context),
+                text: "viewAll".tr(context: context),
                 textThemeStyle: TextThemeStyleEnum.displaySmall,
                 color: Get.theme.colorScheme.primary,
                 fontWeight: FontWeight.w700,

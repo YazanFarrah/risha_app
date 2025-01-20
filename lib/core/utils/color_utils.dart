@@ -3,7 +3,7 @@ import 'dart:ui';
 class ColorUtils {
   static const Color primaryColor = Color(0xFF6949FF);
 
-  Color hexToColor(String hexColor) {
+static Color hexToColor(String hexColor) {
     // Remove the '#' if present
     hexColor = hexColor.replaceAll('#', '');
 

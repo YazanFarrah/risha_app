@@ -1,5 +1,8 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:risha_app/config/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:risha_app/config/asset_paths.dart';
 
 class CustomImage extends StatelessWidget {
   final String image;
@@ -24,9 +27,9 @@ class CustomImage extends StatelessWidget {
   const CustomImage({
     super.key,
     required this.image,
-    this.height = 50,
-    this.width = 50,
-    this.fit = BoxFit.cover,
+    this.height = 28,
+    this.width = 28,
+    this.fit = BoxFit.contain,
     this.isNotification = false,
     this.placeholder = '',
     this.noPlaceHolder,
@@ -45,7 +48,7 @@ class CustomImage extends StatelessWidget {
     BoxShadow? boxShadow;
     if (elevation != null) {
       boxShadow = BoxShadow(
-        color: Colors.black.withValues(alpha:  0.3),
+        color: Colors.black.withValues(alpha: 0.3),
         spreadRadius: elevation! / 2,
         blurRadius: elevation!,
         offset: Offset(0, elevation! / 2),
@@ -53,8 +56,8 @@ class CustomImage extends StatelessWidget {
     }
 
     return Container(
-      height: height,
-      width: width,
+      height: height?.w,
+      width: width?.w,
       decoration: BoxDecoration(
         borderRadius: borderRadius,
         boxShadow: boxShadow != null ? [boxShadow] : null,
@@ -66,8 +69,6 @@ class CustomImage extends StatelessWidget {
         children: [
           Image.network(
             image,
-            height: height,
-            width: width,
             fit: fit,
             loadingBuilder: (context, child, progress) {
               if (progress == null) {
@@ -81,8 +82,8 @@ class CustomImage extends StatelessWidget {
                     alignment: Alignment.center,
                     children: [
                       Container(
-                        height: height,
-                        width: width,
+                        height: height != null ? height! / 1.5 : height,
+                        width: width != null ? width! / 1.5 : width,
                         decoration: BoxDecoration(
                           color: SharedColors.greyTextColor,
                           borderRadius: borderRadius,
@@ -102,11 +103,7 @@ class CustomImage extends StatelessWidget {
             errorBuilder: (context, error, stackTrace) {
               return noErrorHandler == true
                   ? const SizedBox.shrink()
-                  : const Center(
-                      child: Icon(
-                        Icons.error,
-                      ),
-                    );
+                  : SvgPicture.asset(AssetPaths.appLogo);
             },
           ),
           if (asDecoration)

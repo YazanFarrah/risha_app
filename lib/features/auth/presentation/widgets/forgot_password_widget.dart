@@ -164,12 +164,12 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                               ? CustomTextWidget(
                                   text:
                                       "resend code in ${resetPasswordController.secondsRemaining}",
-                                  textThemeStyle: TextThemeStyleEnum.displaySmall,
+                                  textThemeStyle:
+                                      TextThemeStyleEnum.displaySmall,
                                 )
                               : CustomRichText(
-                                  firstText:
-                                      "haventRecievedCode".tr(context: context),
-                                  clickableText: "resend".tr(context: context),
+                                  firstText: "haventRecievedCode",
+                                  clickableText: "resend",
                                   onTap: () {
                                     resetPasswordController.sendOtp(
                                       _emailController.text,
@@ -206,7 +206,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   backgroundColor:
                       isOtpValid ? null : SharedColors.greyTextColor,
                   width: double.infinity,
-                  child:  CustomTextWidget(
+                  child: CustomTextWidget(
                     text: "check",
                     color: Get.theme.colorScheme.onSurface,
                   ),
@@ -237,7 +237,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   width: double.infinity,
                   child: resetPasswordController.isLoading.value
                       ? const Loader()
-                      :  CustomTextWidget(
+                      : CustomTextWidget(
                           text: "resetPassword",
                           color: Get.theme.colorScheme.onSurface,
                         ),
